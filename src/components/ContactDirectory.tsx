@@ -127,7 +127,7 @@ export function ContactDirectory() {
           <div>
             <span className={styles.eyebrow}>TLI MIAMI · OUR TEAM</span>
             <h2 id='contact-directory-title'>{emailContact ? emailContact.name : 'Let’s connect'}</h2>
-            <p id='contact-directory-description'>{emailContact ? 'Send an email or copy the address.' : 'Choose your contact.'}</p>
+            <p id='contact-directory-description'>{emailContact ? 'Copy the email address.' : 'Choose your contact.'}</p>
           </div>
           <button
             type='button'
@@ -187,9 +187,6 @@ export function ContactDirectory() {
             <p className={styles.copyFeedback} data-copy-status={copyStatus} role='status' aria-atomic='true'>
               {copyStatus === 'copied' ? '✓ Email address copied.' : copyStatus === 'copying' ? 'Copying email address…' : copyStatus === 'failed' ? 'Couldn’t copy automatically. Select the address and copy it manually.' : ''}
             </p>
-            <a href={`mailto:${selectedEmail}`} className={styles.openEmail}>
-              <MailIcon /><span>Open email<small>Your default email app</small></span><span aria-hidden='true'>↗</span>
-            </a>
           </div>
         ) : (
         <ul className={styles.contacts}>

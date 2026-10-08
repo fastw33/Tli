@@ -19,7 +19,7 @@
 
 .launcher:hover { background: #166534; transform: translateY(-2px); }
 .launcher:focus-visible, .close:focus-visible, .email:focus-visible,
-.whatsapp:focus-visible, .openEmail:focus-visible, .back:focus-visible, .copy:focus-visible {
+.whatsapp:focus-visible, .back:focus-visible, .copy:focus-visible {
   outline: 2px solid #0a4eb6;
   outline-offset: 3px;
 }
@@ -180,24 +180,6 @@
 .copyFeedback[data-copy-status='idle'] { visibility: hidden; }
 .copyFeedback[data-copy-status='copied'] { border-color: #86c997; background: #eaf8ee; color: #166534; }
 .copyFeedback[data-copy-status='failed'] { border-color: #e5b961; background: #fffbeb; color: #854d0e; }
-.openEmail {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.6rem;
-  min-height: 3.25rem;
-  margin-top: 0.9rem;
-  padding: 0.65rem 0.8rem;
-  border: 1px solid #dce5ec;
-  border-radius: 0.6rem;
-  background: #fff;
-  color: #042c51;
-  font-size: 0.85rem;
-  font-weight: 700;
-}
-.openEmail span:first-of-type { margin-right: auto; }
-.openEmail small { display: block; margin-top: 0.15rem; color: #526273; font-size: 0.65rem; font-weight: 400; }
-.openEmail:hover { color: #0a4eb6; border-color: #b3cddb; background: #f0f5f9; text-decoration: none; }
 
 @media (max-width: 480px) {
   .launcher { right: 0.75rem; bottom: calc(0.75rem + env(safe-area-inset-bottom)); }
