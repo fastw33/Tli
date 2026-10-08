@@ -76,10 +76,10 @@ export function Footer() {
             </a>
 
             <a
-              href='mailto:spfwya@tlimiami.com'
+              href='mailto:spfway@tlimiami.com'
               className='mt-2 block font-semibold text-[#0a4eb6] transition hover:text-[#2cad3f]'
             >
-              spfwya@tlimiami.com
+              spfway@tlimiami.com
             </a>
           </div>
         </address>
