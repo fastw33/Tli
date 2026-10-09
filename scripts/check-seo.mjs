@@ -72,6 +72,13 @@ for (const route of pages) {
     const head = html.match(/<head>([\s\S]*?)<\/head>/)?.[1]
     assert.ok(head, `Missing head: ${pathname}`)
     const links = tags(head, 'link')
+    const agentGuides = links.filter((link) => link.rel === 'describedby')
+    assert.equal(agentGuides.length, 1, `Missing agent guide: ${pathname}`)
+    assert.equal(
+      agentGuides[0].href,
+      url(locale === 'es' ? '/es/llms.txt' : '/llms.txt'),
+    )
+    assert.equal(agentGuides[0].type, 'text/plain')
     const canonicals = links.filter((link) => link.rel === 'canonical')
     assert.equal(
       canonicals.length,
@@ -174,6 +181,28 @@ for (const locale of ['en', 'es']) {
   )
 }
 const robots = fs.readFileSync(path.join(root, 'robots.txt'), 'utf8')
+for (const file of ['llms.txt', 'es/llms.txt', 'llms-full.txt']) {
+  const text = fs.readFileSync(path.join(root, file), 'utf8')
+  assert.match(text, /^# TLI Miami/)
+  assert.ok(!text.includes('<html'), `Agent guide contains HTML: ${file}`)
+  assert.match(text, /10049 NW 89th Ave, Unit 4/)
+  assert.match(text, /info@tlimiami.com/)
+  for (const [, href] of text.matchAll(/\]\((https:\/\/[^)]+)\)/g)) {
+    const target = new URL(href)
+    assert.equal(target.origin, origin)
+    const route = target.pathname
+    assert.ok(
+      fs.existsSync(path.join(root, route.slice(1))) ||
+        fs.existsSync(
+          path.join(
+            root,
+            route === '/' ? 'index.html' : `${route.slice(1)}.html`,
+          ),
+        ),
+      `Agent guide links to missing export: ${href}`,
+    )
+  }
+}
 assert.match(robots, /User-Agent: \*/)
 assert.match(robots, /Allow: \//)
 assert.match(robots, /Sitemap: https:\/\/tlimiami.com\/sitemap.xml/)

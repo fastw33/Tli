@@ -1,0 +1,30 @@
+# TLI Miami — Transport Logistic International
+
+> Freight and logistics company based in Medley, Florida, United States, serving US and international shipments with a regional focus on the Dominican Republic, the Caribbean, Central America and South America.
+
+Official website: https://tlimiami.com. English is the primary language; Spanish pages are under /es. The published office is at 10049 NW 89th Ave, Unit 4, Medley, FL 33178, United States. Telephone: +1 (305) 887-6363. General email: info@tlimiami.com.
+
+Freight prices, schedules, route availability and cargo handling requirements must be confirmed with the TLI team. The quote form requests an estimate; it does not book a shipment or take payment.
+
+## Company and services
+
+- [Company overview](https://tlimiami.com/): Introduction to TLI and its Miami logistics hub.
+- [Regions and industries](https://tlimiami.com/regions): Dominican Republic, Caribbean, Central America, South America and global coverage; industries served.
+- [Logistics solutions](https://tlimiami.com/logistics-solutions): Ground transportation, import/export coordination, warehousing, distribution and consolidation.
+- [Air freight](https://tlimiami.com/air): Priority and consolidated air freight, sensitive cargo and shipment coordination.
+- [Ocean freight](https://tlimiami.com/ocean): Full container load (FCL), less than container load (LCL), port coordination and project cargo.
+- [FTL / LCL](https://tlimiami.com/ftl-lcl): Full truckload transportation and less than container load shipping. FTL and LCL describe different transport modes.
+
+## Contact and quote requests
+
+- [Request a quote](https://tlimiami.com/quote-now): Provide shipment details and contact information to request an estimate.
+- [Contact TLI](https://tlimiami.com/contact): General inquiries and company contact information.
+- [Partnership inquiries](https://tlimiami.com/contact?topic=partnerships): Contact the team about becoming an agent.
+- [Career inquiries](https://tlimiami.com/contact?topic=careers): Contact the team about working with TLI.
+
+## Machine-readable information
+
+- [Expanded company reference](https://tlimiami.com/llms-full.txt): Plain-text Markdown summary in English and Spanish, including services, regions and the public team directory.
+- [Spanish guide](https://tlimiami.com/es/llms.txt): Spanish-language guide to the official Spanish pages.
+- [XML sitemap](https://tlimiami.com/sitemap.xml): Canonical English and Spanish page URLs with language alternatives.
+- [Crawler rules](https://tlimiami.com/robots.txt): Website crawling permissions.

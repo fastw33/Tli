@@ -5,7 +5,7 @@ import { ContactDirectory } from './ContactDirectory'
 import { LocaleProvider } from './LocaleProvider'
 import { NavigationProvider } from './NavigationProvider'
 import type { Locale } from '@/lib/locale'
-import { contentLanguage } from '@/lib/site'
+import { absoluteUrl, contentLanguage } from '@/lib/site'
 import { SiteStructuredData } from './StructuredData'
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
@@ -28,6 +28,11 @@ export function SiteLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className='min-h-full flex flex-col bg-white text-neutral-900'>
+        <link
+          rel='describedby'
+          href={absoluteUrl(locale === 'es' ? '/es/llms.txt' : '/llms.txt')}
+          type='text/plain'
+        />
         <SiteStructuredData />
         <noscript>
           <style>

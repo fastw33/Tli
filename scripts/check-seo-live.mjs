@@ -1,5 +1,11 @@
 const origin = 'https://tlimiami.com'
 const checks = [
+  ...['/llms.txt', '/es/llms.txt', '/llms-full.txt'].map((path) => ({
+    path,
+    status: 200,
+    type: /text\/plain/,
+    content: /^# TLI Miami/,
+  })),
   {
     path: '/sitemap.xml',
     status: 200,

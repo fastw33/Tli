@@ -1,0 +1,30 @@
+# TLI Miami — Transport Logistic International
+
+> Empresa de transporte de carga y logística ubicada en Medley, Florida, Estados Unidos. Coordina envíos nacionales e internacionales, con enfoque regional en República Dominicana, el Caribe, Centroamérica y Sudamérica.
+
+Sitio oficial: https://tlimiami.com. El inglés es el idioma principal; la versión en español está en /es. Oficina publicada: 10049 NW 89th Ave, Unit 4, Medley, FL 33178, Estados Unidos. Teléfono: +1 (305) 887-6363. Correo general: info@tlimiami.com.
+
+El equipo de TLI debe confirmar tarifas, horarios, disponibilidad de rutas y requisitos de manejo de carga. El formulario solicita una cotización; no reserva ni cobra un envío.
+
+## Empresa y servicios
+
+- [Presentación de TLI](https://tlimiami.com/es): Empresa y centro de operaciones logísticas en Miami.
+- [Regiones e industrias](https://tlimiami.com/es/regions): República Dominicana, el Caribe, Centroamérica, Sudamérica, cobertura global e industrias atendidas.
+- [Soluciones logísticas](https://tlimiami.com/es/logistics-solutions): Transporte terrestre, coordinación de importaciones y exportaciones, almacenamiento, distribución y consolidación.
+- [Carga aérea](https://tlimiami.com/es/air): Envíos prioritarios y consolidados, carga sensible y coordinación de transporte aéreo.
+- [Carga marítima](https://tlimiami.com/es/ocean): Contenedor completo (FCL), carga consolidada (LCL), coordinación portuaria y carga de proyectos.
+- [FTL / LCL](https://tlimiami.com/es/ftl-lcl): Transporte de camión completo (FTL) y carga marítima consolidada (LCL). Son modalidades de transporte diferentes.
+
+## Contacto y cotizaciones
+
+- [Solicitar cotización](https://tlimiami.com/es/quote-now): Datos del envío e información de contacto para solicitar una estimación.
+- [Contactar a TLI](https://tlimiami.com/es/contact): Consultas generales e información de contacto.
+- [Consultas sobre alianzas](https://tlimiami.com/es/contact?topic=partnerships): Contacto para convertirse en agente.
+- [Consultas laborales](https://tlimiami.com/es/contact?topic=careers): Contacto para trabajar con TLI.
+
+## Información para agentes
+
+- [Referencia ampliada de la empresa](https://tlimiami.com/llms-full.txt): Resumen en Markdown de texto plano, en inglés y español, con servicios, regiones y directorio público del equipo.
+- [Guía principal en inglés](https://tlimiami.com/llms.txt): Índice de las páginas oficiales en inglés.
+- [Mapa XML del sitio](https://tlimiami.com/sitemap.xml): Páginas canónicas en inglés y español y sus alternativas de idioma.
+- [Reglas de rastreo](https://tlimiami.com/robots.txt): Permisos de rastreo del sitio.

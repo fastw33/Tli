@@ -19,6 +19,16 @@
 - Social cards are PNG, 1200×630, one per language. Run `npm run seo:images` after editing `scripts/generate-social-images.mjs`; it uses Sharp bundled with the installed Next.js runtime.
 - Sitemap `lastmod` is intentionally omitted: a rebuild is not proof that each page's content changed. Add dates only when the last significant content change can be tracked accurately.
 
+## Agent discovery and llms.txt
+
+`public/llms.txt` provides the primary English Markdown guide, `public/es/llms.txt` provides the Spanish guide, and `public/llms-full.txt` contains an expanded bilingual company reference. These public files are copied into the static export. They describe actual services, coverage, contact routes and published team details; they do not contain API keys or backend details. Keep them synchronized when the public business content or contact directory changes.
+
+Every English and Spanish page includes a localized `rel="describedby"` link to its guide in the exported HTML head. React places this link in the head during server rendering; it requires no JavaScript to discover it. The prepared Coolify Nginx configuration serves the files as UTF-8 plain text with real 404s for missing files. Existing robots rules allow access.
+
+`npm run check:seo` validates the exported guides, their linked resources and discovery links across all 16 indexable pages. `npm run check:seo:live` also verifies the three production guide URLs return HTTP 200 with plain-text content instead of the homepage fallback.
+
+This follows the [llms.txt proposal](https://llmstxt.org/) and addresses the [Lighthouse llms.txt audit](https://developer.chrome.com/docs/lighthouse/agentic-browsing/llms-txt). Publishing these files does not establish a specific agentic browsing score or resolve a Search Console sitemap fetch error; inspect the remaining audit criteria separately.
+
 ## Required hosting configuration
 
 The pre-change production check found that missing URLs, `/sitemap.xml` and `/robots.txt` returned the homepage with HTTP 200 and `text/html`. Generated files must be published from **the entire `out/` directory**, not only its HTML pages.
