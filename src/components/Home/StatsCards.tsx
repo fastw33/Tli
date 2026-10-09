@@ -117,7 +117,7 @@ export function StatsCards() {
 
               <Link
                 href={localizePath(stat.href)}
-                className='mt-5 inline-flex rounded-full border border-[#0a4eb6]/40 px-5 py-2 text-xs font-bold uppercase text-[#0a4eb6] transition-all duration-300 ease-out group-hover:border-[#2cad3f] group-hover:text-[#2cad3f] hover:bg-[#2cad3f] hover:text-white'
+                className='mt-5 inline-flex rounded-full border border-[#0a4eb6]/40 px-5 py-2 text-xs font-bold uppercase text-[#0a4eb6] transition-all duration-300 ease-out group-hover:border-[#0a4eb6] hover:bg-[#0a4eb6] hover:text-white hover:no-underline'
               >
                 {t('More')}
               </Link>

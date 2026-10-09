@@ -53,7 +53,7 @@ export function LocationMap() {
             <div className='mt-6 flex flex-wrap gap-3'>
               <a
                 href='tel:+13058876363'
-                className='inline-flex rounded-full bg-[#0a4eb6] px-5 py-3 text-sm font-bold uppercase text-white shadow-sm transition hover:bg-[#042c51]'
+                className='inline-flex rounded-full bg-[#0a4eb6] px-5 py-3 text-sm font-bold uppercase text-white shadow-sm transition hover:bg-[#042c51] hover:text-white hover:no-underline'
               >
                 {t('Call (305) 887-6363')}
               </a>
@@ -62,7 +62,7 @@ export function LocationMap() {
                 href='https://www.google.com/maps/search/?api=1&query=10049%20NW%2089th%20Ave%20unit%204%20Medley%2C%20FL%2033178'
                 target='_blank'
                 rel='noreferrer'
-                className='inline-flex rounded-full border border-[#2cad3f] bg-white px-5 py-3 text-sm font-bold uppercase text-[#042c51] shadow-sm transition hover:bg-[#2cad3f] hover:text-white'
+                className='inline-flex rounded-full border border-[#0a4eb6] bg-white px-5 py-3 text-sm font-bold uppercase text-[#042c51] shadow-sm transition hover:border-[#042c51] hover:bg-[#042c51] hover:text-white hover:no-underline'
               >
                 {t('Open Map')}
               </a>

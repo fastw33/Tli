@@ -55,7 +55,7 @@ export function Hero() {
 
           <Link
             href={localizePath('/quote-now')}
-            className='inline-flex rounded-md bg-[#18aeea] px-7 py-4 text-sm font-bold text-white shadow-lg transition hover:bg-[#0a4eb6]'
+            className='inline-flex rounded-md bg-[#18aeea] px-7 py-4 text-sm font-bold text-[#042c51] shadow-lg transition hover:bg-[#0a4eb6] hover:text-white hover:no-underline'
           >
             {t('GET A QUOTE')}
           </Link>

@@ -139,21 +139,23 @@ p {
   color: var(--foreground-secondary);
 }
 
-a {
-  color: var(--primary-blue);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
+/* Link defaults must yield to button utilities and component styles. */
+@layer base {
+  a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
 
-a:hover {
-  color: var(--primary-green);
-  text-decoration: underline;
-}
+  a:hover {
+    color: var(--primary-green);
+    text-decoration: underline;
+  }
 
-/* Links Accessibility */
-a:focus {
-  outline: 2px solid var(--primary-blue);
-  outline-offset: 2px;
+  a:focus-visible {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+  }
 }
 
 /* Images Optimization */
