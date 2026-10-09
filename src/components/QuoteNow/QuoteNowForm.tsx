@@ -1,5 +1,6 @@
 'use client'
 
+import { useLocale } from '@/components/LocaleProvider'
 import React, { useState } from 'react'
 import { citiesByContinent } from './citiesData'
 
@@ -11,6 +12,8 @@ const shipmentOptions = [
 ]
 
 export function QuoteNowForm() {
+  const { t } = useLocale()
+
   const [step, setStep] = useState(1)
   const [formData, setFormData] = useState({
     shipmentType: 'Air Freight',
@@ -21,19 +24,19 @@ export function QuoteNowForm() {
   })
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
     const { name, value } = e.target
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       [name]: value,
     }))
   }
 
   const handleShipmentSelect = (id: string) => {
-    const selected = shipmentOptions.find(opt => opt.id === id)
+    const selected = shipmentOptions.find((opt) => opt.id === id)
     if (selected) {
-      setFormData(prev => ({
+      setFormData((prev) => ({
         ...prev,
         shipmentType: selected.label,
       }))
@@ -110,17 +113,22 @@ export function QuoteNowForm() {
 
         {/* Step 1: Shipment Type & Route */}
         {step === 1 && (
-          <div className='space-y-6 md:space-y-8 animate-fadeIn' data-aos='fade-up'>
+          <div
+            className='space-y-6 md:space-y-8 animate-fadeIn'
+            data-aos='fade-up'
+          >
             <div>
               <h2 className='text-xl md:text-2xl font-bold text-slate-900'>
-                What are you shipping?
+                {t('What are you shipping?')}
               </h2>
-              <p className='mt-1 md:mt-2 text-sm md:text-base text-slate-600'>Select your shipment type</p>
+              <p className='mt-1 md:mt-2 text-sm md:text-base text-slate-600'>
+                {t('Select your shipment type')}
+              </p>
             </div>
 
             {/* Shipment Type Cards */}
             <div className='grid grid-cols-2 gap-4 sm:grid-cols-4'>
-              {shipmentOptions.map(option => (
+              {shipmentOptions.map((option) => (
                 <button
                   key={option.id}
                   onClick={() => handleShipmentSelect(option.id)}
@@ -146,7 +154,7 @@ export function QuoteNowForm() {
                         : 'text-xs text-slate-500 group-hover:text-slate-900'
                     }`}
                   >
-                    {option.label}
+                    {t(option.label)}
                   </p>
                   {formData.shipmentType === option.label && (
                     <div className='absolute -right-3 -top-3 flex h-7 w-7 items-center justify-center rounded-full bg-green-500 text-white text-sm font-bold shadow-lg'>
@@ -160,53 +168,61 @@ export function QuoteNowForm() {
             {/* Route */}
             <div className='space-y-4'>
               <div className='relative'>
-                <label className='block text-sm font-bold text-slate-900 mb-2'>
-                  Where from?
+                <label
+                  htmlFor='quote-origin'
+                  className='block text-sm font-bold text-slate-900 mb-2'
+                >
+                  {t('Where from?')}
                 </label>
                 <select
+                  id='quote-origin'
                   name='origin'
                   value={formData.origin}
                   onChange={handleChange}
                   required
                   className='w-full rounded-xl border-2 border-slate-200 bg-white px-4 py-3 text-slate-900 focus:border-[#0a4eb6] focus:outline-none'
                 >
-                  <option value=''>Select departure city</option>
+                  <option value=''>{t('Select departure city')}</option>
                   {Object.entries(citiesByContinent).map(
                     ([continent, cities]) => (
-                      <optgroup key={continent} label={continent}>
+                      <optgroup key={continent} label={t(continent)}>
                         {cities.map((city, idx) => (
                           <option key={`${continent}-${idx}`} value={city}>
-                            {city}
+                            {t(city)}
                           </option>
                         ))}
                       </optgroup>
-                    )
+                    ),
                   )}
                 </select>
               </div>
 
               <div className='relative'>
-                <label className='block text-sm font-bold text-slate-900 mb-2'>
-                  Where to?
+                <label
+                  htmlFor='quote-destination'
+                  className='block text-sm font-bold text-slate-900 mb-2'
+                >
+                  {t('Where to?')}
                 </label>
                 <select
+                  id='quote-destination'
                   name='destination'
                   value={formData.destination}
                   onChange={handleChange}
                   required
                   className='w-full rounded-xl border-2 border-slate-200 bg-white px-4 py-3 text-slate-900 focus:border-[#0a4eb6] focus:outline-none'
                 >
-                  <option value=''>Select destination city</option>
+                  <option value=''>{t('Select destination city')}</option>
                   {Object.entries(citiesByContinent).map(
                     ([continent, cities]) => (
-                      <optgroup key={continent} label={continent}>
+                      <optgroup key={continent} label={t(continent)}>
                         {cities.map((city, idx) => (
                           <option key={`${continent}-${idx}`} value={city}>
-                            {city}
+                            {t(city)}
                           </option>
                         ))}
                       </optgroup>
-                    )
+                    ),
                   )}
                 </select>
               </div>
@@ -222,7 +238,7 @@ export function QuoteNowForm() {
               }
               className='w-full rounded-xl bg-[#0a4eb6] px-6 py-3 font-bold text-white transition-all duration-300 hover:bg-[#0a4eb6]/90 disabled:bg-slate-300 disabled:cursor-not-allowed'
             >
-              Continue →
+              {t('Continue →')}
             </button>
           </div>
         )}
@@ -232,50 +248,58 @@ export function QuoteNowForm() {
           <div className='space-y-8 animate-fadeIn' data-aos='fade-up'>
             <div>
               <h2 className='text-2xl font-bold text-slate-900'>
-                Tell us the details
+                {t('Tell us the details')}
               </h2>
               <p className='mt-2 text-slate-600'>
-                Weight and contact information
+                {t('Weight and contact information')}
               </p>
             </div>
 
             {/* Selected Info Summary */}
             <div className='rounded-xl bg-blue-50 border-2 border-blue-200 p-4'>
               <p className='text-sm text-slate-600'>
-                <span className='font-bold'>{formData.shipmentType}</span>
+                <span className='font-bold'>{t(formData.shipmentType)}</span>
                 {' • '}
-                <span className='font-bold'>{formData.origin}</span>
+                <span className='font-bold'>{t(formData.origin)}</span>
                 {' → '}
-                <span className='font-bold'>{formData.destination}</span>
+                <span className='font-bold'>{t(formData.destination)}</span>
               </p>
             </div>
 
             {/* Weight & Email */}
             <div className='space-y-4'>
               <div>
-                <label className='block text-sm font-bold text-slate-900 mb-2'>
-                  Total weight (kg)
+                <label
+                  htmlFor='quote-weight'
+                  className='block text-sm font-bold text-slate-900 mb-2'
+                >
+                  {t('Total weight (kg)')}
                 </label>
                 <input
+                  id='quote-weight'
                   type='number'
                   name='weight'
                   value={formData.weight}
                   onChange={handleChange}
-                  placeholder='Enter weight'
+                  placeholder={t('Enter weight')}
                   className='w-full rounded-xl border-2 border-slate-200 bg-white px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:border-[#0a4eb6] focus:outline-none'
                 />
               </div>
 
               <div>
-                <label className='block text-sm font-bold text-slate-900 mb-2'>
-                  Your email
+                <label
+                  htmlFor='quote-email'
+                  className='block text-sm font-bold text-slate-900 mb-2'
+                >
+                  {t('Your email')}
                 </label>
                 <input
+                  id='quote-email'
                   type='email'
                   name='email'
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder='you@company.com'
+                  placeholder={t('you@company.com')}
                   className='w-full rounded-xl border-2 border-slate-200 bg-white px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:border-[#0a4eb6] focus:outline-none'
                 />
               </div>
@@ -287,14 +311,14 @@ export function QuoteNowForm() {
                 onClick={handlePrevStep}
                 className='flex-1 rounded-xl border-2 border-slate-300 px-6 py-3 font-bold text-slate-900 transition-all duration-300 hover:border-slate-400'
               >
-                ← Back
+                {t('← Back')}
               </button>
               <button
                 onClick={handleNextStep}
                 disabled={!formData.weight || !formData.email}
                 className='flex-1 rounded-xl bg-[#2cad3f] px-6 py-3 font-bold text-white transition-all duration-300 hover:bg-[#2cad3f]/90 disabled:bg-slate-300 disabled:cursor-not-allowed'
               >
-                Send Quote Request →
+                {t('Send Quote Request →')}
               </button>
             </div>
           </div>
@@ -311,27 +335,28 @@ export function QuoteNowForm() {
                 <span className='text-3xl'>✓</span>
               </div>
               <h2 className='text-3xl font-bold text-slate-900'>
-                Quote Request Sent!
+                {t('Quote Request Sent!')}
               </h2>
               <p className='mt-2 text-slate-600'>
-                We&apos;ll review your request and send you a custom quote to{' '}
-                <span className='font-bold'>{formData.email}</span> within 24
-                hours.
+                {t("We'll review your request and send you a custom quote to")}{' '}
+                <span className='font-bold'>{formData.email}</span>{' '}
+                {t('within 24 hours.')}
               </p>
             </div>
 
             {/* Confirmation Details */}
             <div className='rounded-xl bg-slate-100 p-6 space-y-2'>
               <p className='text-sm text-slate-600'>
-                <span className='font-bold'>Shipment:</span>{' '}
-                {formData.shipmentType}
+                <span className='font-bold'>{t('Shipment:')}</span>{' '}
+                {t(formData.shipmentType)}
               </p>
               <p className='text-sm text-slate-600'>
-                <span className='font-bold'>Route:</span> {formData.origin} →{' '}
-                {formData.destination}
+                <span className='font-bold'>{t('Route:')}</span>{' '}
+                {t(formData.origin)} → {t(formData.destination)}
               </p>
               <p className='text-sm text-slate-600'>
-                <span className='font-bold'>Weight:</span> {formData.weight} kg
+                <span className='font-bold'>{t('Weight:')}</span>{' '}
+                {formData.weight} {t('kg')}
               </p>
             </div>
 
@@ -348,7 +373,7 @@ export function QuoteNowForm() {
               }}
               className='w-full rounded-xl bg-[#0a4eb6] px-6 py-3 font-bold text-white transition-all duration-300 hover:bg-[#0a4eb6]/90'
             >
-              Request Another Quote
+              {t('Request Another Quote')}
             </button>
           </div>
         )}

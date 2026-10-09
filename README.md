@@ -2,6 +2,17 @@
 
 Un proyecto Next.js 16 moderno con **sistema de diseño personalizado**, **colores institucionales** (verde #2CAD3F a azul #0A4EB6) y **optimizaciones SEO completas**.
 
+## Idiomas y regiones
+
+- Inglés es el idioma principal: `/`, `/regions`, `/air`, etc.
+- Español utiliza `/es`: `/es`, `/es/regions`, `/es/air`, etc.
+- El selector EN/ES conserva la página, los parámetros y la sección actual. Los enlaces internos mantienen el idioma elegido.
+- Cada idioma tiene un layout raíz que genera el atributo `lang`, contenido y metadatos correctos en el HTML estático, antes de ejecutar JavaScript.
+- `/clients` y `/es/clients` se conservan como accesos a la nueva página de Regiones.
+- Regiones destaca República Dominicana y el Caribe, además de Centroamérica, Sudamérica y cobertura global. Industrias es una sección de esa página.
+- Los textos en inglés son claves de traducción; la versión española está en `src/lib/translations/es.json`. Al agregar texto o destinos, agrega también su traducción.
+- Ejecuta `npm run check:locales` para comprobar cobertura de traducción y variables, y `npm run build` para generar ambas versiones en `out/`.
+
 ## 🚀 Características
 
 ### ✨ Diseño Personalizado

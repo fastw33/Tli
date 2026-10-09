@@ -1,3 +1,6 @@
+'use client'
+
+import { useLocale } from '@/components/LocaleProvider'
 import React from 'react'
 
 const networkData = {
@@ -32,21 +35,23 @@ const networkData = {
 }
 
 export default function LogisticsNetwork() {
+  const { t } = useLocale()
+
   return (
     <section className='w-full bg-gradient-to-b from-slate-50 to-white py-16 lg:py-24'>
       <div className='mx-auto w-full max-w-7xl px-6'>
         {/* Section Header */}
         <div className='mb-16 max-w-3xl' data-aos='fade-up'>
           <p className='mb-2 text-sm font-bold uppercase tracking-[0.3em] text-[#2cad3f]'>
-            Coverage
+            {t('Coverage')}
           </p>
           <h2 className='text-4xl font-extrabold leading-tight text-slate-900 md:text-5xl'>
-            {networkData.title}
+            {t(networkData.title)}
           </h2>
           <p className='mt-4 text-lg text-slate-600'>
-            Strategically positioned distribution centers and partnerships
-            across every major region ensure efficient operations and rapid
-            delivery times.
+            {t(
+              'Strategically positioned distribution centers and partnerships across every major region ensure efficient operations and rapid delivery times.',
+            )}
           </p>
         </div>
 
@@ -64,12 +69,12 @@ export default function LogisticsNetwork() {
 
               <div className='relative'>
                 <p className='mb-1 text-xs font-bold uppercase tracking-[0.2em] text-[#2cad3f]'>
-                  {region.coverage}
+                  {t(region.coverage)}
                 </p>
                 <h3 className='mb-3 text-xl font-bold text-slate-900'>
-                  {region.name}
+                  {t(region.name)}
                 </h3>
-                <p className='text-slate-600'>{region.description}</p>
+                <p className='text-slate-600'>{t(region.description)}</p>
               </div>
             </div>
           ))}

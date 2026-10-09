@@ -1,19 +1,29 @@
+'use client'
+
+import { useLocale } from '@/components/LocaleProvider'
 import React from 'react'
+import Link from 'next/link'
 
 export function FtlLclCTA() {
+  const { t, localizePath } = useLocale()
+
   return (
     <section className='px-6 py-20' data-aos='zoom-in'>
       <div className='mx-auto w-full max-w-7xl overflow-hidden rounded-3xl border border-slate-200 bg-white p-10 text-center shadow-sm md:p-14'>
         <h2 className='text-3xl font-extrabold text-slate-900 md:text-5xl'>
-          Need help choosing between FTL and LCL?
+          {t('Need help choosing between FTL and LCL?')}
         </h2>
         <p className='mx-auto mt-4 max-w-3xl text-lg leading-8 text-slate-600'>
-          Talk to our team about shipment size, budget, timing, and the best
-          truck freight option for your cargo.
+          {t(
+            'Talk to our team about shipment size, budget, timing, and the best truck freight option for your cargo.',
+          )}
         </p>
-        <button className='mt-8 inline-flex rounded-full border-2 border-slate-900 bg-slate-900 px-8 py-3 text-sm font-bold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-slate-800'>
-          Request Truck Freight Quote
-        </button>
+        <Link
+          href={localizePath('/quote-now')}
+          className='mt-8 inline-flex rounded-full border-2 border-slate-900 bg-slate-900 px-8 py-3 text-sm font-bold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-slate-800'
+        >
+          {t('Request Truck Freight Quote')}
+        </Link>
       </div>
     </section>
   )

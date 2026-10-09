@@ -1,6 +1,11 @@
+'use client'
+
+import { useLocale } from '@/components/LocaleProvider'
 import React from 'react'
 
 export function AirHero() {
+  const { t } = useLocale()
+
   return (
     <section
       className='relative overflow-hidden bg-white px-6 py-20 text-slate-900'
@@ -9,16 +14,17 @@ export function AirHero() {
       <div className='mx-auto flex w-full max-w-7xl flex-col gap-6 md:gap-10 lg:flex-row lg:items-end lg:justify-between'>
         <div className='max-w-3xl'>
           <p className='mb-4 text-xs md:text-sm font-bold uppercase tracking-[0.35em] text-[#0a4eb6]'>
-            Air Freight
+            {t('Air Freight')}
           </p>
           <h1 className='text-2xl md:text-4xl lg:text-6xl font-extrabold leading-tight text-slate-900'>
-            Fast and reliable air freight services across North and South
-            America.
+            {t(
+              'Fast and reliable air freight services across North and South America.',
+            )}
           </h1>
           <p className='mt-4 md:mt-6 max-w-2xl text-sm md:text-base lg:text-lg leading-7 md:leading-8 text-slate-600'>
-            We move urgent, high-value, and time-sensitive cargo with precision.
-            From first mile pickup to final delivery, our air freight service is
-            built for speed, visibility, and control.
+            {t(
+              'We move urgent, high-value, and time-sensitive cargo with precision. From first mile pickup to final delivery, our air freight service is built for speed, visibility, and control.',
+            )}
           </p>
         </div>
 
@@ -29,34 +35,34 @@ export function AirHero() {
         >
           <div>
             <p className='text-xs md:text-sm uppercase tracking-[0.25em] text-slate-500'>
-              Coverage
+              {t('Coverage')}
             </p>
             <p className='mt-1 md:mt-2 text-lg md:text-2xl font-bold text-slate-900'>
-              North & South America
+              {t('North & South America')}
             </p>
           </div>
           <div>
             <p className='text-xs md:text-sm uppercase tracking-[0.25em] text-slate-500'>
-              Focus
+              {t('Focus')}
             </p>
             <p className='mt-1 md:mt-2 text-lg md:text-2xl font-bold text-slate-900'>
-              Speed + Visibility
+              {t('Speed + Visibility')}
             </p>
           </div>
           <div>
             <p className='text-xs md:text-sm uppercase tracking-[0.25em] text-slate-500'>
-              Cargo Types
+              {t('Cargo Types')}
             </p>
             <p className='mt-1 md:mt-2 text-lg md:text-2xl font-bold text-slate-900'>
-              General, sensitive, urgent
+              {t('General, sensitive, urgent')}
             </p>
           </div>
           <div>
             <p className='text-xs md:text-sm uppercase tracking-[0.25em] text-slate-500'>
-              Support
+              {t('Support')}
             </p>
             <p className='mt-1 md:mt-2 text-lg md:text-2xl font-bold text-slate-900'>
-              24/7 Shipment Tracking
+              {t('24/7 Shipment Tracking')}
             </p>
           </div>
         </div>
@@ -70,10 +76,10 @@ export function AirHero() {
           <div className='flex min-h-[200px] md:min-h-[320px] items-center justify-center rounded-xl md:rounded-2xl border-2 border-dashed border-slate-300 bg-white px-4 md:px-6 text-center'>
             <div>
               <p className='text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-[#0a4eb6]'>
-                Image Space
+                {t('Operations')}
               </p>
               <p className='mt-2 md:mt-3 text-base md:text-lg font-semibold text-slate-900'>
-                Main aircraft or cargo handling image goes here
+                {t('Air freight coordination')}
               </p>
             </div>
           </div>
@@ -85,7 +91,7 @@ export function AirHero() {
             data-aos='fade-left'
           >
             <p className='text-sm md:text-base font-semibold text-slate-700'>
-              Secondary image or infographic space
+              {t('Cargo handling and coordination')}
             </p>
           </div>
           <div
@@ -94,7 +100,7 @@ export function AirHero() {
             data-aos-delay='100'
           >
             <p className='text-sm md:text-base font-semibold text-slate-700'>
-              Air route map or tracking visual space
+              {t('Air routes and shipment tracking')}
             </p>
           </div>
         </div>

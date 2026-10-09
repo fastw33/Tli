@@ -1,6 +1,11 @@
+'use client'
+
+import { useLocale } from '@/components/LocaleProvider'
 import React from 'react'
 
 export function FtlLclHero() {
+  const { t } = useLocale()
+
   return (
     <section
       className='relative overflow-hidden bg-gradient-to-br from-[#fff7ef] via-[#ffffff] to-[#eefcf4] px-6 py-12 md:py-20 text-slate-900'
@@ -12,40 +17,40 @@ export function FtlLclHero() {
       <div className='mx-auto grid w-full max-w-7xl gap-4 md:gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center'>
         <div className='max-w-3xl' data-aos='fade-right'>
           <p className='mb-4 inline-flex rounded-full bg-[#0a4eb6]/10 px-4 py-2 text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-[#0a4eb6]'>
-            Truck Freight
+            {t('Truck Freight')}
           </p>
           <h1 className='text-4xl font-extrabold leading-tight text-slate-900 md:text-6xl'>
-            FTL and LCL, explained with a clear choice for every lane.
+            {t('FTL and LCL, explained with a clear choice for every lane.')}
           </h1>
           <p className='mt-6 max-w-2xl text-lg leading-8 text-slate-600'>
-            FTL gives you a dedicated truck for speed and control. LCL shares
-            truck space so smaller shipments move efficiently without paying for
-            unused capacity.
+            {t(
+              'FTL gives you a dedicated truck for speed and control. LCL shares truck space so smaller shipments move efficiently without paying for unused capacity.',
+            )}
           </p>
 
           <div className='mt-8 flex flex-wrap gap-4'>
             <div className='rounded-2xl border border-[#0a4eb6]/15 bg-white px-5 py-4 shadow-sm'>
               <p className='text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-[#0a4eb6]'>
-                Faster
+                {t('Faster')}
               </p>
               <p className='mt-1 text-lg font-semibold text-slate-900'>
-                FTL priority transit
+                {t('FTL priority transit')}
               </p>
             </div>
             <div className='rounded-2xl border border-[#2cad3f]/15 bg-white px-5 py-4 shadow-sm'>
               <p className='text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-[#2cad3f]'>
-                Efficient
+                {t('Efficient')}
               </p>
               <p className='mt-1 text-lg font-semibold text-slate-900'>
-                LCL cost control
+                {t('LCL cost control')}
               </p>
             </div>
             <div className='rounded-2xl border border-[#18aeea]/15 bg-white px-5 py-4 shadow-sm'>
               <p className='text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-[#18aeea]'>
-                Visibility
+                {t('Visibility')}
               </p>
               <p className='mt-1 text-lg font-semibold text-slate-900'>
-                Tracking and planning
+                {t('Tracking and planning')}
               </p>
             </div>
           </div>
@@ -58,31 +63,31 @@ export function FtlLclHero() {
                 className='text-xs md:text-sm font-bold uppercase tracking-[0.3em]'
                 style={{ color: '#ffffff' }}
               >
-                FTL vs LCL
+                {t('FTL vs LCL')}
               </p>
               <p
                 className='mt-2 text-2xl font-extrabold'
                 style={{ color: '#ffffff' }}
               >
-                Choose the right freight mode
+                {t('Choose the right freight mode')}
               </p>
             </div>
 
             <div className='grid gap-4 p-6 sm:grid-cols-2'>
               <div className='rounded-2xl border border-[#0a4eb6]/15 bg-[#0a4eb6]/5 p-5'>
                 <p className='text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-[#0a4eb6]'>
-                  FTL
+                  {t('FTL')}
                 </p>
                 <p className='mt-2 text-base leading-7 text-slate-700'>
-                  Dedicated truck, fewer stops, faster direct movement.
+                  {t('Dedicated truck, fewer stops, faster direct movement.')}
                 </p>
               </div>
               <div className='rounded-2xl border border-[#2cad3f]/15 bg-[#2cad3f]/5 p-5'>
                 <p className='text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-[#2cad3f]'>
-                  LCL
+                  {t('LCL')}
                 </p>
                 <p className='mt-2 text-base leading-7 text-slate-700'>
-                  Shared space, lower cost, ideal for smaller loads.
+                  {t('Shared space, lower cost, ideal for smaller loads.')}
                 </p>
               </div>
             </div>
@@ -91,18 +96,18 @@ export function FtlLclHero() {
           <div className='grid gap-4 sm:grid-cols-2'>
             <div className='rounded-[2rem] border border-slate-200 bg-white p-6 shadow-lg shadow-[#0a4eb6]/5'>
               <p className='text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-[#0a4eb6]'>
-                Image Space
+                {t('Operations')}
               </p>
               <p className='mt-3 text-base leading-7 text-slate-600'>
-                Add a truck, depot, or route graphic here.
+                {t('Trucks, distribution centers and routes.')}
               </p>
             </div>
             <div className='rounded-[2rem] border border-slate-200 bg-white p-6 shadow-lg shadow-[#2cad3f]/5'>
               <p className='text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-[#2cad3f]'>
-                Image Space
+                {t('Operations')}
               </p>
               <p className='mt-3 text-base leading-7 text-slate-600'>
-                Add a loading or lane-planning visual here.
+                {t('Loading and route planning.')}
               </p>
             </div>
           </div>
@@ -111,4 +116,3 @@ export function FtlLclHero() {
     </section>
   )
 }
-

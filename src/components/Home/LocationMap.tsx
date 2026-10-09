@@ -1,10 +1,13 @@
 'use client'
 
+import { useLocale } from '@/components/LocaleProvider'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import React, { useEffect } from 'react'
 
 export function LocationMap() {
+  const { t } = useLocale()
+
   useEffect(() => {
     AOS.init({
       duration: 900,
@@ -26,14 +29,14 @@ export function LocationMap() {
       <div className='relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center'>
         <div data-aos='fade-right'>
           <p className='mb-3 text-sm font-bold uppercase tracking-[0.25em] text-[#0a4eb6]'>
-            Miami Warehouse
+            {t('Miami Warehouse')}
           </p>
 
           <h2
             id='location-title'
             className='text-3xl font-bold leading-tight text-[#042c51] md:text-5xl'
           >
-            Visit our logistics hub in Medley, Florida.
+            {t('Visit our logistics hub in Medley, Florida.')}
           </h2>
 
           <div className='mt-8 rounded-3xl border border-white/80 bg-white/85 p-7 shadow-xl backdrop-blur'>
@@ -52,7 +55,7 @@ export function LocationMap() {
                 href='tel:+13058876363'
                 className='inline-flex rounded-full bg-[#0a4eb6] px-5 py-3 text-sm font-bold uppercase text-white shadow-sm transition hover:bg-[#042c51]'
               >
-                Call (305) 887-6363
+                {t('Call (305) 887-6363')}
               </a>
 
               <a
@@ -61,7 +64,7 @@ export function LocationMap() {
                 rel='noreferrer'
                 className='inline-flex rounded-full border border-[#2cad3f] bg-white px-5 py-3 text-sm font-bold uppercase text-[#042c51] shadow-sm transition hover:bg-[#2cad3f] hover:text-white'
               >
-                Open Map
+                {t('Open Map')}
               </a>
             </div>
           </div>
@@ -77,7 +80,9 @@ export function LocationMap() {
           </div>
 
           <iframe
-            title='Transport Logistic International Miami warehouse location map'
+            title={t(
+              'Transport Logistic International Miami warehouse location map',
+            )}
             src='https://www.google.com/maps?q=10049%20NW%2089th%20Ave%20unit%204%20Medley%2C%20FL%2033178&output=embed'
             className='h-[430px] w-full rounded-[1.5rem] border-0 grayscale-[15%]'
             loading='lazy'

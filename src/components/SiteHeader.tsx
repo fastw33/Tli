@@ -2,11 +2,12 @@
 
 import { usePathname } from 'next/navigation'
 import { Nav } from './Nav'
+import { basePath } from '@/lib/locale'
 
 export function SiteHeader() {
   const pathname = usePathname()
 
-  if (pathname === '/') {
+  if (basePath(pathname) === '/') {
     return null
   }
 

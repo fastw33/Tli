@@ -1,8 +1,13 @@
+'use client'
+
+import { useLocale } from '@/components/LocaleProvider'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
 export function Footer() {
+  const { t, localizePath } = useLocale()
+
   const services = [
     'Less Than Truckload (LTL)',
     'Full Truckload (FTL)',
@@ -14,6 +19,8 @@ export function Footer() {
   ]
 
   const company = [
+    { label: 'Regions', href: '/regions' },
+    { label: 'Industries', href: '/regions#industries' },
     { label: 'Become a Customer Today', href: '/quote-now' },
     { label: 'Become an Agent', href: '/quote-now' },
     { label: 'Work With Us', href: '/quote-now' },
@@ -25,30 +32,32 @@ export function Footer() {
         <div>
           <Image
             src='/transport.webp'
-            alt='Transport Logistic International logo'
+            alt={t('Transport Logistic International logo')}
             width={150}
             height={60}
             className='h-auto w-[150px] object-contain'
           />
 
           <ul className='mt-6 space-y-2 text-sm font-semibold text-[#0a4eb6]'>
-            {services.map(service => (
-              <li key={service}>{service}</li>
+            {services.map((service) => (
+              <li key={service}>{t(service)}</li>
             ))}
           </ul>
         </div>
 
         <div>
-          <h2 className='mb-4 text-base font-bold text-[#042c51]'>Company</h2>
+          <h2 className='mb-4 text-base font-bold text-[#042c51]'>
+            {t('Company')}
+          </h2>
 
           <ul className='space-y-2 text-sm font-semibold'>
-            {company.map(item => (
+            {company.map((item) => (
               <li key={item.label}>
                 <Link
-                  href={item.href}
+                  href={localizePath(item.href)}
                   className='text-[#0a4eb6] transition hover:text-[#2cad3f]'
                 >
-                  {item.label}
+                  {t(item.label)}
                 </Link>
               </li>
             ))}
@@ -86,10 +95,10 @@ export function Footer() {
       </div>
 
       <div className='mx-auto mt-10 flex max-w-7xl flex-col gap-2 border-t border-[#0a4eb6]/10 pt-6 text-center text-sm font-semibold text-[#042c51]/80 md:flex-row md:items-center md:justify-between md:text-left'>
-        <p>2026 | TLI Miami | All Rights Reserved</p>
+        <p>2026 | TLI Miami | {t('All Rights Reserved')}</p>
 
         <p>
-          Designed by{' '}
+          {t('Designed by')}{' '}
           <span className='font-bold text-[#2cad3f]'>Greenway Bogotá</span>
         </p>
       </div>
@@ -98,4 +107,3 @@ export function Footer() {
 }
 
 export default Footer
-

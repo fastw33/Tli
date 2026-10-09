@@ -1,3 +1,6 @@
+'use client'
+
+import { useLocale } from '@/components/LocaleProvider'
 import React from 'react'
 
 const processSteps = [
@@ -46,20 +49,23 @@ const processSteps = [
 ]
 
 export default function LogisticsProcess() {
+  const { t } = useLocale()
+
   return (
     <section className='w-full bg-white py-16 lg:py-24'>
       <div className='mx-auto w-full max-w-7xl px-6'>
         {/* Section Header */}
         <div className='mb-16 max-w-3xl' data-aos='fade-up'>
           <p className='mb-2 text-sm font-bold uppercase tracking-[0.3em] text-[#0a4eb6]'>
-            How It Works
+            {t('How It Works')}
           </p>
           <h2 className='text-4xl font-extrabold leading-tight text-slate-900 md:text-5xl'>
-            Simple, Transparent Process
+            {t('Simple, Transparent Process')}
           </h2>
           <p className='mt-4 text-lg text-slate-600'>
-            From initial inquiry to final delivery, we keep you informed every
-            step of the way with streamlined operations.
+            {t(
+              'From initial inquiry to final delivery, we keep you informed every step of the way with streamlined operations.',
+            )}
           </p>
         </div>
 
@@ -95,10 +101,10 @@ export default function LogisticsProcess() {
                   <div className='mb-3 flex items-center gap-3'>
                     <span className='text-3xl'>{item.icon}</span>
                     <h3 className='text-xl font-bold text-slate-900'>
-                      {item.title}
+                      {t(item.title)}
                     </h3>
                   </div>
-                  <p className='text-slate-600'>{item.description}</p>
+                  <p className='text-slate-600'>{t(item.description)}</p>
                 </div>
               </div>
             </div>

@@ -1,4 +1,8 @@
+'use client'
+
+import { useLocale } from '@/components/LocaleProvider'
 import React from 'react'
+import Link from 'next/link'
 
 const partners = [
   {
@@ -29,20 +33,23 @@ const partners = [
 ]
 
 export default function LogisticsPartners() {
+  const { t, localizePath } = useLocale()
+
   return (
     <section className='w-full bg-white py-16 lg:py-24'>
       <div className='mx-auto w-full max-w-7xl px-6'>
         {/* Section Header */}
         <div className='mb-16 max-w-3xl' data-aos='fade-up'>
           <p className='mb-2 text-sm font-bold uppercase tracking-[0.3em] text-[#0a4eb6]'>
-            Industries We Serve
+            {t('Industries We Serve')}
           </p>
           <h2 className='text-4xl font-extrabold leading-tight text-slate-900 md:text-5xl'>
-            Trusted by Industry Leaders
+            {t('Trusted by Industry Leaders')}
           </h2>
           <p className='mt-4 text-lg text-slate-600'>
-            Our expertise spans multiple industries with customized solutions
-            for unique logistics challenges.
+            {t(
+              'Our expertise spans multiple industries with customized solutions for unique logistics challenges.',
+            )}
           </p>
         </div>
 
@@ -60,9 +67,9 @@ export default function LogisticsPartners() {
 
               <div className='relative'>
                 <h3 className='mb-2 text-lg font-bold text-slate-900'>
-                  {partner.name}
+                  {t(partner.name)}
                 </h3>
-                <p className='text-slate-600'>{partner.description}</p>
+                <p className='text-slate-600'>{t(partner.description)}</p>
 
                 {/* Corner decoration */}
                 <div
@@ -85,15 +92,19 @@ export default function LogisticsPartners() {
             className='mb-3 text-3xl font-extrabold'
             style={{ color: '#ffffff' }}
           >
-            Ready to Optimize Your Logistics?
+            {t('Ready to Optimize Your Logistics?')}
           </h3>
           <p className='mb-8 text-lg' style={{ color: '#ffffff' }}>
-            Let&apos;s discuss how our comprehensive solutions can improve your
-            supply chain efficiency.
+            {t(
+              "Let's discuss how our comprehensive solutions can improve your supply chain efficiency.",
+            )}
           </p>
-          <button className='inline-flex rounded-full border-2 border-white bg-white px-8 py-3 text-sm font-bold text-slate-900 shadow-lg transition hover:-translate-y-0.5 hover:bg-slate-100'>
-            Schedule a Consultation
-          </button>
+          <Link
+            href={localizePath('/quote-now')}
+            className='inline-flex rounded-full border-2 border-white bg-white px-8 py-3 text-sm font-bold text-slate-900 shadow-lg transition hover:-translate-y-0.5 hover:bg-slate-100'
+          >
+            {t('Schedule a Consultation')}
+          </Link>
         </div>
       </div>
     </section>

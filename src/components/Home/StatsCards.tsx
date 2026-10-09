@@ -1,5 +1,6 @@
 'use client'
 
+import { useLocale } from '@/components/LocaleProvider'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import Link from 'next/link'
@@ -33,7 +34,7 @@ const stats: StatItem[] = [
     end: 6000,
     suffix: '+',
     label: 'Shipments successfully delivered',
-    href: '/clients',
+    href: '/regions',
   },
   {
     type: 'text',
@@ -44,6 +45,7 @@ const stats: StatItem[] = [
 ]
 
 function Counter({ end, suffix = '' }: { end: number; suffix?: string }) {
+  const { locale } = useLocale()
   const [count, setCount] = useState(0)
 
   useEffect(() => {
@@ -69,13 +71,15 @@ function Counter({ end, suffix = '' }: { end: number; suffix?: string }) {
 
   return (
     <>
-      {count.toLocaleString()}
+      {count.toLocaleString(locale === 'es' ? 'es-US' : 'en-US')}
       {suffix}
     </>
   )
 }
 
 export function StatsCards() {
+  const { t, localizePath } = useLocale()
+
   useEffect(() => {
     AOS.init({
       duration: 900,
@@ -88,7 +92,7 @@ export function StatsCards() {
     <section aria-labelledby='stats-title' className='bg-[#042c51] px-6 py-14'>
       <div className='mx-auto max-w-7xl'>
         <h2 id='stats-title' className='sr-only'>
-          TLI logistics experience and credentials
+          {t('TLI logistics experience and credentials')}
         </h2>
 
         <div className='grid gap-6 md:grid-cols-3'>
@@ -103,19 +107,19 @@ export function StatsCards() {
                 {stat.type === 'counter' ? (
                   <Counter end={stat.end} suffix={stat.suffix} />
                 ) : (
-                  stat.text
+                  t(stat.text)
                 )}
               </p>
 
               <h3 className='mt-3 text-base font-bold uppercase tracking-wide text-[#042c51]'>
-                {stat.label}
+                {t(stat.label)}
               </h3>
 
               <Link
-                href={stat.href}
+                href={localizePath(stat.href)}
                 className='mt-5 inline-flex rounded-full border border-[#0a4eb6]/40 px-5 py-2 text-xs font-bold uppercase text-[#0a4eb6] transition-all duration-300 ease-out group-hover:border-[#2cad3f] group-hover:text-[#2cad3f] hover:bg-[#2cad3f] hover:text-white'
               >
-                More
+                {t('More')}
               </Link>
             </article>
           ))}

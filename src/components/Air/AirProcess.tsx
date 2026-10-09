@@ -1,3 +1,6 @@
+'use client'
+
+import { useLocale } from '@/components/LocaleProvider'
 import React from 'react'
 
 const processSteps = [
@@ -8,6 +11,8 @@ const processSteps = [
 ]
 
 export function AirProcess() {
+  const { t } = useLocale()
+
   return (
     <section
       className='bg-slate-50 px-6 py-12 md:py-20 text-slate-900'
@@ -16,10 +21,10 @@ export function AirProcess() {
       <div className='mx-auto w-full max-w-7xl'>
         <div className='max-w-3xl'>
           <p className='mb-2 text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-[#0a4eb6]'>
-            Our Process
+            {t('Our Process')}
           </p>
           <h2 className='text-3xl font-extrabold leading-tight text-slate-900 md:text-5xl'>
-            A simple air freight flow that keeps shipments moving.
+            {t('A simple air freight flow that keeps shipments moving.')}
           </h2>
         </div>
 
@@ -34,7 +39,7 @@ export function AirProcess() {
               <div className='mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-[#0a4eb6] to-[#2cad3f] text-lg font-bold text-white'>
                 {index + 1}
               </div>
-              <p className='text-base leading-7 text-slate-600'>{step}</p>
+              <p className='text-base leading-7 text-slate-600'>{t(step)}</p>
             </div>
           ))}
         </div>
@@ -47,10 +52,10 @@ export function AirProcess() {
           <div className='flex min-h-[240px] items-center justify-center rounded-2xl border-2 border-dashed border-slate-300 bg-slate-50 px-6 text-center'>
             <div>
               <p className='text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-[#0a4eb6]'>
-                Image Space
+                {t('Operations')}
               </p>
               <p className='mt-3 text-lg font-semibold text-slate-900'>
-                Place a process diagram or tracking dashboard image here
+                {t('Shipment planning and tracking')}
               </p>
             </div>
           </div>
@@ -59,4 +64,3 @@ export function AirProcess() {
     </section>
   )
 }
-

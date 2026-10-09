@@ -1,5 +1,6 @@
 'use client'
 
+import { useLocale } from '@/components/LocaleProvider'
 import React from 'react'
 
 const capabilities = [
@@ -50,20 +51,23 @@ const capabilities = [
 ]
 
 export default function LogisticsCapabilities() {
+  const { t } = useLocale()
+
   return (
     <section className='w-full bg-gradient-to-b from-slate-50 to-white py-16 lg:py-24'>
       <div className='mx-auto w-full max-w-7xl px-6'>
         {/* Section Header */}
         <div className='mb-16 max-w-3xl' data-aos='fade-up'>
           <p className='mb-2 text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-[#2cad3f]'>
-            Why Choose Us
+            {t('Why Choose Us')}
           </p>
           <h2 className='text-4xl font-extrabold leading-tight text-slate-900 md:text-5xl'>
-            Industry-Leading Capabilities
+            {t('Industry-Leading Capabilities')}
           </h2>
           <p className='mt-4 text-lg text-slate-600'>
-            Advanced technology, strict compliance, operational excellence, and
-            environmental responsibility in everything we do.
+            {t(
+              'Advanced technology, strict compliance, operational excellence, and environmental responsibility in everything we do.',
+            )}
           </p>
         </div>
 
@@ -84,7 +88,7 @@ export default function LogisticsCapabilities() {
               {/* Content */}
               <div className='relative z-10'>
                 <h3 className='mb-6 text-lg font-bold text-slate-900'>
-                  {cap.category}
+                  {t(cap.category)}
                 </h3>
 
                 <ul className='space-y-3'>
@@ -94,7 +98,7 @@ export default function LogisticsCapabilities() {
                       className='flex items-start gap-3 text-sm text-slate-700'
                     >
                       <span className='mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-gradient-to-r from-[#2cad3f] to-[#0a4eb6]' />
-                      <span>{item}</span>
+                      <span>{t(item)}</span>
                     </li>
                   ))}
                 </ul>
@@ -106,4 +110,3 @@ export default function LogisticsCapabilities() {
     </section>
   )
 }
-

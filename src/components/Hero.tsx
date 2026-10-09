@@ -1,8 +1,13 @@
+'use client'
+
+import { useLocale } from '@/components/LocaleProvider'
 import Link from 'next/link'
 import React from 'react'
 import { Nav } from './Nav'
 
 export function Hero() {
+  const { t, localizePath } = useLocale()
+
   return (
     <section className='relative min-h-screen overflow-hidden bg-white text-white'>
       <video
@@ -32,7 +37,7 @@ export function Hero() {
               textShadow: '0 2px 18px rgba(0, 0, 0, 0.65)',
             }}
           >
-            Global transport solutions
+            {t('Global transport solutions')}
           </h1>
 
           <p
@@ -43,15 +48,25 @@ export function Hero() {
               textShadow: '0 2px 14px rgba(0, 0, 0, 0.45)',
             }}
           >
-            Air, ocean and ground logistics designed to move your cargo safely,
-            efficiently and on time.
+            {t(
+              'From Miami to the Dominican Republic, the Caribbean, Latin America and beyond. Air, ocean and ground freight coordinated by TLI.',
+            )}
           </p>
 
           <Link
-            href='/quote-now'
+            href={localizePath('/quote-now')}
             className='inline-flex rounded-md bg-[#18aeea] px-7 py-4 text-sm font-bold text-white shadow-lg transition hover:bg-[#0a4eb6]'
           >
-            GET A QUOTE
+            {t('GET A QUOTE')}
+          </Link>
+          <Link
+            href={localizePath('/regions')}
+            className='ml-4 inline-flex border-b border-white/70 py-3 text-sm font-bold !text-white hover:no-underline'
+          >
+            {t('Explore our regions')}{' '}
+            <span aria-hidden='true' className='ml-2'>
+              ↗
+            </span>
           </Link>
         </div>
       </div>

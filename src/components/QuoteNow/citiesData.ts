@@ -1,4 +1,22 @@
 export const citiesByContinent = {
+  'Dominican Republic & Caribbean': [
+    'Santo Domingo, Dominican Republic',
+    'Santiago, Dominican Republic',
+    'Punta Cana, Dominican Republic',
+    'San Juan, Puerto Rico',
+    'Kingston, Jamaica',
+    'Nassau, Bahamas',
+    'Port of Spain, Trinidad and Tobago',
+  ],
+  'Central America': [
+    'Panama City, Panama',
+    'San José, Costa Rica',
+    'Guatemala City, Guatemala',
+    'San Salvador, El Salvador',
+    'Tegucigalpa, Honduras',
+    'Managua, Nicaragua',
+    'Belize City, Belize',
+  ],
   'North America': [
     'New York, USA',
     'Los Angeles, USA',

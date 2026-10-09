@@ -1,0 +1,353 @@
+.page {
+  background: #f4f8fb;
+  color: #042c51;
+}
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 3rem;
+  max-width: 1280px;
+  margin: auto;
+  padding: 5rem 1.5rem 4rem;
+}
+.eyebrow {
+  color: #0a4eb6;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  margin: 0 0 1.25rem;
+}
+.hero h1 {
+  font-size: clamp(2.4rem, 4vw, 3.9rem);
+  font-weight: 750;
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+  color: #042c51;
+  background: none;
+  -webkit-text-fill-color: initial;
+  margin-bottom: 1.5rem;
+}
+.hero h1 span {
+  color: #0a4eb6;
+}
+.intro {
+  max-width: 32rem;
+  margin: 0;
+  font-size: 1.08rem;
+  line-height: 1.8;
+  color: #526273;
+}
+.heroActions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.primary {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  min-height: 3rem;
+  background: #0a4eb6;
+  color: #fff;
+  padding: 0.8rem 1.3rem;
+  border-radius: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.primary:hover {
+  background: #042c51;
+  color: #fff;
+  text-decoration: none;
+}
+.secondary {
+  color: #042c51;
+  font-size: 0.82rem;
+  font-weight: 700;
+  display: inline-flex;
+  gap: 1rem;
+  padding: 0.8rem 0;
+}
+.network {
+  border-radius: 0.75rem;
+  background: #042c51;
+  color: #fff;
+  overflow: hidden;
+  box-shadow: 0 20px 50px #042c5112;
+}
+.networkHeader {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 1.5rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid #ffffff20;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+}
+.network svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.networkNote {
+  margin: 0;
+  padding: 0 1.5rem 1.5rem;
+  font-size: 0.73rem;
+  color: #c6d8e8;
+}
+.regionNav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 2rem;
+  background: #fff;
+  border-block: 1px solid #dce5ec;
+  padding: 1.3rem 1.5rem;
+}
+.regionNav a {
+  display: inline-flex;
+  gap: 0.6rem;
+  padding: 0.35rem 0;
+  color: #042c51;
+  font-size: 0.78rem;
+  font-weight: 650;
+}
+.regionNav span {
+  color: #0a4eb6;
+  font-size: 0.65rem;
+}
+.coverage,
+.industries {
+  max-width: 1280px;
+  margin: auto;
+  padding: 5rem 1.5rem;
+  scroll-margin-top: 7rem;
+}
+.sectionHeading {
+  max-width: 43rem;
+  margin-bottom: 2.5rem;
+}
+.sectionHeading h2 {
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  font-weight: 750;
+}
+.sectionHeading > p:last-child {
+  color: #526273;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+.regionGrid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1rem;
+}
+.region {
+  display: flex;
+  flex-direction: column;
+  grid-column: span 2;
+  padding: 1.8rem;
+  border: 1px solid #dce5ec;
+  border-radius: 0.7rem;
+  background: white;
+  scroll-margin-top: 7rem;
+}
+.featured {
+  grid-column: span 3;
+  background: #eaf4f7;
+  border-color: #c4dae3;
+}
+.featured:first-child {
+  background: #042c51;
+  border-color: #042c51;
+}
+.regionTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+.regionNumber {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #0a4eb6;
+}
+.tag {
+  color: #526273;
+  border: 1px solid #c7d7e1;
+  border-radius: 99px;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.65rem;
+}
+.region h3 {
+  font-size: 1.5rem;
+  color: #042c51;
+  font-weight: 750;
+  letter-spacing: -0.03em;
+  margin: 0 0 1rem;
+}
+.regionDescription {
+  color: #526273;
+  font-size: 0.94rem;
+  line-height: 1.75;
+}
+.regionDetail {
+  margin: 0 0 1.5rem;
+  color: #526273;
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+.regionLink {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid #dce5ec;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #0a4eb6;
+}
+.featured:first-child h3,
+.featured:first-child .regionNumber,
+.featured:first-child .regionLink {
+  color: #fff;
+}
+.featured:first-child p,
+.featured:first-child .tag {
+  color: #c6d8e8;
+}
+.featured:first-child .tag,
+.featured:first-child .regionLink {
+  border-color: #ffffff30;
+}
+.industries {
+  padding-top: 1rem;
+}
+.industryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 2rem;
+}
+.industry {
+  display: flex;
+  gap: 1rem;
+  border-top: 1px solid #c7d7e1;
+  padding: 1.5rem 0;
+}
+.industryNumber {
+  color: #0a4eb6;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding-top: 0.2rem;
+}
+.industry h3 {
+  font-size: 1rem;
+  font-weight: 750;
+  color: #042c51;
+  margin: 0 0 0.6rem;
+}
+.industry p {
+  font-size: 0.82rem;
+  line-height: 1.7;
+  margin: 0;
+  color: #526273;
+}
+.cta {
+  max-width: 1232px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  margin: 0 auto 5rem;
+  border-top: 1px solid #c7d7e1;
+  padding: 2.5rem 0 0;
+}
+.cta > div {
+  max-width: 40rem;
+}
+.cta h2 {
+  font-size: 2rem;
+  font-weight: 750;
+  letter-spacing: -0.03em;
+}
+.cta p:last-child {
+  color: #526273;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  margin: 0;
+}
+@media (max-width: 900px) {
+  .hero {
+    gap: 2rem;
+    padding-top: 3rem;
+  }
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+  .region {
+    grid-column: span 3;
+  }
+  .region:last-child {
+    grid-column: span 6;
+  }
+  .industryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .cta {
+    margin-inline: 1.5rem;
+  }
+}
+@media (max-width: 640px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 2.5rem 1.25rem;
+  }
+  .hero h1 {
+    font-size: clamp(2.25rem, 8vw, 3rem);
+  }
+  .intro {
+    font-size: 0.95rem;
+  }
+  .network {
+    max-width: 100%;
+  }
+  .network svg text {
+    font-size: 18px;
+  }
+  .regionNav {
+    justify-content: flex-start;
+    gap: 0.5rem 1.2rem;
+    padding: 1rem 1.25rem;
+  }
+  .coverage,
+  .industries {
+    padding: 3rem 1.25rem;
+  }
+  .regionGrid {
+    grid-template-columns: 1fr;
+  }
+  .region,
+  .featured,
+  .region:last-child {
+    grid-column: auto;
+    padding: 1.5rem;
+  }
+  .industryGrid {
+    grid-template-columns: 1fr;
+  }
+  .cta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin: 0 1.25rem 3rem;
+  }
+}

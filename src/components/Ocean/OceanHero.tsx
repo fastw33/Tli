@@ -1,6 +1,11 @@
+'use client'
+
+import { useLocale } from '@/components/LocaleProvider'
 import React from 'react'
 
 export function OceanHero() {
+  const { t } = useLocale()
+
   return (
     <section
       className='relative overflow-hidden bg-white px-6 py-12 md:py-16 text-slate-900'
@@ -9,15 +14,17 @@ export function OceanHero() {
       <div className='mx-auto flex w-full max-w-7xl flex-col gap-6 md:gap-10 lg:flex-row lg:items-end lg:justify-between'>
         <div className='max-w-3xl'>
           <p className='mb-4 text-xs md:text-sm font-bold uppercase tracking-[0.35em] text-[#0a4eb6]'>
-            Ocean Freight
+            {t('Ocean Freight')}
           </p>
           <h1 className='text-2xl md:text-4xl lg:text-6xl font-extrabold leading-tight text-slate-900'>
-            Reliable ocean shipping services for international cargo transport.
+            {t(
+              'Reliable ocean shipping services for international cargo transport.',
+            )}
           </h1>
           <p className='mt-4 md:mt-6 max-w-2xl text-sm md:text-base lg:text-lg leading-7 md:leading-8 text-slate-600'>
-            We handle full container, partial loads, and project cargo with a
-            focus on visibility, coordination, and cost-effective transit across
-            major global trade lanes.
+            {t(
+              'We handle full container, partial loads, and project cargo with a focus on visibility, coordination, and cost-effective transit across major global trade lanes.',
+            )}
           </p>
         </div>
 
@@ -28,34 +35,34 @@ export function OceanHero() {
         >
           <div>
             <p className='text-sm uppercase tracking-[0.25em] text-slate-500'>
-              Coverage
+              {t('Coverage')}
             </p>
             <p className='mt-2 text-2xl font-bold text-slate-900'>
-              Global trade lanes
+              {t('Global trade lanes')}
             </p>
           </div>
           <div>
             <p className='text-sm uppercase tracking-[0.25em] text-slate-500'>
-              Focus
+              {t('Focus')}
             </p>
             <p className='mt-2 text-2xl font-bold text-slate-900'>
-              Stability + Savings
+              {t('Stability + Savings')}
             </p>
           </div>
           <div>
             <p className='text-sm uppercase tracking-[0.25em] text-slate-500'>
-              Cargo Types
+              {t('Cargo Types')}
             </p>
             <p className='mt-2 text-2xl font-bold text-slate-900'>
-              FCL, LCL, project cargo
+              {t('FCL, LCL, project cargo')}
             </p>
           </div>
           <div>
             <p className='text-sm uppercase tracking-[0.25em] text-slate-500'>
-              Support
+              {t('Support')}
             </p>
             <p className='mt-2 text-2xl font-bold text-slate-900'>
-              24/7 Shipment Updates
+              {t('24/7 Shipment Updates')}
             </p>
           </div>
         </div>
@@ -69,10 +76,10 @@ export function OceanHero() {
           <div className='flex min-h-[320px] items-center justify-center rounded-2xl border-2 border-dashed border-slate-300 bg-white px-6 text-center'>
             <div>
               <p className='text-sm font-bold uppercase tracking-[0.3em] text-[#0a4eb6]'>
-                Image Space
+                {t('Operations')}
               </p>
               <p className='mt-3 text-lg font-semibold text-slate-900'>
-                Main vessel, port, or container image goes here
+                {t('Ocean freight coordination')}
               </p>
             </div>
           </div>
@@ -84,7 +91,7 @@ export function OceanHero() {
             data-aos='fade-left'
           >
             <p className='text-base font-semibold text-slate-700'>
-              Secondary ocean freight image space
+              {t('Ocean cargo coordination')}
             </p>
           </div>
           <div
@@ -93,7 +100,7 @@ export function OceanHero() {
             data-aos-delay='100'
           >
             <p className='text-base font-semibold text-slate-700'>
-              Route map or tracking dashboard image space
+              {t('Routes and cargo tracking')}
             </p>
           </div>
         </div>
@@ -101,4 +108,3 @@ export function OceanHero() {
     </section>
   )
 }
-

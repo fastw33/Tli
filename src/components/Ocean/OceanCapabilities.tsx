@@ -1,3 +1,6 @@
+'use client'
+
+import { useLocale } from '@/components/LocaleProvider'
 import React from 'react'
 
 const capabilities = [
@@ -24,32 +27,40 @@ const capabilities = [
 ]
 
 export function OceanCapabilities() {
+  const { t } = useLocale()
+
   return (
-    <section className='bg-white px-6 py-12 md:py-16 text-slate-900' data-aos='fade-up'>
+    <section
+      className='bg-white px-6 py-12 md:py-16 text-slate-900'
+      data-aos='fade-up'
+    >
       <div className='mx-auto w-full max-w-7xl'>
         <div className='max-w-3xl'>
           <p className='mb-2 text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-[#0a4eb6]'>
-            What We Handle
+            {t('What We Handle')}
           </p>
           <h2 className='text-3xl font-extrabold leading-tight text-slate-900 md:text-5xl'>
-            Ocean logistics built for reliable international movement.
+            {t('Ocean logistics built for reliable international movement.')}
           </h2>
           <p className='mt-4 text-lg leading-8 text-slate-600'>
-            From consolidation to port delivery, our ocean freight team keeps
-            your cargo moving through a coordinated and transparent process.
+            {t(
+              'From consolidation to port delivery, our ocean freight team keeps your cargo moving through a coordinated and transparent process.',
+            )}
           </p>
         </div>
 
         <div className='mt-8 md:mt-12 grid gap-6 md:grid-cols-2'>
-          {capabilities.map(item => (
+          {capabilities.map((item) => (
             <article
               key={item.title}
               className='rounded-2xl border border-slate-200 bg-slate-50 p-8 shadow-sm transition hover:-translate-y-1 hover:bg-white hover:shadow-lg'
               data-aos='zoom-in'
             >
-              <h3 className='text-xl font-bold text-slate-900'>{item.title}</h3>
+              <h3 className='text-xl font-bold text-slate-900'>
+                {t(item.title)}
+              </h3>
               <p className='mt-3 text-base leading-7 text-slate-600'>
-                {item.description}
+                {t(item.description)}
               </p>
             </article>
           ))}
@@ -63,10 +74,10 @@ export function OceanCapabilities() {
           <div className='flex min-h-[220px] items-center justify-center rounded-2xl border-2 border-dashed border-slate-300 bg-slate-50 px-6 text-center'>
             <div>
               <p className='text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-[#0a4eb6]'>
-                Image Space
+                {t('Operations')}
               </p>
               <p className='mt-3 text-lg font-semibold text-slate-900'>
-                Insert a port operations or container yard image here
+                {t('Port operations and container handling')}
               </p>
             </div>
           </div>
@@ -75,4 +86,3 @@ export function OceanCapabilities() {
     </section>
   )
 }
-

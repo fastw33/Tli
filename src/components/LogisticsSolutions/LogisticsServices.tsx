@@ -1,6 +1,8 @@
 'use client'
 
+import { useLocale } from '@/components/LocaleProvider'
 import React from 'react'
+import Link from 'next/link'
 
 const services = [
   {
@@ -54,20 +56,23 @@ const services = [
 ]
 
 export default function LogisticsServices() {
+  const { t, localizePath } = useLocale()
+
   return (
     <section className='w-full bg-white py-16 lg:py-24'>
       <div className='mx-auto w-full max-w-7xl px-6'>
         {/* Section Header */}
         <div className='mb-16 max-w-3xl' data-aos='fade-up'>
           <p className='mb-2 text-sm font-bold uppercase tracking-[0.3em] text-[#0a4eb6]'>
-            What We Offer
+            {t('What We Offer')}
           </p>
           <h2 className='text-4xl font-extrabold leading-tight text-slate-900 md:text-5xl'>
-            Full-Spectrum Logistics Services
+            {t('Full-Spectrum Logistics Services')}
           </h2>
           <p className='mt-4 text-lg text-slate-600'>
-            End-to-end solutions designed to streamline your supply chain and
-            reduce operational costs.
+            {t(
+              'End-to-end solutions designed to streamline your supply chain and reduce operational costs.',
+            )}
           </p>
         </div>
 
@@ -91,11 +96,11 @@ export default function LogisticsServices() {
                 <div className='mb-4 text-5xl'>{service.icon}</div>
 
                 <h3 className='mb-3 text-xl font-bold text-slate-900 transition group-hover:text-[#0a4eb6]'>
-                  {service.title}
+                  {t(service.title)}
                 </h3>
 
                 <p className='text-base leading-relaxed text-slate-600'>
-                  {service.description}
+                  {t(service.description)}
                 </p>
 
                 {/* Bottom accent line */}
@@ -112,22 +117,24 @@ export default function LogisticsServices() {
         className='mt-16 w-full bg-gradient-to-r from-[#0a4eb6] via-[#2cad3f] to-[#042c51] p-12 text-center text-white'
         data-aos='zoom-in'
         role='region'
-        aria-label='Schedule consultation call to action'
+        aria-label={t('Schedule consultation call to action')}
       >
         <div className='mx-auto max-w-7xl'>
           <h3 className='mb-3 text-3xl font-extrabold !text-white mix-blend-normal opacity-100'>
-            Ready to Optimize Your Logistics?
+            {t('Ready to Optimize Your Logistics?')}
           </h3>
           <p className='mb-8 text-lg !text-white mix-blend-normal opacity-100'>
-            Let&apos;s discuss how our comprehensive solutions can improve your
-            supply chain efficiency.
+            {t(
+              "Let's discuss how our comprehensive solutions can improve your supply chain efficiency.",
+            )}
           </p>
-          <button
+          <Link
+            href={localizePath('/quote-now')}
             className='inline-flex rounded-full border-2 border-white bg-white px-8 py-3 text-sm font-bold text-slate-900 shadow-lg transition hover:-translate-y-0.5 hover:bg-slate-100'
-            aria-label='Schedule a consultation'
+            aria-label={t('Schedule a consultation')}
           >
-            Schedule a Consultation
-          </button>
+            {t('Schedule a Consultation')}
+          </Link>
         </div>
       </div>
     </section>

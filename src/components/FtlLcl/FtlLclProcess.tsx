@@ -1,3 +1,6 @@
+'use client'
+
+import { useLocale } from '@/components/LocaleProvider'
 import React from 'react'
 
 const processSteps = [
@@ -28,6 +31,8 @@ const processSteps = [
 ]
 
 export function FtlLclProcess() {
+  const { t } = useLocale()
+
   return (
     <section
       className='relative overflow-hidden bg-gradient-to-br from-[#fff9f4] via-white to-[#effef7] px-6 py-20 text-slate-900'
@@ -39,15 +44,15 @@ export function FtlLclProcess() {
       <div className='relative mx-auto w-full max-w-7xl'>
         <div className='max-w-3xl'>
           <p className='mb-2 text-sm font-bold uppercase tracking-[0.3em] text-[#0a4eb6]'>
-            How Freight Moves
+            {t('How Freight Moves')}
           </p>
           <h2 className='text-3xl font-extrabold leading-tight text-slate-900 md:text-5xl'>
-            A route-based process for truck freight, not a generic card grid.
+            {t('A coordinated process for truck freight.')}
           </h2>
           <p className='mt-4 text-lg leading-8 text-slate-600'>
-            The flow changes depending on whether your freight is dedicated or
-            shared, but the journey always follows a clear pickup, transit,
-            consolidation, and delivery path.
+            {t(
+              'The flow changes depending on whether your freight is dedicated or shared, but the journey always follows a clear pickup, transit, consolidation, and delivery path.',
+            )}
           </p>
         </div>
 
@@ -60,13 +65,13 @@ export function FtlLclProcess() {
               className='text-sm font-bold uppercase tracking-[0.3em] text-white/80'
               style={{ color: '#ffffff' }}
             >
-              Process Snapshot
+              {t('Process Snapshot')}
             </p>
             <h3
               className='mt-3 text-2xl font-extrabold text-white'
               style={{ color: '#ffffff' }}
             >
-              Four stages, one controlled freight path.
+              {t('Four stages, one controlled freight path.')}
             </h3>
 
             <div className='mt-8 space-y-4'>
@@ -74,7 +79,7 @@ export function FtlLclProcess() {
                 'FTL stays mostly direct from pickup to delivery.',
                 'LCL can include consolidation or cross-docking.',
                 'Tracking and communication happen at every stage.',
-              ].map(point => (
+              ].map((point) => (
                 <div
                   key={point}
                   className='flex items-start gap-3 rounded-2xl bg-white/10 px-4 py-3'
@@ -82,17 +87,19 @@ export function FtlLclProcess() {
                   <span className='mt-1 flex h-7 w-7 items-center justify-center rounded-full bg-[#18aeea] text-sm font-bold text-white'>
                     ✓
                   </span>
-                  <span className='text-sm leading-6 text-white'>{point}</span>
+                  <span className='text-sm leading-6 text-white'>
+                    {t(point)}
+                  </span>
                 </div>
               ))}
             </div>
 
             <div className='mt-8 rounded-3xl border border-white/15 bg-gradient-to-r from-[#0a4eb6] via-[#18aeea] to-[#2cad3f] p-5 text-white'>
               <p className='text-sm font-bold uppercase tracking-[0.3em] text-white'>
-                Image Space
+                {t('Operations')}
               </p>
               <p className='mt-3 text-base leading-7 text-white'>
-                Add a route map, warehouse flow, or truck line graphic here.
+                {t('Routes, warehouses and ground transportation.')}
               </p>
             </div>
           </aside>
@@ -120,10 +127,10 @@ export function FtlLclProcess() {
                     </div>
                     <div className='flex-1'>
                       <p className='text-sm font-bold uppercase tracking-[0.25em] text-[#0a4eb6]'>
-                        {step.title}
+                        {t(step.title)}
                       </p>
                       <p className='mt-2 text-base leading-7 text-slate-600'>
-                        {step.description}
+                        {t(step.description)}
                       </p>
                     </div>
                   </div>
@@ -134,18 +141,22 @@ export function FtlLclProcess() {
             <div className='mt-8 grid gap-4 sm:grid-cols-2'>
               <div className='rounded-[1.75rem] border border-[#0a4eb6]/15 bg-[#0a4eb6]/5 p-6'>
                 <p className='text-sm font-bold uppercase tracking-[0.3em] text-[#0a4eb6]'>
-                  FTL
+                  {t('FTL')}
                 </p>
                 <p className='mt-3 text-base leading-7 text-slate-700'>
-                  Best when you need dedicated capacity and minimal handling.
+                  {t(
+                    'Best when you need dedicated capacity and minimal handling.',
+                  )}
                 </p>
               </div>
               <div className='rounded-[1.75rem] border border-[#2cad3f]/15 bg-[#2cad3f]/5 p-6'>
                 <p className='text-sm font-bold uppercase tracking-[0.3em] text-[#2cad3f]'>
-                  LCL
+                  {t('LCL')}
                 </p>
                 <p className='mt-3 text-base leading-7 text-slate-700'>
-                  Best when you want lower cost and your load can share space.
+                  {t(
+                    'Best when you want lower cost and your load can share space.',
+                  )}
                 </p>
               </div>
             </div>

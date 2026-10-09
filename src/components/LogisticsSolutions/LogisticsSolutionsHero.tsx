@@ -1,3 +1,6 @@
+'use client'
+
+import { useLocale } from '@/components/LocaleProvider'
 import React from 'react'
 import Link from 'next/link'
 
@@ -25,33 +28,35 @@ const heroData = {
 }
 
 export default function LogisticsSolutionsHero() {
+  const { t, localizePath } = useLocale()
+
   return (
     <header className='w-full border-b border-slate-200/80 bg-white'>
       <div className='mx-auto w-full max-w-7xl px-6 py-16 lg:py-24'>
         {/* Header Text */}
         <div className='mb-12 max-w-4xl' data-aos='fade-up'>
           <p className='mb-3 text-sm font-bold uppercase tracking-[0.3em] text-[#0a4eb6]'>
-            Our Services
+            {t('Our Services')}
           </p>
           <h1 className='mb-6 text-5xl font-extrabold leading-[1.1] text-slate-900 md:text-6xl lg:text-[3.5rem]'>
-            {heroData.title}
+            {t(heroData.title)}
           </h1>
           <p className='max-w-3xl text-lg leading-relaxed text-slate-600 md:text-xl'>
-            {heroData.subtitle}
+            {t(heroData.subtitle)}
           </p>
 
           <div className='mt-8 flex flex-wrap gap-4'>
             <Link
-              href='/quote-now'
+              href={localizePath('/quote-now')}
               className='inline-flex rounded-full bg-[#18aeea] px-8 py-3 text-sm font-bold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-[#0a4eb6]'
             >
-              Get a Quote
+              {t('Get a Quote')}
             </Link>
             <Link
-              href='/clients'
+              href={localizePath('/regions')}
               className='inline-flex rounded-full border border-slate-300 px-8 py-3 text-sm font-bold text-slate-700 transition hover:border-slate-400 hover:bg-slate-50'
             >
-              Success Stories
+              {t('Explore our regions')}
             </Link>
           </div>
         </div>
@@ -74,7 +79,7 @@ export default function LogisticsSolutionsHero() {
               <div className='relative'>
                 <div className='mb-3 text-3xl'>{stat.icon}</div>
                 <p className='text-sm font-bold uppercase tracking-[0.2em] text-slate-500'>
-                  {stat.label}
+                  {t(stat.label)}
                 </p>
                 <p className='mt-2 text-4xl font-extrabold text-slate-900'>
                   {stat.value}

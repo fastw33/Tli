@@ -1,8 +1,11 @@
 'use client'
 
+import { useLocale } from '@/components/LocaleProvider'
 import React, { useState } from 'react'
 
 export function LoginForm() {
+  const { t } = useLocale()
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isLoading, setIsLoading] = useState(false)
@@ -10,7 +13,6 @@ export function LoginForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
-    console.log('Login attempt:', { email, password })
     setTimeout(() => setIsLoading(false), 1000)
   }
 
@@ -64,15 +66,15 @@ export function LoginForm() {
           >
             <div className='mb-4 md:mb-6 inline-block rounded-2xl border-2 border-white/40 bg-gradient-to-r from-[#0a4eb6]/20 to-[#18aeea]/20 px-6 py-3 backdrop-blur-sm'>
               <p className='text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-[#18aeea]'>
-                Welcome Back
+                {t('Welcome Back')}
               </p>
             </div>
 
             <h1 className='text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight'>
-              Access Your
+              {t('Access Your')}
               <br />
               <span className='bg-gradient-to-r from-[#18aeea] via-[#0a4eb6] to-[#2cad3f] bg-clip-text text-transparent'>
-                Shipping Hub
+                {t('Shipping Hub')}
               </span>
             </h1>
 
@@ -80,8 +82,9 @@ export function LoginForm() {
               className='mt-4 md:mt-6 text-base md:text-lg font-semibold text-white'
               style={{ color: '#ffffff' }}
             >
-              Manage your shipments, track cargo, and get real-time updates on
-              your logistics operations.
+              {t(
+                'Manage your shipments, track cargo, and get real-time updates on your logistics operations.',
+              )}
             </p>
 
             <div className='mt-6 md:mt-8 space-y-3 md:space-y-4'>
@@ -97,7 +100,7 @@ export function LoginForm() {
                   data-aos-delay={idx * 100}
                 >
                   <span className='text-2xl'>{feature.icon}</span>
-                  <span className='font-semibold'>{feature.label}</span>
+                  <span className='font-semibold'>{t(feature.label)}</span>
                 </div>
               ))}
             </div>
@@ -117,15 +120,19 @@ export function LoginForm() {
                     data-aos='fade-up'
                     data-aos-delay='100'
                   >
-                    <label className='mb-2 md:mb-3 block text-xs md:text-sm font-bold uppercase tracking-wide text-white/80'>
-                      Email Address
+                    <label
+                      htmlFor='login-email'
+                      className='mb-2 md:mb-3 block text-xs md:text-sm font-bold uppercase tracking-wide text-white/80'
+                    >
+                      {t('Email Address')}
                     </label>
                     <div className='relative'>
                       <input
+                        id='login-email'
                         type='email'
                         value={email}
-                        onChange={e => setEmail(e.target.value)}
-                        placeholder='you@company.com'
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder={t('you@company.com')}
                         required
                         className='w-full rounded-xl border-2 border-white/40 bg-white/5 px-5 py-3 text-white placeholder:text-white/40 transition focus:border-white focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/20'
                       />
@@ -141,22 +148,26 @@ export function LoginForm() {
                     data-aos='fade-up'
                     data-aos-delay='150'
                   >
-                    <label className='mb-2 md:mb-3 flex items-center justify-between'>
+                    <label
+                      htmlFor='login-password'
+                      className='mb-2 md:mb-3 flex items-center justify-between'
+                    >
                       <span className='block text-xs md:text-sm font-bold uppercase tracking-wide text-white/80'>
-                        Password
+                        {t('Password')}
                       </span>
                       <a
                         href='#'
                         className='text-xs font-semibold text-[#18aeea] transition hover:text-[#2cad3f]'
                       >
-                        Forgot?
+                        {t('Forgot?')}
                       </a>
                     </label>
                     <div className='relative'>
                       <input
+                        id='login-password'
                         type='password'
                         value={password}
-                        onChange={e => setPassword(e.target.value)}
+                        onChange={(e) => setPassword(e.target.value)}
                         placeholder='••••••••'
                         required
                         className='w-full rounded-xl border-2 border-white/40 bg-white/5 px-5 py-3 text-white placeholder:text-white/40 transition focus:border-white focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/20'
@@ -178,8 +189,11 @@ export function LoginForm() {
                       id='remember'
                       className='h-4 w-4 rounded border-2 border-white/50 bg-white/5 accent-white'
                     />
-                    <label htmlFor='remember' className='text-xs md:text-sm text-white/70'>
-                      Keep me signed in
+                    <label
+                      htmlFor='remember'
+                      className='text-xs md:text-sm text-white/70'
+                    >
+                      {t('Keep me signed in')}
                     </label>
                   </div>
 
@@ -195,11 +209,11 @@ export function LoginForm() {
                       {isLoading ? (
                         <>
                           <span className='inline-block h-4 w-4 animate-spin rounded-full border-2 border-white border-r-transparent' />
-                          Signing in...
+                          {t('Signing in...')}
                         </>
                       ) : (
                         <>
-                          Sign In
+                          {t('Sign In')}
                           <span className='transition group-hover:translate-x-1'>
                             →
                           </span>
@@ -219,7 +233,7 @@ export function LoginForm() {
                     </div>
                     <div className='relative flex justify-center text-xs md:text-sm'>
                       <span className='bg-gradient-to-br from-white/10 via-white/5 to-white/10 px-3 text-white/50'>
-                        or
+                        {t('or')}
                       </span>
                     </div>
                   </div>
@@ -230,10 +244,11 @@ export function LoginForm() {
                     data-aos='fade-up'
                     data-aos-delay='350'
                   >
-                    {['Google', 'LinkedIn', 'GitHub'].map((provider, idx) => (
+                    {['Google', 'LinkedIn', 'GitHub'].map((provider) => (
                       <button
                         key={provider}
                         type='button'
+                        aria-label={t('Sign in with {provider}', { provider })}
                         className='rounded-lg border-2 border-white/30 bg-white/5 px-2 md:px-3 py-2 text-xs md:text-sm font-semibold text-white transition hover:border-white/60 hover:bg-white/10'
                       >
                         {provider === 'Google' && '🔵'}
@@ -249,12 +264,12 @@ export function LoginForm() {
                     data-aos='fade-up'
                     data-aos-delay='400'
                   >
-                    Don&apos;t have an account?{' '}
+                    {t("Don't have an account?")}{' '}
                     <a
                       href='#'
                       className='font-semibold text-[#18aeea] transition hover:text-[#2cad3f]'
                     >
-                      Sign up here
+                      {t('Sign up here')}
                     </a>
                   </p>
                 </div>
@@ -263,7 +278,7 @@ export function LoginForm() {
 
             {/* Bottom accent */}
             <div className='mt-6 text-center text-xs text-white/50'>
-              <p>Your data is encrypted and secure</p>
+              <p>{t('Your data is encrypted and secure')}</p>
             </div>
           </div>
         </div>

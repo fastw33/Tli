@@ -1,6 +1,11 @@
+'use client'
+
+import { useLocale } from '@/components/LocaleProvider'
 import React from 'react'
 
 export function QuoteNowCTA() {
+  const { t } = useLocale()
+
   return (
     <section
       className='relative overflow-hidden bg-gradient-to-r from-[#0a4eb6] via-[#18aeea] to-[#2cad3f] px-6 py-16 text-white'
@@ -11,19 +16,29 @@ export function QuoteNowCTA() {
 
       <div className='relative mx-auto w-full max-w-4xl text-center'>
         <h2 className='text-3xl font-extrabold md:text-4xl'>
-          Can&apos;t Find What You Need?
+          {t("Can't Find What You Need?")}
         </h2>
         <p className='mx-auto mt-4 max-w-2xl text-lg text-white/90'>
-          Our logistics experts are ready to help. Get personalized support for
-          complex shipments, special requirements, or bulk orders.
+          {t(
+            'Our logistics experts are ready to help. Get personalized support for complex shipments, special requirements, or bulk orders.',
+          )}
         </p>
 
         <div className='mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center'>
-          <button className='rounded-xl border-2 border-white bg-transparent px-8 py-3 font-bold text-white transition-all duration-300 hover:bg-white hover:text-[#0a4eb6]'>
-            Call Us
-          </button>
-          <button className='rounded-xl bg-white px-8 py-3 font-bold text-[#0a4eb6] shadow-lg transition-all duration-300 hover:bg-slate-100'>
-            Email Support
+          <a
+            href='tel:+13058876363'
+            className='rounded-xl border-2 border-white bg-transparent px-8 py-3 font-bold !text-white transition-all duration-300 hover:bg-white hover:!text-[#0a4eb6]'
+          >
+            {t('Call Us')}
+          </a>
+          <button
+            type='button'
+            onClick={() =>
+              document.getElementById('contact-directory-launcher')?.click()
+            }
+            className='rounded-xl bg-white px-8 py-3 font-bold text-[#0a4eb6] shadow-lg transition-all duration-300 hover:bg-slate-100'
+          >
+            {t('Email Support')}
           </button>
         </div>
       </div>
