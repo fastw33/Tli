@@ -1,9 +1,9 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
+import { SiteLink as Link } from '@/components/SiteLink'
 import { usePathname } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useLocale } from './LocaleProvider'
 import { LanguageSwitcher } from './LanguageSwitcher'
 import { basePath } from '@/lib/locale'
@@ -12,6 +12,39 @@ export function Nav() {
   const pathname = basePath(usePathname())
   const { t, localizePath } = useLocale()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const navRef = useRef<HTMLElement>(null)
+  const menuButtonRef = useRef<HTMLButtonElement>(null)
+  useEffect(() => {
+    if (!isMenuOpen) return
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsMenuOpen(false)
+        menuButtonRef.current?.focus()
+      }
+    }
+    const onPointerDown = (event: PointerEvent) => {
+      if (
+        event.target instanceof Node &&
+        !navRef.current?.contains(event.target)
+      )
+        setIsMenuOpen(false)
+    }
+    const onFocusIn = (event: FocusEvent) => {
+      if (
+        event.target instanceof Node &&
+        !navRef.current?.contains(event.target)
+      )
+        setIsMenuOpen(false)
+    }
+    document.addEventListener('keydown', onKeyDown)
+    document.addEventListener('pointerdown', onPointerDown)
+    document.addEventListener('focusin', onFocusIn)
+    return () => {
+      document.removeEventListener('keydown', onKeyDown)
+      document.removeEventListener('pointerdown', onPointerDown)
+      document.removeEventListener('focusin', onFocusIn)
+    }
+  }, [isMenuOpen])
   const isHome = pathname === '/'
   const links = [
     { href: '/', label: 'TLI' },
@@ -29,6 +62,7 @@ export function Nav() {
   }
   return (
     <nav
+      ref={navRef}
       aria-label={t('Main navigation')}
       className={`z-50 w-full border-b border-[#042c51]/10 bg-white/90 backdrop-blur-md ${isHome ? 'fixed left-0 right-0 top-0' : 'sticky top-0'}`}
     >
@@ -36,6 +70,7 @@ export function Nav() {
         <Link
           href={localizePath('/')}
           aria-label={t('TLI home')}
+          onClick={() => setIsMenuOpen(false)}
           className='shrink-0'
         >
           <Image
@@ -94,6 +129,7 @@ export function Nav() {
           </Link>
           <LanguageSwitcher />
           <button
+            ref={menuButtonRef}
             type='button'
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={t(isMenuOpen ? 'Close menu' : 'Open menu')}
@@ -125,7 +161,7 @@ export function Nav() {
       {isMenuOpen && (
         <div
           id='mobile-navigation'
-          className='max-h-[calc(100dvh-6rem)] overflow-y-auto border-t border-[#042c51]/10 bg-white p-4 xl:hidden'
+          className='absolute left-0 right-0 top-full max-h-[calc(100dvh-6rem)] overflow-y-auto overscroll-contain border-t border-[#042c51]/10 bg-white p-4 shadow-xl xl:hidden'
         >
           <div className='mx-auto grid max-w-7xl gap-1'>
             {links.map((link) => (

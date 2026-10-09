@@ -23,6 +23,14 @@ export function LanguageSwitcher() {
           aria-current={locale === language ? 'true' : undefined}
           onClick={(event) => {
             event.currentTarget.href = `${localePath(pathname, language)}${window.location.search}${window.location.hash}`
+            if (
+              locale === language &&
+              !event.ctrlKey &&
+              !event.metaKey &&
+              !event.shiftKey &&
+              !event.altKey
+            )
+              event.preventDefault()
           }}
           className={`flex min-h-8 min-w-9 items-center justify-center rounded-full px-2 text-xs font-bold transition hover:no-underline ${locale === language ? '!bg-[#042c51] !text-white' : '!text-[#042c51] hover:bg-slate-100'}`}
         >

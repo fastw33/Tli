@@ -3,6 +3,7 @@ import '@/app/globals.css'
 import { SiteHeader } from './SiteHeader'
 import { ContactDirectory } from './ContactDirectory'
 import { LocaleProvider } from './LocaleProvider'
+import { NavigationProvider } from './NavigationProvider'
 import type { Locale } from '@/lib/locale'
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
@@ -26,9 +27,11 @@ export function SiteLayout({
     >
       <body className='min-h-full flex flex-col bg-white text-neutral-900'>
         <LocaleProvider locale={locale}>
-          <SiteHeader />
-          {children}
-          <ContactDirectory />
+          <NavigationProvider>
+            <SiteHeader />
+            {children}
+            <ContactDirectory />
+          </NavigationProvider>
         </LocaleProvider>
       </body>
     </html>

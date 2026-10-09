@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import { SiteLink as Link } from '@/components/SiteLink'
 import { useLocale } from '../LocaleProvider'
 import styles from './Regions.module.css'
 

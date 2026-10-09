@@ -3,7 +3,7 @@
 import { useLocale } from '@/components/LocaleProvider'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-import Link from 'next/link'
+import { SiteLink as Link } from '@/components/SiteLink'
 import React, { useEffect, useState } from 'react'
 
 type StatItem =

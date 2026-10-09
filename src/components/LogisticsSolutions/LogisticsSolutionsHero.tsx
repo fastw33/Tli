@@ -2,7 +2,7 @@
 
 import { useLocale } from '@/components/LocaleProvider'
 import React from 'react'
-import Link from 'next/link'
+import { SiteLink as Link } from '@/components/SiteLink'
 
 const heroData = {
   title: 'Comprehensive Logistics Solutions',

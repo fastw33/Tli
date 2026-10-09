@@ -1,7 +1,7 @@
 'use client'
 
 import { useLocale } from '@/components/LocaleProvider'
-import Link from 'next/link'
+import { SiteLink as Link } from '@/components/SiteLink'
 import React from 'react'
 import { Nav } from './Nav'
 

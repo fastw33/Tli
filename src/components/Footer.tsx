@@ -2,7 +2,7 @@
 
 import { useLocale } from '@/components/LocaleProvider'
 import Image from 'next/image'
-import Link from 'next/link'
+import { SiteLink as Link } from '@/components/SiteLink'
 import React from 'react'
 
 export function Footer() {
