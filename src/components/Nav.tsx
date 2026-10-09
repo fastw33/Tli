@@ -49,7 +49,6 @@ export function Nav() {
   const links = [
     { href: '/', label: 'TLI' },
     { href: '/regions', label: 'Regions' },
-    { href: '/regions#industries', label: 'Industries' },
     { href: '/logistics-solutions', label: 'Logistics Solutions' },
     { href: '/air', label: 'Air' },
     { href: '/ocean', label: 'Ocean' },
