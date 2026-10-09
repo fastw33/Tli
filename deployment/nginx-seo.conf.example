@@ -1,0 +1,31 @@
+# Merge these locations into the existing HTTPS server for tlimiami.com.
+# Keep its existing TLS configuration. Its root must point to the exported out/.
+# Replace the existing SPA fallback location; do not add a second location /.
+index index.html;
+error_page 404 /404.html;
+
+location = /clients { return 301 https://tlimiami.com/regions; }
+location = /es/clients { return 301 https://tlimiami.com/es/regions; }
+
+location = /sitemap.xml {
+    types { }
+    default_type application/xml;
+    try_files $uri =404;
+}
+
+location = /robots.txt {
+    types { }
+    default_type text/plain;
+    try_files $uri =404;
+}
+
+location = /404.html {
+    internal;
+}
+
+location / {
+    try_files $uri $uri.html $uri/ =404;
+}
+
+# On the separate www/HTTP virtual hosts, preserve the path and query string:
+# return 301 https://tlimiami.com$request_uri;

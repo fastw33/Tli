@@ -68,6 +68,8 @@ export function Footer() {
           <div className='rounded-2xl border border-[#0a4eb6]/10 bg-white p-6 shadow-lg'>
             <p className='font-bold text-[#042c51]'>
               10049 NW 89th Ave unit 4, Medley, FL 33178
+              <br />
+              {t('United States')}
             </p>
 
             <a

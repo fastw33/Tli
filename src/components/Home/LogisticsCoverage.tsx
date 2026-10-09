@@ -25,6 +25,11 @@ export function LogisticsCoverage() {
             'Connecting Miami with the Dominican Republic, the Caribbean, Central America, South America and global markets.',
           )}
         </h2>
+        <p className='mx-auto mt-6 max-w-3xl text-base leading-relaxed'>
+          {t(
+            'Based in Medley, Florida, our Miami logistics hub supports domestic freight across the United States and international shipping for importers and exporters.',
+          )}
+        </p>
         <Link
           href={localizePath('/regions')}
           className='mt-6 inline-flex items-center gap-2 text-sm font-bold'

@@ -46,7 +46,7 @@ const stats: StatItem[] = [
 
 function Counter({ end, suffix = '' }: { end: number; suffix?: string }) {
   const { locale } = useLocale()
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(end)
 
   useEffect(() => {
     let frame: number

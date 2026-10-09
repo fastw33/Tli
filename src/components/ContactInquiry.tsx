@@ -7,6 +7,7 @@ import { SiteLink } from './SiteLink'
 import { EmailCopy } from './EmailCopy'
 import { contacts } from '@/lib/contacts'
 import ui from './Interface.module.css'
+import { site } from '@/lib/site'
 
 const topics = {
   general: {
@@ -91,8 +92,39 @@ function Inquiry() {
 
 export function ContactInquiry() {
   return (
-    <Suspense fallback={<main className='min-h-96 bg-[#f4f8fb]' />}>
+    <Suspense fallback={<ContactFallback />}>
       <Inquiry />
     </Suspense>
+  )
+}
+
+/** Give static HTML and visitors without JavaScript useful contact information. */
+function ContactFallback() {
+  const { t } = useLocale()
+  return (
+    <main className={ui.page}>
+      <section className={ui.hero}>
+        <div>
+          <p className={ui.eyebrow}>{t('TLI · Contact')}</p>
+          <h1 className={ui.title}>{t(topics.general.title)}</h1>
+          <p className={ui.intro}>{t(topics.general.description)}</p>
+        </div>
+        <address className='rounded-xl border border-[#dce5ec] bg-white p-6 not-italic sm:p-8'>
+          <p>{site.businessName}</p>
+          <p>
+            {site.streetAddress}
+            <br />
+            {site.addressLocality}, {site.addressRegion} {site.postalCode}
+            <br />
+            {t('United States')}
+          </p>
+          <p>
+            {site.telephone}
+            <br />
+            {site.email}
+          </p>
+        </address>
+      </section>
+    </main>
   )
 }

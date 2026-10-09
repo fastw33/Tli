@@ -2,6 +2,12 @@
 
 Un proyecto Next.js 16 moderno con **sistema de diseño personalizado**, **colores institucionales** (verde #2CAD3F a azul #0A4EB6) y **optimizaciones SEO completas**.
 
+## SEO y publicación
+
+El sitio prioriza inglés de Estados Unidos y la ubicación de TLI en Medley, Florida. Incluye sitemap bilingüe, robots, canónicas absolutas, metadatos sociales y JSON-LD. Consulta [la guía SEO](docs/seo.md) para las validaciones y el fragmento Nginx necesario; publica el contenido completo de `out/` y verifica que las URLs inexistentes devuelvan 404.
+
+Ejecuta `npm run build` y después `npm run check:seo`. Tras desplegar, `npm run check:seo:live` comprueba el comportamiento real de producción.
+
 ## Idiomas y regiones
 
 - Inglés es el idioma principal: `/`, `/regions`, `/air`, etc.

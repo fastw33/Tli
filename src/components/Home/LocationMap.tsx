@@ -48,6 +48,8 @@ export function LocationMap() {
               10049 NW 89th Ave unit 4
               <br />
               Medley, FL 33178
+              <br />
+              {t('United States')}
             </address>
 
             <div className='mt-6 flex flex-wrap gap-3'>

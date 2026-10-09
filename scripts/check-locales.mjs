@@ -44,7 +44,8 @@ const sourceFiles = files(path.join(root, 'src/components')).filter(
   (file) =>
     /\.tsx$/.test(file) &&
     !file.includes(`${path.sep}Clients${path.sep}`) &&
-    !/(Button|Card)\.tsx$/.test(file),
+    // JSON-LD contains schema identifiers and proper place names, not UI copy.
+    !/(Button|Card|StructuredData)\.tsx$/.test(file),
 )
 sourceFiles.push(
   path.join(root, 'src/lib/contacts.ts'),

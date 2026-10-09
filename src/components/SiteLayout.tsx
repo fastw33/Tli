@@ -5,6 +5,8 @@ import { ContactDirectory } from './ContactDirectory'
 import { LocaleProvider } from './LocaleProvider'
 import { NavigationProvider } from './NavigationProvider'
 import type { Locale } from '@/lib/locale'
+import { contentLanguage } from '@/lib/site'
+import { SiteStructuredData } from './StructuredData'
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
 const geistMono = Geist_Mono({
@@ -21,11 +23,19 @@ export function SiteLayout({
 }) {
   return (
     <html
-      lang={locale}
+      lang={contentLanguage(locale)}
       data-scroll-behavior='smooth'
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className='min-h-full flex flex-col bg-white text-neutral-900'>
+        <SiteStructuredData />
+        <noscript>
+          <style>
+            {
+              '[data-aos] { opacity: 1 !important; transform: none !important; }'
+            }
+          </style>
+        </noscript>
         <LocaleProvider locale={locale}>
           <NavigationProvider>
             <SiteHeader />
