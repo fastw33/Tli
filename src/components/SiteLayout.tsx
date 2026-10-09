@@ -33,6 +33,12 @@ export function SiteLayout({
           href={absoluteUrl(locale === 'es' ? '/es/llms.txt' : '/llms.txt')}
           type='text/plain'
         />
+        <link rel='ard' href='/.well-known/ard.json' type='application/json' />
+        <link
+          rel='ai-catalog'
+          href='/.well-known/ai-catalog.json'
+          type='application/json'
+        />
         <SiteStructuredData />
         <noscript>
           <style>

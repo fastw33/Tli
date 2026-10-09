@@ -29,6 +29,14 @@ Every English and Spanish page includes a localized `rel="describedby"` link to 
 
 This follows the [llms.txt proposal](https://llmstxt.org/) and addresses the [Lighthouse llms.txt audit](https://developer.chrome.com/docs/lighthouse/agentic-browsing/llms-txt). Publishing these files does not establish a specific agentic browsing score or resolve a Search Console sitemap fetch error; inspect the remaining audit criteria separately.
 
+### Agent resource manifest
+
+The reported fourth audit failed because `/.well-known/ai-catalog.json` returned the homepage HTML with HTTP 200. The static export now provides JSON at `/.well-known/ard.json`, `/.well-known/ai-catalog.json` and `/ai-catalog.json`. The three copies must remain identical. The manifest includes `specVersion: "1.0"`, the publisher name, logo and expanded company documentation. Its `entries` array is empty because the site does not currently implement an A2A agent, MCP server or registered agent tools; do not invent callable resources to satisfy the audit. Human and agent reference content is available through the llms guides.
+
+Every page advertises both `rel="ard"` (the current proposal) and `rel="ai-catalog"` (compatibility with the deployed Lighthouse audit). The prepared Nginx configuration serves these paths as JSON and returns 404 when a file is missing. Both the export and live SEO checks validate the JSON and discovery links. [ARD discovery specification](https://agenticresourcediscovery.org/spec/).
+
+The corrected static export was audited locally with Lighthouse 13.5.0 and Chrome 154: all four scored agentic browsing checks passed (accessibility tree, CLS 0, llms.txt and ARD schema). The manifest also passed Lighthouse's own schema audit with score 1 and no issues at all three published paths. This local result does not replace a production audit after redeployment.
+
 ## Required hosting configuration
 
 The pre-change production check found that missing URLs, `/sitemap.xml` and `/robots.txt` returned the homepage with HTTP 200 and `text/html`. Generated files must be published from **the entire `out/` directory**, not only its HTML pages.

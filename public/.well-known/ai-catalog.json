@@ -1,0 +1,9 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "TLI Miami — Transport Logistic International",
+    "documentationUrl": "https://tlimiami.com/llms-full.txt",
+    "logoUrl": "https://tlimiami.com/transport.webp"
+  },
+  "entries": []
+}

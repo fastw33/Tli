@@ -79,6 +79,19 @@ for (const route of pages) {
       url(locale === 'es' ? '/es/llms.txt' : '/llms.txt'),
     )
     assert.equal(agentGuides[0].type, 'text/plain')
+    for (const [relation, target] of [
+      ['ard', '/.well-known/ard.json'],
+      ['ai-catalog', '/.well-known/ai-catalog.json'],
+    ]) {
+      const catalogs = links.filter((link) => link.rel === relation)
+      assert.equal(
+        catalogs.length,
+        1,
+        `Missing ${relation} discovery: ${pathname}`,
+      )
+      assert.equal(catalogs[0].href, target)
+      assert.equal(catalogs[0].type, 'application/json')
+    }
     const canonicals = links.filter((link) => link.rel === 'canonical')
     assert.equal(
       canonicals.length,
@@ -181,6 +194,27 @@ for (const locale of ['en', 'es']) {
   )
 }
 const robots = fs.readFileSync(path.join(root, 'robots.txt'), 'utf8')
+const catalog = JSON.parse(
+  fs.readFileSync(path.join(root, '.well-known/ard.json'), 'utf8'),
+)
+assert.equal(catalog.specVersion, '1.0')
+assert.equal(
+  catalog.host.displayName,
+  'TLI Miami — Transport Logistic International',
+)
+assert.equal(catalog.host.documentationUrl, `${origin}/llms-full.txt`)
+assert.equal(catalog.host.logoUrl, `${origin}/transport.webp`)
+assert.deepEqual(
+  catalog.entries,
+  [],
+  'Do not advertise tools that this site does not implement',
+)
+for (const file of ['.well-known/ai-catalog.json', 'ai-catalog.json']) {
+  assert.deepEqual(
+    JSON.parse(fs.readFileSync(path.join(root, file), 'utf8')),
+    catalog,
+  )
+}
 for (const file of ['llms.txt', 'es/llms.txt', 'llms-full.txt']) {
   const text = fs.readFileSync(path.join(root, file), 'utf8')
   assert.match(text, /^# TLI Miami/)

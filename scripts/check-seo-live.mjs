@@ -1,5 +1,15 @@
 const origin = 'https://tlimiami.com'
 const checks = [
+  ...[
+    '/.well-known/ard.json',
+    '/.well-known/ai-catalog.json',
+    '/ai-catalog.json',
+  ].map((path) => ({
+    path,
+    status: 200,
+    type: /application\/json/,
+    json: true,
+  })),
   ...['/llms.txt', '/es/llms.txt', '/llms-full.txt'].map((path) => ({
     path,
     status: 200,
@@ -55,6 +65,20 @@ for (const check of checks) {
       problems.push('Incorrect content type')
     if (check.content && !check.content.test(body))
       problems.push('Incorrect content')
+    if (check.json) {
+      try {
+        const catalog = JSON.parse(body)
+        if (
+          catalog.specVersion !== '1.0' ||
+          !Array.isArray(catalog.entries) ||
+          catalog.host?.documentationUrl !== `${origin}/llms-full.txt`
+        ) {
+          problems.push('Incorrect agent catalog')
+        }
+      } catch {
+        problems.push('Agent catalog is not JSON (possible homepage fallback)')
+      }
+    }
     if (
       check.location &&
       new URL(response.headers.get('location') || '/', origin).pathname !==
