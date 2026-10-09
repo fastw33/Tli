@@ -1,4 +1,5 @@
 import React from 'react'
+import ui from '../Interface.module.css'
 
 import { AirCTA } from './AirCTA'
 import { AirCapabilities } from './AirCapabilities'
@@ -7,7 +8,7 @@ import { AirProcess } from './AirProcess'
 
 export function AirLanding() {
   return (
-    <main className='bg-white pt-24'>
+    <main className={ui.servicePage}>
       <AirHero />
       <AirCapabilities />
       <AirProcess />

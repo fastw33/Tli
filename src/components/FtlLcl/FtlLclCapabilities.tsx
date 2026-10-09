@@ -27,18 +27,15 @@ export function FtlLclCapabilities() {
 
   return (
     <section
-      className='relative overflow-hidden bg-gradient-to-br from-[#f7fbff] via-white to-[#eefcf4] px-6 py-16 text-slate-900'
+      className='relative overflow-hidden bg-[#f4f8fb] px-6 py-16 text-[#042c51]'
       data-aos='fade-up'
     >
-      <div className='absolute left-0 top-12 h-40 w-40 rounded-full bg-[#18aeea]/15 blur-3xl' />
-      <div className='absolute bottom-10 right-0 h-56 w-56 rounded-full bg-[#2cad3f]/15 blur-3xl' />
-
       <div className='relative mx-auto w-full max-w-7xl'>
         <div className='max-w-3xl'>
           <p className='mb-2 text-sm font-bold uppercase tracking-[0.3em] text-[#0a4eb6]'>
             {t('What It Means')}
           </p>
-          <h2 className='text-3xl font-extrabold leading-tight text-slate-900 md:text-5xl'>
+          <h2 className='text-3xl font-extrabold leading-tight text-[#042c51] md:text-5xl'>
             {t('Two truck freight models, each with a different advantage.')}
           </h2>
           <p className='mt-4 text-lg leading-8 text-slate-600'>
@@ -51,7 +48,7 @@ export function FtlLclCapabilities() {
         <div className='mt-12 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]'>
           <div className='grid gap-6 md:grid-cols-2'>
             <article
-              className='rounded-[2rem] border border-[#0a4eb6]/15 bg-white p-8 shadow-lg shadow-[#0a4eb6]/5'
+              className='rounded-xl border border-[#0a4eb6]/15 bg-white p-8 shadow-sm '
               data-aos='zoom-in'
               data-aos-delay='50'
             >
@@ -77,11 +74,11 @@ export function FtlLclCapabilities() {
             </article>
 
             <article
-              className='rounded-[2rem] border border-[#2cad3f]/15 bg-white p-8 shadow-lg shadow-[#2cad3f]/5'
+              className='rounded-xl border border-[#2cad3f]/15 bg-white p-8 shadow-sm '
               data-aos='zoom-in'
               data-aos-delay='150'
             >
-              <div className='inline-flex rounded-full bg-[#2cad3f]/10 px-4 py-2 text-sm font-bold text-[#2cad3f]'>
+              <div className='inline-flex rounded-full bg-[#2cad3f]/10 px-4 py-2 text-sm font-bold text-[#0a4eb6]'>
                 {t('LCL - Less Than Truck Load')}
               </div>
               <p className='mt-4 text-lg leading-8 text-slate-600'>
@@ -104,7 +101,7 @@ export function FtlLclCapabilities() {
           </div>
 
           <aside
-            className='rounded-[2rem] border border-slate-200 bg-slate-900 p-8 shadow-2xl'
+            className='rounded-xl border border-slate-200 bg-[#042c51] p-8 shadow-sm'
             style={{ color: '#ffffff' }}
             data-aos='fade-left'
             data-aos-delay='100'
@@ -125,7 +122,7 @@ export function FtlLclCapabilities() {
               {decisionPoints.map((point) => (
                 <div
                   key={point}
-                  className='flex items-center gap-3 rounded-2xl bg-white/10 px-4 py-3'
+                  className='flex items-center gap-3 rounded-xl bg-white/10 px-4 py-3'
                 >
                   <span className='flex h-8 w-8 items-center justify-center rounded-full bg-[#18aeea] text-sm font-bold text-white'>
                     ✓
@@ -140,7 +137,7 @@ export function FtlLclCapabilities() {
               ))}
             </div>
 
-            <div className='mt-8 rounded-3xl border border-white/15 bg-gradient-to-r from-[#0a4eb6] via-[#18aeea] to-[#2cad3f] p-5 text-white'>
+            <div className='mt-8 rounded-xl border border-white/15 bg-[#0a4eb6] p-5 text-white'>
               <p
                 className='text-sm font-bold uppercase tracking-[0.3em]'
                 style={{ color: '#ffffff' }}
@@ -159,7 +156,7 @@ export function FtlLclCapabilities() {
 
         <div className='mt-12 grid gap-4 md:grid-cols-3'>
           <div
-            className='rounded-3xl border border-[#0a4eb6]/15 bg-[#0a4eb6]/5 p-6'
+            className='rounded-xl border border-[#0a4eb6]/15 bg-[#0a4eb6]/5 p-6'
             data-aos='zoom-in'
             data-aos-delay='50'
           >
@@ -173,11 +170,11 @@ export function FtlLclCapabilities() {
             </p>
           </div>
           <div
-            className='rounded-3xl border border-[#2cad3f]/15 bg-[#2cad3f]/5 p-6'
+            className='rounded-xl border border-[#2cad3f]/15 bg-[#2cad3f]/5 p-6'
             data-aos='zoom-in'
             data-aos-delay='100'
           >
-            <p className='text-sm font-bold uppercase tracking-[0.3em] text-[#2cad3f]'>
+            <p className='text-sm font-bold uppercase tracking-[0.3em] text-[#0a4eb6]'>
               {t('Best for LCL')}
             </p>
             <p className='mt-3 text-base leading-7 text-slate-700'>
@@ -187,7 +184,7 @@ export function FtlLclCapabilities() {
             </p>
           </div>
           <div
-            className='rounded-3xl border border-[#18aeea]/15 bg-[#18aeea]/5 p-6'
+            className='rounded-xl border border-[#18aeea]/15 bg-[#18aeea]/5 p-6'
             data-aos='zoom-in'
             data-aos-delay='150'
           >

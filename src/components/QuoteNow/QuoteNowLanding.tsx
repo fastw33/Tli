@@ -1,10 +1,11 @@
 'use client'
 
-import React, { useEffect } from 'react'
+import React, { Suspense, useEffect } from 'react'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { QuoteNowHero } from './QuoteNowHero'
-import { QuoteNowForm } from './QuoteNowForm'
+import { QuoteRequestContext } from './QuoteRequestContext'
+import ui from '../Interface.module.css'
 import { QuoteNowCTA } from './QuoteNowCTA'
 
 export function QuoteNowLanding() {
@@ -13,9 +14,11 @@ export function QuoteNowLanding() {
   }, [])
 
   return (
-    <main>
+    <main className={ui.page}>
       <QuoteNowHero />
-      <QuoteNowForm />
+      <Suspense fallback={<div className='min-h-96' />}>
+        <QuoteRequestContext />
+      </Suspense>
       <QuoteNowCTA />
     </main>
   )

@@ -54,14 +54,14 @@ export default function LogisticsCapabilities() {
   const { t } = useLocale()
 
   return (
-    <section className='w-full bg-gradient-to-b from-slate-50 to-white py-16 lg:py-24'>
+    <section className='w-full bg-[#f4f8fb] py-16 lg:py-24'>
       <div className='mx-auto w-full max-w-7xl px-6'>
         {/* Section Header */}
         <div className='mb-16 max-w-3xl' data-aos='fade-up'>
-          <p className='mb-2 text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-[#2cad3f]'>
+          <p className='mb-2 text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-[#0a4eb6]'>
             {t('Why Choose Us')}
           </p>
-          <h2 className='text-4xl font-extrabold leading-tight text-slate-900 md:text-5xl'>
+          <h2 className='text-4xl font-extrabold leading-tight text-[#042c51] md:text-5xl'>
             {t('Industry-Leading Capabilities')}
           </h2>
           <p className='mt-4 text-lg text-slate-600'>
@@ -78,7 +78,7 @@ export default function LogisticsCapabilities() {
               key={idx}
               data-aos='zoom-in'
               data-aos-delay={idx * 100}
-              className={`group relative rounded-2xl bg-gradient-to-br ${cap.gradient} border border-slate-200 p-8 backdrop-blur transition hover:border-slate-300 hover:shadow-lg`}
+              className={`group relative rounded-xl bg-white border border-slate-200 p-8 backdrop-blur transition hover:border-slate-300 hover:shadow-sm`}
             >
               {/* Icon Background */}
               <div className='absolute right-4 top-4 text-4xl opacity-20 transition group-hover:opacity-40'>
@@ -87,7 +87,7 @@ export default function LogisticsCapabilities() {
 
               {/* Content */}
               <div className='relative z-10'>
-                <h3 className='mb-6 text-lg font-bold text-slate-900'>
+                <h3 className='mb-6 text-lg font-bold text-[#042c51]'>
                   {t(cap.category)}
                 </h3>
 
@@ -97,7 +97,7 @@ export default function LogisticsCapabilities() {
                       key={itemIdx}
                       className='flex items-start gap-3 text-sm text-slate-700'
                     >
-                      <span className='mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-gradient-to-r from-[#2cad3f] to-[#0a4eb6]' />
+                      <span className='mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-[#0a4eb6]' />
                       <span>{t(item)}</span>
                     </li>
                   ))}

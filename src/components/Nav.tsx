@@ -65,7 +65,7 @@ export function Nav() {
       aria-label={t('Main navigation')}
       className={`z-50 w-full border-b border-[#042c51]/10 bg-white/90 backdrop-blur-md ${isHome ? 'fixed left-0 right-0 top-0' : 'sticky top-0'}`}
     >
-      <div className='mx-auto flex h-24 max-w-[1440px] items-center justify-between gap-3 px-4 sm:px-6'>
+      <div className='mx-auto flex h-24 max-w-[1440px] items-center justify-between gap-2 px-3 sm:gap-3 sm:px-6'>
         <Link
           href={localizePath('/')}
           aria-label={t('TLI home')}
@@ -78,7 +78,7 @@ export function Nav() {
             width={180}
             height={60}
             priority
-            className='h-auto w-[125px] object-contain sm:w-[155px]'
+            className='h-auto w-[88px] object-contain sm:w-[155px]'
           />
         </Link>
         <div className='hidden items-center gap-1 xl:flex'>
@@ -93,38 +93,19 @@ export function Nav() {
             </Link>
           ))}
         </div>
-        <div className='flex items-center gap-2 sm:gap-3'>
+        <div className='flex items-center gap-1.5 sm:gap-3'>
+          <Link
+            href={localizePath('/quote-now')}
+            className='inline-flex min-h-10 items-center justify-center rounded-md bg-[#0a4eb6] px-2.5 text-xs font-bold !text-white hover:bg-[#042c51] hover:no-underline xl:hidden'
+            onClick={() => setIsMenuOpen(false)}
+          >
+            {t('Quote')}
+          </Link>
           <Link
             href={localizePath('/quote-now')}
             className='hidden rounded-full bg-[#0a4eb6] px-4 py-3 text-xs font-bold uppercase !text-white transition hover:bg-[#042c51] hover:no-underline xl:inline-flex'
           >
             {t('Quote Now')}
-          </Link>
-          <Link
-            href={localizePath('/login')}
-            aria-label={t('Sign In')}
-            className='hidden h-10 w-10 items-center justify-center rounded-full border border-[#042c51]/20 !text-[#042c51] xl:flex'
-          >
-            <svg
-              width='18'
-              height='18'
-              viewBox='0 0 24 24'
-              fill='none'
-              aria-hidden='true'
-            >
-              <circle
-                cx='12'
-                cy='8'
-                r='4'
-                stroke='currentColor'
-                strokeWidth='1.8'
-              />
-              <path
-                d='M4 21v-2a8 8 0 0 1 16 0v2'
-                stroke='currentColor'
-                strokeWidth='1.8'
-              />
-            </svg>
           </Link>
           <LanguageSwitcher />
           <button
@@ -180,13 +161,6 @@ export function Nav() {
               className='mt-2 rounded-lg bg-[#0a4eb6] px-4 py-3 text-center text-sm font-bold !text-white'
             >
               {t('Quote Now')}
-            </Link>
-            <Link
-              href={localizePath('/login')}
-              onClick={() => setIsMenuOpen(false)}
-              className='rounded-lg px-4 py-3 text-center text-sm font-bold !text-[#042c51]'
-            >
-              {t('Sign In')}
             </Link>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import ui from '../Interface.module.css'
 
 import { FtlLclCTA } from './FtlLclCTA'
 import { FtlLclCapabilities } from './FtlLclCapabilities'
@@ -7,7 +8,7 @@ import { FtlLclProcess } from './FtlLclProcess'
 
 export function FtlLclLanding() {
   return (
-    <main className='bg-white pt-24'>
+    <main className={ui.servicePage}>
       <FtlLclHero />
       <FtlLclCapabilities />
       <FtlLclProcess />

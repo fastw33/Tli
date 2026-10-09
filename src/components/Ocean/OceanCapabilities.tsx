@@ -31,7 +31,7 @@ export function OceanCapabilities() {
 
   return (
     <section
-      className='bg-white px-6 py-12 md:py-16 text-slate-900'
+      className='bg-white px-6 py-12 md:py-16 text-[#042c51]'
       data-aos='fade-up'
     >
       <div className='mx-auto w-full max-w-7xl'>
@@ -39,7 +39,7 @@ export function OceanCapabilities() {
           <p className='mb-2 text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-[#0a4eb6]'>
             {t('What We Handle')}
           </p>
-          <h2 className='text-3xl font-extrabold leading-tight text-slate-900 md:text-5xl'>
+          <h2 className='text-3xl font-extrabold leading-tight text-[#042c51] md:text-5xl'>
             {t('Ocean logistics built for reliable international movement.')}
           </h2>
           <p className='mt-4 text-lg leading-8 text-slate-600'>
@@ -53,10 +53,10 @@ export function OceanCapabilities() {
           {capabilities.map((item) => (
             <article
               key={item.title}
-              className='rounded-2xl border border-slate-200 bg-slate-50 p-8 shadow-sm transition hover:-translate-y-1 hover:bg-white hover:shadow-lg'
+              className='rounded-xl border border-slate-200 bg-slate-50 p-8 shadow-sm transition  hover:bg-white hover:shadow-sm'
               data-aos='zoom-in'
             >
-              <h3 className='text-xl font-bold text-slate-900'>
+              <h3 className='text-xl font-bold text-[#042c51]'>
                 {t(item.title)}
               </h3>
               <p className='mt-3 text-base leading-7 text-slate-600'>
@@ -64,23 +64,6 @@ export function OceanCapabilities() {
               </p>
             </article>
           ))}
-        </div>
-
-        <div
-          className='mt-8 md:mt-12 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm'
-          data-aos='fade-up'
-          data-aos-delay='150'
-        >
-          <div className='flex min-h-[220px] items-center justify-center rounded-2xl border-2 border-dashed border-slate-300 bg-slate-50 px-6 text-center'>
-            <div>
-              <p className='text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-[#0a4eb6]'>
-                {t('Operations')}
-              </p>
-              <p className='mt-3 text-lg font-semibold text-slate-900'>
-                {t('Port operations and container handling')}
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </section>

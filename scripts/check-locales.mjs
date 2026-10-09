@@ -19,6 +19,8 @@ const fields = new Set([
   'focus',
   'detail',
   'role',
+  'greeting',
+  'value',
 ])
 function files(dir) {
   return fs
@@ -47,6 +49,8 @@ const sourceFiles = files(path.join(root, 'src/components')).filter(
 sourceFiles.push(
   path.join(root, 'src/lib/contacts.ts'),
   path.join(root, 'src/components/QuoteNow/citiesData.ts'),
+  path.join(root, 'src/lib/quote.ts'),
+  path.join(root, 'src/lib/leads.ts'),
 )
 for (const file of sourceFiles) {
   const sf = ts.createSourceFile(
@@ -64,6 +68,29 @@ for (const file of sourceFiles) {
     }
   }
   function visit(node) {
+    if (
+      ts.isJsxAttribute(node) &&
+      ['eyebrow', 'title', 'description', 'label'].includes(
+        node.name.getText(sf),
+      ) &&
+      node.initializer &&
+      ts.isStringLiteral(node.initializer)
+    )
+      requireTranslation(node.initializer.text)
+    if (
+      file.endsWith('quote.ts') &&
+      ts.isBinaryExpression(node) &&
+      node.left.getText(sf).startsWith('errors.') &&
+      ts.isStringLiteral(node.right)
+    )
+      requireTranslation(node.right.text)
+    if (
+      file.endsWith('leads.ts') &&
+      ts.isPropertyAssignment(node) &&
+      node.name.getText(sf) === 'message' &&
+      ts.isStringLiteral(node.initializer)
+    )
+      requireTranslation(node.initializer.text)
     if (
       ts.isCallExpression(node) &&
       node.expression.getText(sf) === 't' &&

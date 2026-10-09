@@ -35,18 +35,15 @@ export function FtlLclProcess() {
 
   return (
     <section
-      className='relative overflow-hidden bg-gradient-to-br from-[#fff9f4] via-white to-[#effef7] px-6 py-20 text-slate-900'
+      className='relative overflow-hidden bg-[#f4f8fb] px-6 py-20 text-[#042c51]'
       data-aos='fade-up'
     >
-      <div className='absolute left-[-48px] top-10 h-44 w-44 rounded-full bg-[#0a4eb6]/10 blur-3xl' />
-      <div className='absolute right-[-44px] bottom-0 h-56 w-56 rounded-full bg-[#2cad3f]/10 blur-3xl' />
-
       <div className='relative mx-auto w-full max-w-7xl'>
         <div className='max-w-3xl'>
           <p className='mb-2 text-sm font-bold uppercase tracking-[0.3em] text-[#0a4eb6]'>
             {t('How Freight Moves')}
           </p>
-          <h2 className='text-3xl font-extrabold leading-tight text-slate-900 md:text-5xl'>
+          <h2 className='text-3xl font-extrabold leading-tight text-[#042c51] md:text-5xl'>
             {t('A coordinated process for truck freight.')}
           </h2>
           <p className='mt-4 text-lg leading-8 text-slate-600'>
@@ -58,7 +55,7 @@ export function FtlLclProcess() {
 
         <div className='mt-12 grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start'>
           <aside
-            className='rounded-[2rem] border border-slate-200 bg-slate-900 p-8 text-white shadow-2xl'
+            className='rounded-xl border border-slate-200 bg-[#042c51] p-8 text-white shadow-sm'
             data-aos='fade-right'
           >
             <p
@@ -82,7 +79,7 @@ export function FtlLclProcess() {
               ].map((point) => (
                 <div
                   key={point}
-                  className='flex items-start gap-3 rounded-2xl bg-white/10 px-4 py-3'
+                  className='flex items-start gap-3 rounded-xl bg-white/10 px-4 py-3'
                 >
                   <span className='mt-1 flex h-7 w-7 items-center justify-center rounded-full bg-[#18aeea] text-sm font-bold text-white'>
                     ✓
@@ -94,7 +91,7 @@ export function FtlLclProcess() {
               ))}
             </div>
 
-            <div className='mt-8 rounded-3xl border border-white/15 bg-gradient-to-r from-[#0a4eb6] via-[#18aeea] to-[#2cad3f] p-5 text-white'>
+            <div className='mt-8 rounded-xl border border-white/15 bg-[#0a4eb6] p-5 text-white'>
               <p className='text-sm font-bold uppercase tracking-[0.3em] text-white'>
                 {t('Operations')}
               </p>
@@ -105,23 +102,23 @@ export function FtlLclProcess() {
           </aside>
 
           <div
-            className='relative rounded-[2.25rem] border border-slate-200 bg-white p-6 shadow-xl shadow-[#0a4eb6]/5'
+            className='relative rounded-xl border border-slate-200 bg-white p-6 shadow-sm '
             data-aos='fade-left'
           >
             <div className='space-y-5'>
               {processSteps.map((step, index) => (
                 <div
                   key={step.title}
-                  className='relative rounded-[1.5rem] border border-slate-200 bg-slate-50 p-5'
+                  className='relative rounded-xl border border-slate-200 bg-slate-50 p-5'
                   data-aos='zoom-in'
                   data-aos-delay={index * 100}
                 >
                   <div
-                    className={`absolute -left-2 top-5 hidden h-4 w-4 rounded-full bg-gradient-to-r ${step.accent} ring-8 ring-white lg:block`}
+                    className={`absolute -left-2 top-5 hidden h-4 w-4 rounded-full bg-[#0a4eb6] ring-8 ring-white lg:block`}
                   />
                   <div className='flex items-start gap-4'>
                     <div
-                      className={`flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-r ${step.accent} text-lg font-bold text-white shadow-lg`}
+                      className={`flex h-12 w-12 items-center justify-center rounded-xl bg-[#0a4eb6] text-lg font-bold text-white shadow-sm`}
                     >
                       0{index + 1}
                     </div>
@@ -139,7 +136,7 @@ export function FtlLclProcess() {
             </div>
 
             <div className='mt-8 grid gap-4 sm:grid-cols-2'>
-              <div className='rounded-[1.75rem] border border-[#0a4eb6]/15 bg-[#0a4eb6]/5 p-6'>
+              <div className='rounded-xl border border-[#0a4eb6]/15 bg-[#0a4eb6]/5 p-6'>
                 <p className='text-sm font-bold uppercase tracking-[0.3em] text-[#0a4eb6]'>
                   {t('FTL')}
                 </p>
@@ -149,8 +146,8 @@ export function FtlLclProcess() {
                   )}
                 </p>
               </div>
-              <div className='rounded-[1.75rem] border border-[#2cad3f]/15 bg-[#2cad3f]/5 p-6'>
-                <p className='text-sm font-bold uppercase tracking-[0.3em] text-[#2cad3f]'>
+              <div className='rounded-xl border border-[#2cad3f]/15 bg-[#2cad3f]/5 p-6'>
+                <p className='text-sm font-bold uppercase tracking-[0.3em] text-[#0a4eb6]'>
                   {t('LCL')}
                 </p>
                 <p className='mt-3 text-base leading-7 text-slate-700'>

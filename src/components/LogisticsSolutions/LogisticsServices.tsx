@@ -2,7 +2,6 @@
 
 import { useLocale } from '@/components/LocaleProvider'
 import React from 'react'
-import { SiteLink as Link } from '@/components/SiteLink'
 
 const services = [
   {
@@ -56,7 +55,7 @@ const services = [
 ]
 
 export default function LogisticsServices() {
-  const { t, localizePath } = useLocale()
+  const { t } = useLocale()
 
   return (
     <section className='w-full bg-white py-16 lg:py-24'>
@@ -66,7 +65,7 @@ export default function LogisticsServices() {
           <p className='mb-2 text-sm font-bold uppercase tracking-[0.3em] text-[#0a4eb6]'>
             {t('What We Offer')}
           </p>
-          <h2 className='text-4xl font-extrabold leading-tight text-slate-900 md:text-5xl'>
+          <h2 className='text-4xl font-extrabold leading-tight text-[#042c51] md:text-5xl'>
             {t('Full-Spectrum Logistics Services')}
           </h2>
           <p className='mt-4 text-lg text-slate-600'>
@@ -83,19 +82,19 @@ export default function LogisticsServices() {
               key={idx}
               data-aos='zoom-in'
               data-aos-delay={service.delay}
-              className='group relative overflow-hidden rounded-2xl bg-slate-50 p-8 shadow-md transition duration-300 hover:shadow-xl'
+              className='group relative overflow-hidden rounded-xl bg-slate-50 p-8 shadow-sm transition duration-300 hover:shadow-sm'
             >
               {/* Gradient Background on Hover */}
               <div
                 aria-hidden
-                className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 transition duration-300 group-hover:opacity-5`}
+                className={`absolute inset-0 bg-[#0a4eb6] opacity-0 transition duration-300 group-hover:opacity-5`}
               />
 
               {/* Content */}
               <div className='relative z-10'>
                 <div className='mb-4 text-5xl'>{service.icon}</div>
 
-                <h3 className='mb-3 text-xl font-bold text-slate-900 transition group-hover:text-[#0a4eb6]'>
+                <h3 className='mb-3 text-xl font-bold text-[#042c51] transition group-hover:text-[#0a4eb6]'>
                   {t(service.title)}
                 </h3>
 
@@ -105,36 +104,11 @@ export default function LogisticsServices() {
 
                 {/* Bottom accent line */}
                 <div
-                  className={`mt-6 h-1 w-12 rounded-full bg-gradient-to-r ${service.color} opacity-0 transition duration-300 group-hover:opacity-100`}
+                  className={`mt-6 h-1 w-12 rounded-full bg-[#0a4eb6] opacity-0 transition duration-300 group-hover:opacity-100`}
                 />
               </div>
             </div>
           ))}
-        </div>
-      </div>
-      {/* CTA Section - Full Width */}
-      <div
-        className='mt-16 w-full bg-gradient-to-r from-[#0a4eb6] via-[#2cad3f] to-[#042c51] p-12 text-center text-white'
-        data-aos='zoom-in'
-        role='region'
-        aria-label={t('Schedule consultation call to action')}
-      >
-        <div className='mx-auto max-w-7xl'>
-          <h3 className='mb-3 text-3xl font-extrabold !text-white mix-blend-normal opacity-100'>
-            {t('Ready to Optimize Your Logistics?')}
-          </h3>
-          <p className='mb-8 text-lg !text-white mix-blend-normal opacity-100'>
-            {t(
-              "Let's discuss how our comprehensive solutions can improve your supply chain efficiency.",
-            )}
-          </p>
-          <Link
-            href={localizePath('/quote-now')}
-            className='inline-flex rounded-full border-2 border-white bg-white px-8 py-3 text-sm font-bold text-slate-900 shadow-lg transition hover:-translate-y-0.5 hover:bg-slate-100'
-            aria-label={t('Schedule a consultation')}
-          >
-            {t('Schedule a Consultation')}
-          </Link>
         </div>
       </div>
     </section>

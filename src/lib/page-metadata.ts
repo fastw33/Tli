@@ -2,6 +2,16 @@ import type { Metadata } from 'next'
 import type { Locale } from './locale'
 
 export const pageInfo = {
+  contact: {
+    en: [
+      'Contact TLI',
+      'Contact the TLI team for shipment planning, agent partnerships and career inquiries.',
+    ],
+    es: [
+      'Contacta a TLI',
+      'Contacta al equipo TLI para planificar envíos, alianzas con agentes y oportunidades laborales.',
+    ],
+  },
   home: {
     en: [
       'TLI Miami | Transport Logistic International',

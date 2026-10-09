@@ -32,7 +32,7 @@ export function LanguageSwitcher() {
             )
               event.preventDefault()
           }}
-          className={`flex min-h-8 min-w-9 items-center justify-center rounded-full px-2 text-xs font-bold transition hover:no-underline ${locale === language ? '!bg-[#042c51] !text-white' : '!text-[#042c51] hover:bg-slate-100'}`}
+          className={`flex min-h-8 min-w-7 items-center justify-center rounded-full px-1.5 text-xs font-bold transition hover:no-underline sm:min-w-9 sm:px-2 ${locale === language ? '!bg-[#042c51] !text-white' : '!text-[#042c51] hover:bg-slate-100'}`}
         >
           {language.toUpperCase()}
         </a>

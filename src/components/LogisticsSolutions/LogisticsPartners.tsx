@@ -2,7 +2,7 @@
 
 import { useLocale } from '@/components/LocaleProvider'
 import React from 'react'
-import { SiteLink as Link } from '@/components/SiteLink'
+import { ServiceAction } from '../ServiceAction'
 
 const partners = [
   {
@@ -33,7 +33,7 @@ const partners = [
 ]
 
 export default function LogisticsPartners() {
-  const { t, localizePath } = useLocale()
+  const { t } = useLocale()
 
   return (
     <section className='w-full bg-white py-16 lg:py-24'>
@@ -43,7 +43,7 @@ export default function LogisticsPartners() {
           <p className='mb-2 text-sm font-bold uppercase tracking-[0.3em] text-[#0a4eb6]'>
             {t('Industries We Serve')}
           </p>
-          <h2 className='text-4xl font-extrabold leading-tight text-slate-900 md:text-5xl'>
+          <h2 className='text-4xl font-extrabold leading-tight text-[#042c51] md:text-5xl'>
             {t('Trusted by Industry Leaders')}
           </h2>
           <p className='mt-4 text-lg text-slate-600'>
@@ -60,13 +60,13 @@ export default function LogisticsPartners() {
               key={idx}
               data-aos='fade-up'
               data-aos-delay={idx * 75}
-              className='group relative overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-8 shadow-md transition hover:shadow-lg'
+              className='group relative overflow-hidden rounded-xl border border-slate-200 bg-[#f4f8fb] p-8 shadow-sm transition hover:shadow-sm'
             >
               {/* Top accent bar */}
-              <div className='absolute top-0 left-0 h-1 w-0 bg-gradient-to-r from-[#2cad3f] to-[#0a4eb6] transition-all duration-300 group-hover:w-full' />
+              <div className='absolute top-0 left-0 h-1 w-0 bg-[#0a4eb6] transition-all duration-300 group-hover:w-full' />
 
               <div className='relative'>
-                <h3 className='mb-2 text-lg font-bold text-slate-900'>
+                <h3 className='mb-2 text-lg font-bold text-[#042c51]'>
                   {t(partner.name)}
                 </h3>
                 <p className='text-slate-600'>{t(partner.description)}</p>
@@ -82,31 +82,12 @@ export default function LogisticsPartners() {
         </div>
       </div>
 
-      {/* CTA Section - Full Width */}
-      <div
-        className='mt-16 w-full bg-gradient-to-r from-[#0a4eb6] via-[#2cad3f] to-[#042c51] p-12 text-center'
-        data-aos='zoom-in'
-      >
-        <div className='mx-auto max-w-7xl'>
-          <h3
-            className='mb-3 text-3xl font-extrabold'
-            style={{ color: '#ffffff' }}
-          >
-            {t('Ready to Optimize Your Logistics?')}
-          </h3>
-          <p className='mb-8 text-lg' style={{ color: '#ffffff' }}>
-            {t(
-              "Let's discuss how our comprehensive solutions can improve your supply chain efficiency.",
-            )}
-          </p>
-          <Link
-            href={localizePath('/quote-now')}
-            className='inline-flex rounded-full border-2 border-white bg-white px-8 py-3 text-sm font-bold text-slate-900 shadow-lg transition hover:-translate-y-0.5 hover:bg-slate-100'
-          >
-            {t('Schedule a Consultation')}
-          </Link>
-        </div>
-      </div>
+      <ServiceAction
+        title='Ready to Optimize Your Logistics?'
+        description="Let's discuss how our comprehensive solutions can improve your supply chain efficiency."
+        label='Schedule a Consultation'
+        service='logistics'
+      />
     </section>
   )
 }

@@ -12,7 +12,7 @@ export function QuoteBanner() {
       aria-labelledby='quote-banner-title'
       className='bg-white px-6 py-16'
     >
-      <div className='mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 rounded-3xl bg-[#f4f8fb] px-8 py-10 text-center md:flex-row md:text-left'>
+      <div className='mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 rounded-xl border border-[#c4dae3] bg-[#eaf4f7] px-6 py-8 text-center md:flex-row md:text-left'>
         <div>
           <p className='mb-2 text-sm font-bold uppercase tracking-[0.25em] text-[#0a4eb6]'>
             {t('Ready to ship?')}
@@ -28,7 +28,7 @@ export function QuoteBanner() {
 
         <Link
           href={localizePath('/quote-now')}
-          className='inline-flex rounded-full bg-[#18aeea] px-8 py-4 text-sm font-bold uppercase text-white shadow-md transition hover:bg-[#0a4eb6]'
+          className='inline-flex min-h-12 shrink-0 rounded-md bg-[#0a4eb6] px-6 py-3 text-sm font-bold !text-white transition hover:bg-[#042c51] hover:no-underline'
         >
           {t('Quote Now')}
         </Link>

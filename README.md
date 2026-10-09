@@ -13,6 +13,18 @@ Un proyecto Next.js 16 moderno con **sistema de diseño personalizado**, **color
 - Los textos en inglés son claves de traducción; la versión española está en `src/lib/translations/es.json`. Al agregar texto o destinos, agrega también su traducción.
 - Ejecuta `npm run check:locales` para comprobar cobertura de traducción y variables, y `npm run build` para generar ambas versiones en `out/`.
 
+## Cotizaciones y contactos
+
+- El formulario envía `multipart/form-data` al endpoint público de Leads: `https://sisleads.appfastway.com/api/leads/public/ingest`, con `pageUrl`, `formId=tliQuoteRequest`, `payload` JSON y la clave pública en `x-api-key`, siguiendo el contrato de la web de referencia.
+- El backend conserva el lead y gestiona las notificaciones por correo. La web confirma recepción únicamente cuando obtiene una respuesta JSON válida con `ok: true` y una referencia. No anuncia envío de correo al cliente ni promete plazos de respuesta.
+- TLI se identifica con `brand: TLI Miami`, `serviceLine: logistica` y `businessUnit: Fastway`, porque el backend admite Fastway, Harvest y Greenway; enviar `TLI` como unidad fallaría su validación. Región, servicio, ruta, peso y datos de contacto se conservan en el payload.
+- Los enlaces desde Regiones conservan `?region=...` en el formulario; los servicios conservan `?service=...`. Las ciudades admiten sugerencias y entrada libre.
+- El acceso simulado se retiró del menú. `/login` conserva una página de asistencia sin pedir credenciales. Alianzas y empleo abren `/contact?topic=partnerships` y `/contact?topic=careers`, con contactos apropiados por WhatsApp y correo para copiar.
+- Se pueden configurar `NEXT_PUBLIC_LEADS_ENDPOINT` y `NEXT_PUBLIC_LEADS_PUBLIC_KEY` al compilar; la clave de ingestión del cliente es pública. No colocar claves administrativas ni credenciales SMTP en variables públicas.
+- **Requisito externo de producción:** el backend debe permitir `https://tlimiami.com` (y `https://www.tlimiami.com` si se usa) en `CORS_ORIGINS`. Al revisar la integración, su preflight devolvió HTTP 500 sin `Access-Control-Allow-Origin`, también para localhost. Una prueba GET de `/public/ping` sí devuelve 200. No se elude CORS ni se modificó el backend de referencia.
+- El administrador del backend debe verificar SMTP y `LEADS_EMAIL_ROUTES`, por ejemplo una entrada `"tlimiami.com": "sales@btgcompany.net"` para notificar a ventas de TLI. La configuración local de referencia no demuestra la configuración del servidor en producción.
+- Ejecutar `npm run test:quotes`, `npm run check:locales` y `npm run build`. Las pruebas del contrato usan respuestas simuladas para no crear leads de prueba ni enviar correos reales.
+
 ## 🚀 Características
 
 ### ✨ Diseño Personalizado

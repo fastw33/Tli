@@ -22,8 +22,8 @@ export function Footer() {
     { label: 'Regions', href: '/regions' },
     { label: 'Industries', href: '/regions#industries' },
     { label: 'Become a Customer Today', href: '/quote-now' },
-    { label: 'Become an Agent', href: '/quote-now' },
-    { label: 'Work With Us', href: '/quote-now' },
+    { label: 'Become an Agent', href: '/contact?topic=partnerships' },
+    { label: 'Work With Us', href: '/contact?topic=careers' },
   ]
 
   return (

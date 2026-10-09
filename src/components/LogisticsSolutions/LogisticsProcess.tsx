@@ -59,7 +59,7 @@ export default function LogisticsProcess() {
           <p className='mb-2 text-sm font-bold uppercase tracking-[0.3em] text-[#0a4eb6]'>
             {t('How It Works')}
           </p>
-          <h2 className='text-4xl font-extrabold leading-tight text-slate-900 md:text-5xl'>
+          <h2 className='text-4xl font-extrabold leading-tight text-[#042c51] md:text-5xl'>
             {t('Simple, Transparent Process')}
           </h2>
           <p className='mt-4 text-lg text-slate-600'>
@@ -81,7 +81,7 @@ export default function LogisticsProcess() {
               <div className='flex items-start gap-6'>
                 {/* Step Number Circle */}
                 <div className='relative flex-shrink-0'>
-                  <div className='relative flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-[#2cad3f] to-[#0a4eb6] shadow-lg'>
+                  <div className='relative flex h-20 w-20 items-center justify-center rounded-full bg-[#0a4eb6] shadow-sm'>
                     <span className='text-lg font-extrabold text-white'>
                       {item.step}
                     </span>
@@ -91,16 +91,16 @@ export default function LogisticsProcess() {
                   {idx < processSteps.length - 1 && (
                     <div
                       aria-hidden
-                      className='absolute left-1/2 top-20 h-6 w-1 -translate-x-1/2 bg-gradient-to-b from-[#0a4eb6] to-transparent'
+                      className='absolute left-1/2 top-20 h-6 w-1 -translate-x-1/2 bg-[#0a4eb6]'
                     />
                   )}
                 </div>
 
                 {/* Content Card */}
-                <div className='flex-1 rounded-xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-6 shadow-md transition hover:shadow-lg'>
+                <div className='flex-1 rounded-xl border border-slate-200 bg-[#f4f8fb] p-6 shadow-sm transition hover:shadow-sm'>
                   <div className='mb-3 flex items-center gap-3'>
                     <span className='text-3xl'>{item.icon}</span>
-                    <h3 className='text-xl font-bold text-slate-900'>
+                    <h3 className='text-xl font-bold text-[#042c51]'>
                       {t(item.title)}
                     </h3>
                   </div>

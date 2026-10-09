@@ -1,4 +1,5 @@
 import React from 'react'
+import ui from '../Interface.module.css'
 
 import { OceanCTA } from './OceanCTA'
 import { OceanCapabilities } from './OceanCapabilities'
@@ -7,7 +8,7 @@ import { OceanProcess } from './OceanProcess'
 
 export function OceanLanding() {
   return (
-    <main className='bg-white pt-24'>
+    <main className={ui.servicePage}>
       <OceanHero />
       <OceanCapabilities />
       <OceanProcess />

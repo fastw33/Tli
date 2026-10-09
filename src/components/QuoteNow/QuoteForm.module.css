@@ -1,0 +1,212 @@
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 2rem;
+  max-width: 1100px;
+  margin: auto;
+  padding: 1rem 1.5rem 4rem;
+  align-items: start;
+}
+.form {
+  border: 1px solid #dce5ec;
+  background: white;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  min-width: 0;
+}
+.progress {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0 0 1.25rem;
+  margin: 0 0 1.75rem;
+  list-style: none;
+  border-bottom: 1px solid #dce5ec;
+}
+.progress li {
+  margin: 0;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: 650;
+  color: #526273;
+}
+.progress span {
+  display: inline-flex;
+  width: 1.6rem;
+  height: 1.6rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #eaf4f7;
+  color: #042c51;
+}
+.progress [aria-current] {
+  color: #0a4eb6;
+}
+.progress [aria-current] span {
+  background: #0a4eb6;
+  color: white;
+}
+.form h2,
+.summary h2 {
+  font-size: 1.4rem;
+  font-weight: 750;
+  letter-spacing: -0.025em;
+  color: #042c51;
+  margin: 0 0 0.5rem;
+}
+.hint {
+  font-size: 0.86rem;
+  line-height: 1.7;
+  color: #526273;
+  margin: 0 0 1.5rem;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+.field {
+  min-width: 0;
+  margin-bottom: 1.25rem;
+}
+.field label {
+  display: block;
+  color: #042c51;
+  font-size: 0.82rem;
+  font-weight: 650;
+  margin-bottom: 0.5rem;
+}
+.field input,
+.field select,
+.field textarea {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: 3rem;
+  padding: 0.8rem;
+  background: #fff;
+  border: 1px solid #c4d0db;
+  border-radius: 0.4rem;
+  color: #042c51;
+  font-size: 1rem;
+}
+.field textarea {
+  resize: vertical;
+}
+.field [aria-invalid='true'] {
+  border-color: #b42318;
+}
+.error {
+  color: #b42318;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  margin: 0.4rem 0 0;
+}
+.errorBanner {
+  border: 1px solid #efb6b0;
+  background: #fff4f2;
+  border-radius: 0.4rem;
+  padding: 1rem;
+  margin: 1.25rem 0;
+  color: #8c241b;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+.buttons {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+.buttons button {
+  flex: 1;
+}
+.summary {
+  position: sticky;
+  top: 8rem;
+  padding: 1.75rem;
+  border: 1px solid #c4dae3;
+  border-radius: 0.75rem;
+  background: #eaf4f7;
+  min-width: 0;
+}
+.summary dl {
+  margin: 1.25rem 0;
+}
+.row {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid #c4dae3;
+}
+.row dt {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #526273;
+  margin-bottom: 0.3rem;
+}
+.row dd {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 650;
+  color: #042c51;
+  overflow-wrap: anywhere;
+}
+.support {
+  border-top: 1px solid #c4dae3;
+  padding-top: 1.25rem;
+}
+.support p {
+  font-size: 0.85rem;
+  color: #526273;
+  margin: 0 0 0.75rem;
+  line-height: 1.7;
+}
+.success {
+  border: 1px solid #9cccae;
+  background: #f0fbf4;
+  padding: 2rem;
+  border-radius: 0.75rem;
+}
+.success h2 {
+  color: #17663a;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+.success p {
+  color: #315c42;
+  line-height: 1.7;
+}
+.honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+@media (max-width: 767px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .form {
+    padding: 1.25rem;
+  }
+  .summary {
+    position: static;
+    padding: 1.25rem;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .progress {
+    gap: 0.75rem;
+  }
+  .buttons {
+    flex-wrap: wrap;
+  }
+  .success {
+    padding: 1.25rem;
+  }
+}

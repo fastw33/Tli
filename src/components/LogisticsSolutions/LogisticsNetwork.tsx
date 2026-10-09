@@ -38,14 +38,14 @@ export default function LogisticsNetwork() {
   const { t } = useLocale()
 
   return (
-    <section className='w-full bg-gradient-to-b from-slate-50 to-white py-16 lg:py-24'>
+    <section className='w-full bg-[#f4f8fb] py-16 lg:py-24'>
       <div className='mx-auto w-full max-w-7xl px-6'>
         {/* Section Header */}
         <div className='mb-16 max-w-3xl' data-aos='fade-up'>
-          <p className='mb-2 text-sm font-bold uppercase tracking-[0.3em] text-[#2cad3f]'>
+          <p className='mb-2 text-sm font-bold uppercase tracking-[0.3em] text-[#0a4eb6]'>
             {t('Coverage')}
           </p>
-          <h2 className='text-4xl font-extrabold leading-tight text-slate-900 md:text-5xl'>
+          <h2 className='text-4xl font-extrabold leading-tight text-[#042c51] md:text-5xl'>
             {t(networkData.title)}
           </h2>
           <p className='mt-4 text-lg text-slate-600'>
@@ -62,16 +62,16 @@ export default function LogisticsNetwork() {
               key={idx}
               data-aos='fade-up'
               data-aos-delay={idx * 100}
-              className='group relative rounded-2xl border border-slate-200 bg-white p-8 shadow-md transition hover:shadow-lg'
+              className='group relative rounded-xl border border-slate-200 bg-white p-8 shadow-sm transition hover:shadow-sm'
             >
               {/* Corner accent */}
-              <div className='absolute right-0 top-0 h-1 w-16 rounded-bl-full bg-gradient-to-r from-[#2cad3f] to-transparent' />
+              <div className='absolute right-0 top-0 h-1 w-16 rounded-bl-full bg-[#0a4eb6]' />
 
               <div className='relative'>
-                <p className='mb-1 text-xs font-bold uppercase tracking-[0.2em] text-[#2cad3f]'>
+                <p className='mb-1 text-xs font-bold uppercase tracking-[0.2em] text-[#0a4eb6]'>
                   {t(region.coverage)}
                 </p>
-                <h3 className='mb-3 text-xl font-bold text-slate-900'>
+                <h3 className='mb-3 text-xl font-bold text-[#042c51]'>
                   {t(region.name)}
                 </h3>
                 <p className='text-slate-600'>{t(region.description)}</p>
