@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="skyline" x1="28" y1="76" x2="232" y2="30" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22c55e" />
+      <stop offset="1" stop-color="#0ea5e9" />
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="48" fill="#062f57" />
+  <path d="M36 82c46 25 112 19 165-23l-30-3 52-20-13 57-15-23C140 116 75 120 36 82Z" fill="url(#skyline)" />
+  <g fill="#fff">
+    <path d="M43 117h65v24H87v73H64v-73H43Z" />
+    <path d="M119 117h24v73h39v24h-63Z" />
+    <path d="M193 117h24v97h-24Z" />
+  </g>
+</svg>

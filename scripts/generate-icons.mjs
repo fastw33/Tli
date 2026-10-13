@@ -1,9 +1,9 @@
-import { readFile, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import sharp from 'sharp'
 
-// Raster icons are derived from the same SVG used by modern browsers.
-const appDirectory = new URL('../src/app/', import.meta.url)
-const source = await readFile(new URL('icon.svg', appDirectory))
+// Search crawlers are most reliable with stable root PNG/ICO URLs.
+const publicDirectory = new URL('../public/', import.meta.url)
+const source = await readFile(new URL('favicon-source.svg', import.meta.url))
 const sizes = [16, 32, 48, 64]
 const images = await Promise.all(
   sizes.map(size => sharp(source).resize(size, size).png().toBuffer()),
@@ -26,6 +26,9 @@ images.forEach((image, index) => {
   offset += image.length
 })
 
-await writeFile(new URL('favicon.ico', appDirectory), Buffer.concat([directory, ...images]))
-await writeFile(new URL('apple-icon.png', appDirectory), await sharp(source).resize(180, 180).png().toBuffer())
-console.log('Generated favicon.ico (16, 32, 48, 64 px) and apple-icon.png (180 px).')
+await mkdir(publicDirectory, { recursive: true })
+await writeFile(new URL('favicon.ico', publicDirectory), Buffer.concat([directory, ...images]))
+await writeFile(new URL('favicon-48x48.png', publicDirectory), await sharp(source).resize(48, 48).png().toBuffer())
+await writeFile(new URL('favicon-192x192.png', publicDirectory), await sharp(source).resize(192, 192).png().toBuffer())
+await writeFile(new URL('apple-icon.png', publicDirectory), await sharp(source).resize(180, 180).png().toBuffer())
+console.log('Generated favicon.ico, favicon-48x48.png, favicon-192x192.png and apple-icon.png in public/.')
