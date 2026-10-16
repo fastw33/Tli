@@ -1,20 +1,10 @@
 'use client'
 
 import { useLocale } from '@/components/LocaleProvider'
-import AOS from 'aos'
-import 'aos/dist/aos.css'
-import React, { useEffect } from 'react'
+import React from 'react'
 
 export function LocationMap() {
   const { t } = useLocale()
-
-  useEffect(() => {
-    AOS.init({
-      duration: 900,
-      once: true,
-      easing: 'ease-out-cubic',
-    })
-  }, [])
 
   return (
     <section

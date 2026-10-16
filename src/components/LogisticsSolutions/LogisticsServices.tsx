@@ -78,8 +78,9 @@ export default function LogisticsServices() {
         {/* Services Grid */}
         <div className='grid gap-8 md:grid-cols-2 lg:grid-cols-3'>
           {services.map((service, idx) => (
-            <div
+            <article
               key={idx}
+              id={service.title === 'Project Cargo' ? 'project-cargo' : service.title === 'Warehouse & Distribution' ? 'warehouse-distribution' : undefined}
               data-aos='zoom-in'
               data-aos-delay={service.delay}
               className='group relative overflow-hidden rounded-xl bg-slate-50 p-8 shadow-sm transition duration-300 hover:shadow-sm'
@@ -107,7 +108,7 @@ export default function LogisticsServices() {
                   className={`mt-6 h-1 w-12 rounded-full bg-[#0a4eb6] opacity-0 transition duration-300 group-hover:opacity-100`}
                 />
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

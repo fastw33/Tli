@@ -6,7 +6,7 @@ export default function Page() {
   return (
     <>
       <PageLanguageLinks path='/' locale='es' />
-      <Content />
+      <Content locale='es' />
     </>
   )
 }

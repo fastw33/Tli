@@ -1,8 +1,6 @@
 'use client'
 
 import { useLocale } from '@/components/LocaleProvider'
-import AOS from 'aos'
-import 'aos/dist/aos.css'
 import { SiteLink as Link } from '@/components/SiteLink'
 import React, { useEffect, useState } from 'react'
 
@@ -79,14 +77,6 @@ function Counter({ end, suffix = '' }: { end: number; suffix?: string }) {
 
 export function StatsCards() {
   const { t, localizePath } = useLocale()
-
-  useEffect(() => {
-    AOS.init({
-      duration: 900,
-      once: true,
-      easing: 'ease-out-cubic',
-    })
-  }, [])
 
   return (
     <section aria-labelledby='stats-title' className='bg-[#042c51] px-6 py-14'>

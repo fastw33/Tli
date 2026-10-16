@@ -1,9 +1,11 @@
 import { Geist, Geist_Mono } from 'next/font/google'
+import 'aos/dist/aos.css'
 import '@/app/globals.css'
 import { SiteHeader } from './SiteHeader'
 import { ContactDirectory } from './ContactDirectory'
 import { LocaleProvider } from './LocaleProvider'
 import { NavigationProvider } from './NavigationProvider'
+import { ScrollAnimations } from './ScrollAnimations'
 import type { Locale } from '@/lib/locale'
 import { absoluteUrl, contentLanguage } from '@/lib/site'
 import { SiteStructuredData } from './StructuredData'
@@ -49,6 +51,7 @@ export function SiteLayout({
         </noscript>
         <LocaleProvider locale={locale}>
           <NavigationProvider>
+            <ScrollAnimations />
             <SiteHeader />
             {children}
             <ContactDirectory />

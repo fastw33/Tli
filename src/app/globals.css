@@ -11,9 +11,39 @@
   outline: none;
 }
 
+/* Progressive enhancement: content stays readable until AOS is ready, with
+   JavaScript disabled, or when the visitor prefers reduced motion. */
+html:not([data-scroll-animations='ready']) [data-aos],
+[data-aos]:not(.aos-init),
+[data-aos]:focus-within {
+  opacity: 1 !important;
+  transform: none !important;
+  pointer-events: auto !important;
+}
+
+/* Restrained vertical motion avoids horizontal overflow on narrow screens. */
+html[data-scroll-animations='ready'] [data-aos^='fade']:not(.aos-animate) {
+  transform: translate3d(0, 24px, 0);
+}
+html[data-scroll-animations='ready'] [data-aos^='zoom']:not(.aos-animate) {
+  transform: scale(.97);
+}
+html[data-scroll-animations='ready'] [data-aos][data-aos-exited]:not(:focus-within) {
+  opacity: 0;
+  transform: translate3d(0, -24px, 0);
+  transition-delay: 0ms;
+  pointer-events: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto !important;
+  }
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto !important;
+    transition: none !important;
   }
   *,
   *::before,
