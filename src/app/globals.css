@@ -1,5 +1,16 @@
 @import 'tailwindcss';
 
+/* Document/language arrival. Client navigation also adds a small upward motion
+   after scroll/focus settle; the fixed navigation remains stationary. */
+main:not(:has([data-site-navigation])),
+[data-page-motion] {
+  animation: page-arrive 480ms cubic-bezier(.22, 1, .36, 1);
+}
+@keyframes page-arrive {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 /* Keep anchored sections below the persistent navigation. */
 :where([id]) {
   scroll-margin-top: 7rem;

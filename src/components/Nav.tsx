@@ -63,6 +63,7 @@ export function Nav() {
   return (
     <nav
       ref={navRef}
+      data-site-navigation=''
       aria-label={t('Main navigation')}
       className={`z-50 w-full border-b border-[#042c51]/10 bg-white/90 backdrop-blur-md ${isHome ? 'fixed left-0 right-0 top-0' : 'sticky top-0'}`}
     >

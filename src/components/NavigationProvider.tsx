@@ -9,6 +9,7 @@ import {
   useMemo,
   useRef,
 } from 'react'
+import { usePageTransitions } from './usePageTransitions'
 
 type Navigation = {
   navigate: (href: string) => void
@@ -62,6 +63,7 @@ export function NavigationProvider({
 }: {
   children: React.ReactNode
 }) {
+  const { start: startTransition, finish: finishTransition, cancel: cancelTransition } = usePageTransitions()
   const pending = useRef<URL | null>(null)
   const initialPage = useRef(true)
   const renderedPath = useRef<string | null>(null)
@@ -84,30 +86,42 @@ export function NavigationProvider({
         // can therefore reset the viewport immediately without a route commit.
         positionPage(destination)
         pending.current = null
+        cancelTransition()
+      } else {
+        startTransition()
       }
     },
-    [cancelFrame],
+    [cancelFrame, startTransition, cancelTransition],
   )
 
   const ready = useCallback(
     (path: string) => {
+      const changed = renderedPath.current !== null && renderedPath.current !== path
       renderedPath.current = path
       if (restore.current?.path === path) {
         const position = restore.current
-        window.scrollTo({
-          left: position.x,
-          top: position.y,
-          behavior: 'instant',
+        cancelFrame()
+        frame.current = requestAnimationFrame(() => {
+          window.scrollTo({ left: position.x, top: position.y, behavior: 'instant' })
+          restore.current = null
+          frame.current = null
+          if (changed) finishTransition()
         })
-        restore.current = null
         initialPage.current = false
         return
       }
       const destination = pending.current
       if (destination?.pathname === path) {
         cancelFrame()
-        positionPage(destination)
-        pending.current = null
+        // Let Next finish its layout/scroll effects before animating arrival.
+        frame.current = requestAnimationFrame(() => {
+          positionPage(destination)
+          pending.current = null
+          frame.current = null
+          if (changed) finishTransition()
+        })
+        initialPage.current = false
+        return
       } else if (initialPage.current) {
         const entry = performance.getEntriesByType('navigation')[0] as
           PerformanceNavigationTiming | undefined
@@ -119,8 +133,9 @@ export function NavigationProvider({
           positionPage(new URL(window.location.href))
       }
       initialPage.current = false
+      if (changed) finishTransition()
     },
-    [cancelFrame],
+    [cancelFrame, finishTransition],
   )
 
   useEffect(() => {
@@ -144,6 +159,11 @@ export function NavigationProvider({
       cancelFrame()
       const saved = event.state?.tliScroll as SavedPosition | undefined
       restore.current = saved ?? { path: window.location.pathname, x: 0, y: 0 }
+      if (renderedPath.current !== window.location.pathname) {
+        startTransition()
+      } else {
+        cancelTransition()
+      }
       if (renderedPath.current === window.location.pathname) {
         frame.current = requestAnimationFrame(() => {
           if (restore.current) {
@@ -171,7 +191,7 @@ export function NavigationProvider({
       if (scrollTimer !== null) clearTimeout(scrollTimer)
       cancelFrame()
     }
-  }, [cancelFrame])
+  }, [cancelFrame, startTransition, cancelTransition])
 
   const value = useMemo(() => ({ navigate, ready }), [navigate, ready])
   return (
