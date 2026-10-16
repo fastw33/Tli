@@ -23,7 +23,8 @@
 .featuredCard .tags { margin-top: auto; padding-top: 1.15rem; }
 .artwork { position: relative; overflow: hidden; }
 .artwork svg { width: 100%; height: auto; display: block; }
-.artwork img { width: 100%; height: auto; aspect-ratio: 12 / 5; object-fit: cover; display: block; }
+.artwork img { width: 100%; height: auto; aspect-ratio: 12 / 5; object-fit: cover; display: block; transition: transform 1200ms cubic-bezier(.2, .65, .3, 1); }
+:global(html[data-scroll-animations='ready']) .featuredCard:not(:global(.aos-animate)) .artwork img { transform: scale(1.07); }
 .photoArt { color: #e3f3fb; background: #042c51; }
 .photoArt::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to bottom, #042c5166, transparent 45%); }
 .artIndex { position: absolute; z-index: 1; left: 1.5rem; top: 1.1rem; font-size: .63rem; font-weight: 750; text-transform: uppercase; letter-spacing: .13em; }

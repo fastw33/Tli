@@ -14,6 +14,7 @@ export function ScrollAnimations() {
     const root = document.documentElement
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
     let frame = 0
+    let entranceFrame = 0
     let disposed = false
     const observed = new WeakSet<Element>()
 
@@ -44,26 +45,56 @@ export function ScrollAnimations() {
         if (node.hasAttribute('data-aos') || node.parentElement?.closest('[data-aos]')) continue
         const position = getComputedStyle(node).position
         if (position === 'fixed' || position === 'sticky') continue
-        node.setAttribute('data-aos', 'fade-up')
+        node.setAttribute('data-aos', node.tagName === 'ARTICLE' ? 'zoom-in-up' : 'fade-up')
       }
+      const grids = new Map<HTMLElement, { nodes: Element[]; columns: number }>()
+      const newNodes: HTMLElement[] = []
       for (const node of document.querySelectorAll<HTMLElement>('[data-aos]')) {
-        // Short, bounded staggering avoids making a visible card wait to appear.
-        const delay = Number(node.getAttribute('data-aos-delay') ?? 0)
-        node.setAttribute('data-aos-delay', String(Math.min(150, Math.max(0, Math.round(delay / 50) * 50))))
+        const authoredDelay = node.getAttribute('data-aos-delay')
+        let delay = Number(authoredDelay ?? 0)
+        if (authoredDelay === null || node.dataset.aosStagger === 'auto') {
+          const parent = node.parentElement
+          if (parent && !grids.has(parent)) {
+            const layout = getComputedStyle(parent)
+            grids.set(parent, {
+              nodes: [...parent.children].filter((child) => child.hasAttribute('data-aos') && !child.hasAttribute('hidden')),
+              columns: layout.display === 'grid' ? layout.gridTemplateColumns.split(' ').length : 1,
+            })
+          }
+          const grid = parent ? grids.get(parent) : undefined
+          const index = grid ? Math.max(0, grid.nodes.indexOf(node)) : 0
+          // Cascade across each visible grid row; mobile rows start immediately.
+          delay = grid ? (index % grid.columns) * 150 : 0
+          node.dataset.aosStagger = 'auto'
+        }
+        node.setAttribute('data-aos-delay', String(Math.min(300, Math.max(0, Math.round(delay / 50) * 50))))
         node.setAttribute('data-aos-once', 'false')
         if (!observed.has(node)) {
           observed.add(node)
           exits.observe(node)
+          newNodes.push(node)
         }
       }
       if (!initialized) {
-        AOS.init({ duration: 600, easing: 'ease-out-cubic', once: false, offset: 24,
+        AOS.init({ duration: 950, easing: 'ease-out-cubic', once: false, offset: 80,
           delay: 0, disableMutationObserver: true, throttleDelay: 50, debounceDelay: 100 })
         initialized = true
       } else {
         AOS.refreshHard()
       }
       root.dataset.scrollAnimations = 'ready'
+      // AOS marks initially visible blocks as animated synchronously. Give new
+      // visible blocks a real starting style so route entry is visible as well.
+      const entering = newNodes.filter((node) => {
+        const bounds = node.getBoundingClientRect()
+        return !node.hidden && !node.matches(':focus-within') && bounds.bottom > 0 && bounds.top < innerHeight && node.classList.contains('aos-animate')
+      })
+      if (entering.length) {
+        entering.forEach((node) => node.classList.remove('aos-animate'))
+        void root.offsetHeight
+        cancelAnimationFrame(entranceFrame)
+        entranceFrame = requestAnimationFrame(() => { if (!disposed) AOS.refresh() })
+      }
     }
 
     function schedule() {
@@ -80,17 +111,20 @@ export function ScrollAnimations() {
     reducedMotion.addEventListener('change', schedule)
     document.addEventListener('load', schedule, true)
     document.addEventListener('toggle', schedule, true)
+    window.addEventListener('resize', schedule, { passive: true })
     document.fonts.ready.then(() => { if (!disposed) schedule() })
     schedule()
 
     return () => {
       disposed = true
       cancelAnimationFrame(frame)
+      cancelAnimationFrame(entranceFrame)
       changes.disconnect()
       exits.disconnect()
       reducedMotion.removeEventListener('change', schedule)
       document.removeEventListener('load', schedule, true)
       document.removeEventListener('toggle', schedule, true)
+      window.removeEventListener('resize', schedule)
     }
   }, [pathname])
 

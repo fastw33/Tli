@@ -21,18 +21,30 @@ html:not([data-scroll-animations='ready']) [data-aos],
   pointer-events: auto !important;
 }
 
-/* Restrained vertical motion avoids horizontal overflow on narrow screens. */
+/* Visible vertical reveals, with an additional zoom for cards. Keep horizontal
+   coordinates fixed so the entrance never widens the document on mobile. */
+html[data-scroll-animations='ready'] {
+  --scroll-reveal-distance: 72px;
+  --scroll-reveal-scale: .9;
+}
 html[data-scroll-animations='ready'] [data-aos^='fade']:not(.aos-animate) {
-  transform: translate3d(0, 24px, 0);
+  transform: translate3d(0, var(--scroll-reveal-distance), 0);
 }
 html[data-scroll-animations='ready'] [data-aos^='zoom']:not(.aos-animate) {
-  transform: scale(.97);
+  transform: translate3d(0, var(--scroll-reveal-distance), 0) scale(var(--scroll-reveal-scale));
 }
 html[data-scroll-animations='ready'] [data-aos][data-aos-exited]:not(:focus-within) {
   opacity: 0;
-  transform: translate3d(0, -24px, 0);
+  transform: translate3d(0, -48px, 0) scale(.96);
   transition-delay: 0ms;
   pointer-events: none;
+}
+
+@media (max-width: 760px) {
+  html[data-scroll-animations='ready'] {
+    --scroll-reveal-distance: 48px;
+    --scroll-reveal-scale: .94;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
