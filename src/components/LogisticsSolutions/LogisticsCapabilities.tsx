@@ -20,7 +20,7 @@ const capabilities = [
     items: [
       'DOT certified and licensed NVOCC',
       'FMCSA compliant fleet management',
-      'Hazmat and specialized handling certifications',
+      'Project cargo handling and safety planning',
       'Insurance coverage up to $2.5M',
     ],
     gradient: 'from-[#2cad3f]/10 to-[#0a8c2f]/10',

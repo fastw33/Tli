@@ -19,6 +19,7 @@ export function Footer() {
   ]
 
   const company = [
+    { label: 'Logistics Glossary', href: '/glossary' },
     { label: 'Regions', href: '/regions' },
     { label: 'Industries', href: '/regions#industries' },
     { label: 'Become a Customer Today', href: '/quote-now' },

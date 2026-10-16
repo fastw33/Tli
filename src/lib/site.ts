@@ -24,6 +24,7 @@ export const pagePaths = {
   'ftl-lcl': '/ftl-lcl',
   'quote-now': '/quote-now',
   contact: '/contact',
+  glossary: '/glossary',
   login: '/login',
 } as const
 

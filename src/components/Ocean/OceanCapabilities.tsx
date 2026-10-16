@@ -22,7 +22,7 @@ const capabilities = [
   {
     title: 'Project Cargo',
     description:
-      'Special handling for oversized, heavy, or complex shipments that need custom planning and execution.',
+      'Planning and coordination for oversized, heavy or complex project cargo, with transport and handling tailored to each shipment.',
   },
 ]
 

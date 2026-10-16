@@ -3,6 +3,7 @@
 import { SiteLink as Link } from '@/components/SiteLink'
 import { useLocale } from '../LocaleProvider'
 import styles from './Regions.module.css'
+import { RouteLinks } from '@/modules/freight-routes/RouteLinks'
 
 const regions = [
   {
@@ -202,6 +203,7 @@ export function RegionsLanding() {
         <RouteNetwork />
       </section>
 
+      <RouteLinks />
       <nav className={styles.regionNav} aria-label={t('Explore regions')}>
         {regions.map((region) => (
           <a key={region.id} href={`#${region.id}`}>

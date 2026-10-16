@@ -13,6 +13,7 @@ const pages = [
   '/ftl-lcl',
   '/quote-now',
   '/contact',
+  '/glossary',
 ]
 const localized = (route, locale) =>
   locale === 'es' ? `/es${route === '/' ? '' : route}` : route
@@ -22,6 +23,13 @@ const read = (route) =>
     path.join(root, route === '/' ? 'index.html' : `${route.slice(1)}.html`),
     'utf8',
   )
+// Term routes are discoverable from the actual exported directory.
+const termRoutes = [...new Set([...read('/glossary').matchAll(/href="(\/glossary\/[a-z0-9-]+)"/g)].map(([, route]) => route))]
+assert.ok(termRoutes.length >= 50, 'Missing glossary term pages')
+pages.push(...termRoutes)
+const freightRoutePages = [...new Set([...read('/regions').matchAll(/href="(\/routes\/[a-z0-9-]+)"/g)].map(([, route]) => route))]
+assert.equal(freightRoutePages.length, 2, 'Missing freight route pages')
+pages.push(...freightRoutePages)
 const attributes = (tag) =>
   Object.fromEntries(
     [...tag.matchAll(/([\w:-]+)="([^"]*)"/g)].map(([, key, value]) => [
@@ -54,7 +62,7 @@ const expected = pages.flatMap((route) =>
   ['en', 'es'].map((locale) => url(localized(route, locale))),
 )
 assert.deepEqual(entries.map((entry) => entry.url).sort(), expected.toSorted())
-assert.equal(new Set(entries.map((entry) => entry.url)).size, 16)
+assert.equal(new Set(entries.map((entry) => entry.url)).size, expected.length)
 const titles = new Set()
 const descriptions = new Set()
 let checked = 0
@@ -102,7 +110,7 @@ for (const route of pages) {
     assert.deepEqual(
       Object.fromEntries(
         links
-          .filter((link) => link.rel === 'alternate')
+          .filter((link) => link.rel === 'alternate' && link.hreflang)
           .map((link) => [link.hreflang, new URL(link.href).href]),
       ),
       alternates,
@@ -115,6 +123,16 @@ for (const route of pages) {
       alternates,
     )
     const title = head.match(/<title>(.*?)<\/title>/)?.[1]
+    if (route === '/glossary' || route.startsWith('/glossary/')) {
+      for (const [type, target] of [
+        ['text/plain', localized('/glossary-reference.txt', locale)],
+        ['application/json', '/glossary.json'],
+      ]) {
+        const resources = links.filter((link) => link.rel === 'alternate' && link.type === type)
+        assert.equal(resources.length, 1, `Missing glossary ${type}: ${pathname}`)
+        assert.equal(resources[0].href, url(target))
+      }
+    }
     const description = meta(head, 'description')
     assert.ok(
       title && !titles.has(title),

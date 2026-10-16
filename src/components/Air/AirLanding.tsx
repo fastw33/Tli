@@ -5,6 +5,7 @@ import { AirCTA } from './AirCTA'
 import { AirCapabilities } from './AirCapabilities'
 import { AirHero } from './AirHero'
 import { AirProcess } from './AirProcess'
+import { AviationInstitutions } from '../AviationInstitutions'
 
 export function AirLanding() {
   return (
@@ -12,6 +13,7 @@ export function AirLanding() {
       <AirHero />
       <AirCapabilities />
       <AirProcess />
+      <AviationInstitutions />
       <AirCTA />
     </main>
   )

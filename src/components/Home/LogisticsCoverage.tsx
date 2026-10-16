@@ -3,6 +3,7 @@
 import { useLocale } from '@/components/LocaleProvider'
 import React from 'react'
 import { SiteLink as Link } from '@/components/SiteLink'
+import { RouteLinks } from '@/modules/freight-routes/RouteLinks'
 
 export function LogisticsCoverage() {
   const { t, localizePath } = useLocale()
@@ -37,6 +38,7 @@ export function LogisticsCoverage() {
           {t('Explore our regions')} <span aria-hidden='true'>↗</span>
         </Link>
       </div>
+      <div className='mt-10'><RouteLinks /></div>
     </section>
   )
 }

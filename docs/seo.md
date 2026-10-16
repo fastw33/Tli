@@ -10,11 +10,11 @@
 
 ## Indexing and structured data
 
-- `/sitemap.xml` contains 16 canonical URLs: 8 pages in each language, with reciprocal language alternatives. No query parameters, redirects or login pages are included.
+- `/sitemap.xml` contains 136 canonical URLs: 9 main pages, 57 glossary term pages and 2 freight route pages in each language, with reciprocal language alternatives. No query parameters, redirects or login pages are included.
 - `/robots.txt` allows crawling and points to the sitemap. It does not block assets or prevent crawlers from reading `noindex`.
 - `/login` and `/es/login` are account assistance pages, marked `noindex,follow`. `/clients` and `/es/clients` are compatibility aliases with regional canonical URLs and `noindex`; permanent server redirects are preferred.
 - Canonical and language links are generated once through the Next.js Metadata API, in the exported HTML head. Contact inquiries and quote parameters use the clean page canonical.
-- JSON-LD includes `LocalBusiness`, `WebSite`, `WebPage`/`ContactPage`, `BreadcrumbList` and `Service`. The real address, US country and published telephone are used. No ratings, hours, prices, certifications or coordinates are fabricated.
+- JSON-LD includes `LocalBusiness`, `WebSite`, `WebPage`/`ContactPage`, `BreadcrumbList`, `Service` and the glossary's `DefinedTermSet`/`DefinedTerm`. The real address, US country and published telephone are used. No ratings, hours, prices, certifications or coordinates are fabricated.
 - Main titles, page content, actual counters and useful default contact information are available in static HTML. The noscript fallback makes animated sections visible without JavaScript.
 - Social cards are PNG, 1200×630, one per language. Run `npm run seo:images` after editing `scripts/generate-social-images.mjs`; it uses Sharp bundled with the installed Next.js runtime.
 - Sitemap `lastmod` is intentionally omitted: a rebuild is not proof that each page's content changed. Add dates only when the last significant content change can be tracked accurately.
@@ -25,7 +25,20 @@
 
 Every English and Spanish page includes a localized `rel="describedby"` link to its guide in the exported HTML head. React places this link in the head during server rendering; it requires no JavaScript to discover it. The prepared Coolify Nginx configuration serves the files as UTF-8 plain text with real 404s for missing files. Existing robots rules allow access.
 
-`npm run check:seo` validates the exported guides, their linked resources and discovery links across all 16 indexable pages. `npm run check:seo:live` also verifies the three production guide URLs return HTTP 200 with plain-text content instead of the homepage fallback.
+### Generated glossary references
+
+- `/glossary-reference.txt` and `/es/glossary-reference.txt` contain every localized definition, translation, example, canonical term URL and contextual quote link.
+- `/glossary.json` contains the complete bilingual catalog with stable IDs and official page URLs. This is reference data, not an agent endpoint or a booking API.
+- All three are generated at build time by static Route Handlers from `src/modules/glossary/data.ts` through `discovery.ts`. New terms therefore update the HTML, sitemap and reference data together.
+- The main `llms.txt` guides link to these resources. Every glossary index and term page also advertises text/JSON representations through `rel="alternate"` links in its HTML head; language alternates remain separate `hreflang` links. The `DefinedTermSet` schema identifies the downloadable encodings.
+- The sitemap contains canonical HTML pages only. Alternate text/JSON representations and quote query parameters do not create additional sitemap entries.
+- `robots.txt` already allows all crawlers at `/`, including search and retrieval crawlers; no separate bot exception or training permission was required or changed.
+
+These references are supplemental conveniences for readers and retrieval tools. [Google's AI feature guidance](https://developers.google.com/search/docs/appearance/ai-features) prioritizes crawlable, indexable, internally linked text and matching structured data; it does not require special AI files or guarantee inclusion. [OpenAI's crawler documentation](https://developers.openai.com/api/docs/bots) distinguishes search crawling from model-training crawling. An accessible reference file does not establish that a particular assistant will consume or cite it.
+
+Production check on 2026-10-16: `https://tlimiami.com/sitemap.xml` returned XML with 16 URLs and no glossary entries. With the two freight routes in both languages, the prepared local export contains 136 canonical pages. Deploy the complete export and apply the updated Coolify MIME locations before submitting the production sitemap again in Search Console. Local checks do not publish or submit URLs.
+
+`npm run check:seo` validates the exported guides, their linked resources and discovery links across all 136 indexable pages. `npm run check:glossary` checks all 114 term pages, their directory links, definitions, examples, schema and contextual quote forms. `npm run check:routes` checks the 4 localized freight route pages, their full static copy, service-specific quote parameters, required destination city and internal links from Home, Regions, Air and Ocean. `npm run check:seo:live` also verifies the three production guide URLs return HTTP 200 with plain-text content instead of the homepage fallback, and checks the canonical URLs of all 4 freight route pages.
 
 This follows the [llms.txt proposal](https://llmstxt.org/) and addresses the [Lighthouse llms.txt audit](https://developer.chrome.com/docs/lighthouse/agentic-browsing/llms-txt). Publishing these files does not establish a specific agentic browsing score or resolve a Search Console sitemap fetch error; inspect the remaining audit criteria separately.
 

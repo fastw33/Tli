@@ -19,12 +19,23 @@ import styles from './QuoteForm.module.css'
 export function QuoteNowForm({
   region = null,
   service = null,
+  origin = '',
+  destination = '',
+  referenceTerm = '',
 }: {
   region?: string | null
   service?: string | null
+  origin?: string
+  destination?: string
+  referenceTerm?: string
 }) {
   const { t, locale, localizePath } = useLocale()
-  const [data, setData] = useState(() => quoteDefaults(region, service))
+  const [data, setData] = useState(() => ({
+    ...quoteDefaults(region, service),
+    origin,
+    destination,
+    details: referenceTerm ? t('I would like a quote related to: {term}.', { term: referenceTerm }) : '',
+  }))
   const [step, setStep] = useState(1)
   const [errors, setErrors] = useState<
     Partial<Record<keyof QuoteData, string>>
@@ -41,7 +52,7 @@ export function QuoteNowForm({
     setData((previous) => ({
       ...previous,
       [field]: value,
-      ...(field === 'region' && previous.region !== value
+      ...(field === 'region' && previous.region !== '' && previous.region !== value
         ? { destination: '' }
         : {}),
     }))

@@ -10,10 +10,21 @@ Freight prices, schedules, route availability and cargo handling requirements mu
 
 - [Company overview](https://tlimiami.com/): Introduction to TLI and its Miami logistics hub.
 - [Regions and industries](https://tlimiami.com/regions): Dominican Republic, Caribbean, Central America, South America and global coverage; industries served.
-- [Logistics solutions](https://tlimiami.com/logistics-solutions): Ground transportation, import/export coordination, warehousing, distribution and consolidation.
+- [Logistics solutions](https://tlimiami.com/logistics-solutions): Ground transportation, import/export coordination, warehousing, distribution, consolidation and project cargo.
 - [Air freight](https://tlimiami.com/air): Priority and consolidated air freight, sensitive cargo and shipment coordination.
 - [Ocean freight](https://tlimiami.com/ocean): Full container load (FCL), less than container load (LCL), port coordination and project cargo.
 - [FTL / LCL](https://tlimiami.com/ftl-lcl): Full truckload transportation and less than container load shipping. FTL and LCL describe different transport modes.
+
+## Freight routes from Miami
+
+- [Miami to the Dominican Republic](https://tlimiami.com/routes/miami-dominican-republic): Commercial air and ocean freight planning, consolidation questions and route-specific quote requests.
+- [Miami to the Caribbean](https://tlimiami.com/routes/miami-caribbean): Island-specific commercial freight planning. Provide the island or territory and final city so TLI can evaluate service availability.
+
+## Shipping reference
+
+- [Logistics glossary](https://tlimiami.com/glossary): Original freight, warehouse, document and trade definitions with Spanish equivalents and practical examples.
+- [Complete glossary in plain text](https://tlimiami.com/glossary-reference.txt): Every English definition, Spanish equivalent, example, canonical term page and contextual quote link. Generated from the same content as the website.
+- [Bilingual glossary data](https://tlimiami.com/glossary.json): All terms with full English/Spanish definitions, examples and official page URLs in JSON.
 
 ## Contact and quote requests
 

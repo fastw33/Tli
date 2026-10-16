@@ -16,6 +16,23 @@ const checks = [
     type: /text\/plain/,
     content: /^# TLI Miami/,
   })),
+  ...['/glossary-reference.txt', '/es/glossary-reference.txt'].map((path) => ({
+    path,
+    status: 200,
+    type: /text\/plain/,
+    content: /^# TLI Miami/,
+  })),
+  {
+    path: '/glossary.json',
+    status: 200,
+    type: /application\/json/,
+    glossary: true,
+  },
+  ...['/glossary', '/es/glossary', '/glossary/fcl', '/es/glossary/fcl', '/routes/miami-dominican-republic', '/es/routes/miami-dominican-republic', '/routes/miami-caribbean', '/es/routes/miami-caribbean'].map((path) => ({
+    path,
+    status: 200,
+    canonical: `${origin}${path}`,
+  })),
   {
     path: '/sitemap.xml',
     status: 200,
@@ -65,6 +82,17 @@ for (const check of checks) {
       problems.push('Incorrect content type')
     if (check.content && !check.content.test(body))
       problems.push('Incorrect content')
+    if (check.canonical && !body.includes(`rel="canonical" href="${check.canonical}"`))
+      problems.push('Missing or incorrect canonical')
+    if (check.glossary) {
+      try {
+        const catalog = JSON.parse(body)
+        if (catalog.version !== 1 || catalog.termCount !== catalog.terms?.length || catalog.termCount < 50 || !catalog.terms.every((term) => term.translations?.en?.url && term.translations?.es?.url))
+          problems.push('Incomplete bilingual glossary catalog')
+      } catch {
+        problems.push('Glossary catalog is not JSON (possible homepage fallback)')
+      }
+    }
     if (check.json) {
       try {
         const catalog = JSON.parse(body)

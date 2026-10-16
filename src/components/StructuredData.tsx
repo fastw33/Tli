@@ -91,6 +91,7 @@ export function PageStructuredData({
         ? { breadcrumb: { '@id': `${url}#breadcrumb` } }
         : {}),
       ...(isService ? { mainEntity: { '@id': `${url}#service` } } : {}),
+      ...(page === 'glossary' ? { mainEntity: { '@id': `${url}#glossary` } } : {}),
     },
   ]
   if (page !== 'home')

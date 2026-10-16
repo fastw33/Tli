@@ -6,6 +6,7 @@ import {
   StatsCards,
   Footer,
 } from '@/components'
+import { AviationInstitutions } from '@/components/AviationInstitutions'
 
 export default function HomePage() {
   return (
@@ -13,6 +14,7 @@ export default function HomePage() {
       <Hero />
       <LogisticsCoverage />
       <StatsCards />
+      <AviationInstitutions compact />
       <QuoteBanner />
       <LocationMap />
       <Footer />

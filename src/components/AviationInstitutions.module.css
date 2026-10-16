@@ -1,0 +1,61 @@
+.section { color: #042c51; background: #f4f8fb; border-block: 1px solid #e0e8ef; padding: 3.5rem 1.5rem; }
+.inner { max-width: 1200px; margin-inline: auto; }
+.heading { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-bottom: 2rem; }
+.eyebrow { margin: 0 0 .65rem; color: #0a4eb6; font-size: .67rem; font-weight: 750; text-transform: uppercase; letter-spacing: .14em; }
+.heading h2 { font-size: clamp(1.6rem, 2.8vw, 2.4rem); font-weight: 750; letter-spacing: -.035em; line-height: 1.15; margin: 0; max-width: 720px; }
+.intro { margin: 1rem 0 0; max-width: 660px; font-size: .95rem; line-height: 1.8; color: #52687b; }
+.more { flex-shrink: 0; font-weight: 700; font-size: .8rem; color: #0a4eb6; }
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.institution { min-width: 0; padding: .5rem 2rem; border-right: 1px solid #d9e3ec; }
+.institution:first-child { padding-left: 0; }
+.institution:last-child { padding-right: 0; border-right: 0; }
+.logo { height: 112px; display: flex; align-items: center; justify-content: flex-start; margin-bottom: 1.6rem; }
+.logo img { width: auto; object-fit: contain; max-height: 100%; }
+.iata img { height: 90px; }
+.tsa img { width: min(100%, 275px); height: auto; max-height: 100%; }
+.dhs img { height: 102px; }
+.role { color: #52687b; font-size: .65rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 650; margin: 0 0 .4rem; }
+.copy h3 { color: #042c51; font-size: 1.15rem; font-weight: 750; margin: 0 0 .5rem; }
+.fullName { color: #354e65; font-size: .8rem; font-weight: 650; line-height: 1.5; margin: 0 0 .75rem; }
+.description { color: #52687b; font-size: .85rem; line-height: 1.8; margin: 0; }
+.action { display: flex; justify-content: flex-start; align-items: center; gap: 2rem; border-top: 1px solid #d9e3ec; padding-top: 1.5rem; margin-top: 2rem; }
+.action p { color: #52687b; font-size: .85rem; margin: 0; }
+.action a { flex-shrink: 0; background: #0a4eb6; color: white; padding: .85rem 1rem; border-radius: 5px; font-size: .8rem; font-weight: 700; }
+.action a:hover { background: #042c51; text-decoration: none; }
+.section a:focus-visible { outline: 3px solid #0a4eb6; outline-offset: 5px; }
+.compact { padding-block: 2.75rem; }
+.compact .heading { margin-bottom: 1.5rem; }
+.compact .heading h2 { font-size: clamp(1.4rem, 2vw, 1.9rem); }
+.compact .institution { display: flex; align-items: center; gap: 1.25rem; padding-inline: 1.5rem; }
+.compact .institution:first-child { padding-left: 0; }
+.compact .institution:last-child { padding-right: 0; }
+.compact .logo { flex: 0 0 100px; height: 76px; margin: 0; }
+.compact .iata img { height: 65px; }
+.compact .tsa { flex-basis: 180px; }
+.compact .tsa img { width: 180px; }
+.compact .dhs img { height: 70px; }
+.compact .copy h3 { margin: 0; font-size: 1rem; }
+.compact .role { font-size: .6rem; line-height: 1.6; }
+@media (max-width: 1050px) {
+  .compact .institution { flex-direction: column; align-items: flex-start; gap: .8rem; }
+  .compact .logo, .compact .tsa { flex-basis: auto; }
+}
+@media (max-width: 640px) {
+  .section { padding: 2.5rem 1.25rem; }
+  .heading { display: block; margin-bottom: 1.5rem; }
+  .heading h2 { font-size: 1.75rem; }
+  .more { display: inline-block; margin-top: 1rem; }
+  .grid { grid-template-columns: minmax(0, 1fr); }
+  .institution, .institution:first-child, .institution:last-child { padding: 1.5rem 0; border-right: 0; border-bottom: 1px solid #d9e3ec; }
+  .institution:last-child { border-bottom: 0; padding-bottom: 0; }
+  .logo { height: 96px; margin-bottom: 1.25rem; }
+  .iata img { height: 80px; }
+  .dhs img { height: 92px; }
+  .action { align-items: stretch; flex-direction: column; }
+  .action a { display: flex; justify-content: space-between; }
+  .compact .institution, .compact .institution:first-child, .compact .institution:last-child { flex-direction: row; align-items: center; padding: 1.25rem 0; gap: 1.25rem; }
+  .compact .logo, .compact .tsa { flex: 0 0 150px; justify-content: center; height: 70px; }
+  .compact .tsa img { width: 150px; }
+  .compact .dhs img { height: 70px; }
+  .compact .role { font-size: .65rem; }
+}

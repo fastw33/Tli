@@ -17,11 +17,25 @@ TLI Miami is Transport Logistic International, a freight and logistics company b
 - Air freight: priority and consolidated air shipments, shipment coordination and handling planning for sensitive cargo. Details: https://tlimiami.com/air
 - Ocean freight: full container load (FCL), less than container load (LCL), port coordination and project cargo. Details: https://tlimiami.com/ocean
 - FTL / LCL: full truckload road transportation (FTL) and less than container load ocean shipping (LCL). These abbreviations refer to different transport modes. Details: https://tlimiami.com/ftl-lcl
-- Logistics solutions: ground transportation, import/export coordination, warehousing, distribution, consolidation and specialized handling. Details: https://tlimiami.com/logistics-solutions
+- Logistics solutions: ground transportation, import/export coordination, warehousing, distribution, consolidation and project cargo. Details: https://tlimiami.com/logistics-solutions
 - Regional focus: Dominican Republic, Caribbean, Central America and South America, with global shipment options evaluated by the team. Details: https://tlimiami.com/regions
 - Industries: retail and e-commerce, manufacturing and industrial, healthcare and sensitive cargo, food and perishables, construction and projects, importers and exporters. Details: https://tlimiami.com/regions#industries
 
 The published office address is in the United States. A destination listed under coverage is not a claim that TLI has an office in that destination. Prices, transit times, schedules, handling requirements and route availability must be confirmed by the team for the specific shipment.
+
+## English: freight routes
+
+- [Miami to the Dominican Republic](https://tlimiami.com/routes/miami-dominican-republic): Air and ocean freight planning with supplier consolidation considerations and delivery-scope questions. Quote links prefill Miami as the origin and the Dominican Republic as the destination region.
+- [Miami to the Caribbean](https://tlimiami.com/routes/miami-caribbean): Planning depends on the island or territory and final city. The team evaluates service availability for the destination provided. The quote form asks the customer to specify the destination city.
+
+## English: logistics glossary
+
+Logistics glossary: https://tlimiami.com/glossary. Original definitions, Spanish equivalents and practical shipping examples, searchable by topic or term.
+
+- [Complete English glossary](https://tlimiami.com/glossary-reference.txt): All definitions and examples, with links to every term page and its contextual quote request.
+- [Bilingual glossary catalog](https://tlimiami.com/glossary.json): Full English/Spanish content and canonical URLs, generated from the website's editorial catalog.
+
+Each term has an English page under /glossary/{id} and a Spanish page under /es/glossary/{id}. Language alternatives preserve the same term. The XML sitemap lists all canonical term pages. For rates or availability, follow the quote links and confirm with TLI; glossary definitions are informational content, not live pricing or a booking service.
 
 ## English: request an estimate or contact the team
 
@@ -44,16 +58,30 @@ TLI Miami es Transport Logistic International, una empresa de transporte de carg
 - Correo general: info@tlimiami.com.
 - Idiomas: inglés como principal y español bajo el prefijo /es.
 
+## Español: rutas de carga
+
+- [Miami a República Dominicana](https://tlimiami.com/es/routes/miami-dominican-republic): Planificación de carga aérea y marítima, evaluación de consolidación de proveedores y consultas sobre el alcance de entrega. Los enlaces de cotización precargan Miami como origen y República Dominicana como región de destino.
+- [Miami al Caribe](https://tlimiami.com/es/routes/miami-caribbean): Planificación según la isla o el territorio y la ciudad final. El equipo evalúa la disponibilidad para el destino indicado. El formulario solicita al cliente la ciudad de destino.
+
 ## Español: servicios y cobertura
 
 - Carga aérea: envíos prioritarios y consolidados, coordinación y planificación del manejo de carga sensible. Detalles: https://tlimiami.com/es/air
-- Carga marítima: contenedor completo (FCL), carga consolidada (LCL), coordinación portuaria y carga de proyectos. Detalles: https://tlimiami.com/es/ocean
+- Carga marítima: contenedor completo (FCL), carga consolidada (LCL), coordinación portuaria y carga proyecto. Detalles: https://tlimiami.com/es/ocean
 - FTL / LCL: transporte terrestre de camión completo (FTL) y carga marítima consolidada (LCL). Son modalidades de transporte diferentes. Detalles: https://tlimiami.com/es/ftl-lcl
-- Soluciones logísticas: transporte terrestre, coordinación de importaciones y exportaciones, almacenamiento, distribución, consolidación y manejo especializado. Detalles: https://tlimiami.com/es/logistics-solutions
+- Soluciones logísticas: transporte terrestre, coordinación de importaciones y exportaciones, almacenamiento, distribución, consolidación y carga proyecto. Detalles: https://tlimiami.com/es/logistics-solutions
 - Enfoque regional: República Dominicana, el Caribe, Centroamérica y Sudamérica. El equipo evalúa opciones para envíos globales. Detalles: https://tlimiami.com/es/regions
 - Industrias: comercio y comercio electrónico, manufactura e industria, salud y carga sensible, alimentos y perecederos, construcción y proyectos, importadores y exportadores. Detalles: https://tlimiami.com/es/regions#industries
 
 La oficina publicada está en Estados Unidos. Mencionar un destino de cobertura no significa que TLI tenga una oficina allí. El equipo debe confirmar tarifas, tiempos de tránsito, horarios, requisitos de manejo y disponibilidad para cada envío.
+
+## Español: glosario de logística
+
+Glosario de logística: https://tlimiami.com/es/glossary. Definiciones originales, equivalencias en inglés y ejemplos prácticos de envíos, con búsqueda por tema o término.
+
+- [Glosario completo en español](https://tlimiami.com/es/glossary-reference.txt): Todas las definiciones y ejemplos, con enlaces a cada término y su solicitud de cotización.
+- [Catálogo bilingüe del glosario](https://tlimiami.com/glossary.json): Contenido completo en español e inglés y URL canónicas, generado desde el catálogo editorial del sitio.
+
+Cada término tiene página en inglés bajo /glossary/{id} y en español bajo /es/glossary/{id}. Las alternativas de idioma conservan el mismo término. El sitemap XML incluye todas las páginas canónicas. Para tarifas o disponibilidad, usa los enlaces de cotización y confirma con TLI; las definiciones son contenido informativo, no precios en tiempo real ni un servicio de reservas.
 
 ## Español: cotizaciones y contacto
 

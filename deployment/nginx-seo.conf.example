@@ -19,6 +19,18 @@ location = /robots.txt {
     try_files $uri =404;
 }
 
+location = /glossary.json {
+    types { }
+    default_type application/json;
+    try_files $uri =404;
+}
+
+location ~ ^/(?:es/)?glossary-reference\.txt$ {
+    types { }
+    default_type text/plain;
+    try_files $uri =404;
+}
+
 location = /404.html {
     internal;
 }

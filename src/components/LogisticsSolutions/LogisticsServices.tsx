@@ -45,10 +45,10 @@ const services = [
     delay: '400',
   },
   {
-    title: 'Specialized Handling',
+    title: 'Project Cargo',
     description:
-      'Experience with hazmat, temperature-controlled, and oversized cargo requiring specialized equipment and expertise.',
-    icon: '⚠️',
+      'Planning and coordination for oversized, heavy or complex project cargo, with transport and handling tailored to each shipment.',
+    icon: '🏗️',
     color: 'from-[#0a4eb6] to-[#2cad3f]',
     delay: '500',
   },

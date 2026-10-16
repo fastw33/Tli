@@ -12,7 +12,10 @@
     "seo:icons": "node scripts/generate-icons.mjs",
     "check:favicons": "node scripts/check-favicons.mjs",
     "seo:images": "node scripts/generate-social-images.mjs",
+    "images:aviation": "node scripts/optimize-aviation-emblems.mjs",
     "check:seo": "node scripts/check-seo.mjs",
+    "check:glossary": "node scripts/check-glossary.mjs",
+    "check:routes": "node scripts/check-routes.mjs",
     "check:seo:live": "node scripts/check-seo-live.mjs"
   },
   "engines": {

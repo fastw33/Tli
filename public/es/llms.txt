@@ -10,10 +10,21 @@ El equipo de TLI debe confirmar tarifas, horarios, disponibilidad de rutas y req
 
 - [Presentación de TLI](https://tlimiami.com/es): Empresa y centro de operaciones logísticas en Miami.
 - [Regiones e industrias](https://tlimiami.com/es/regions): República Dominicana, el Caribe, Centroamérica, Sudamérica, cobertura global e industrias atendidas.
-- [Soluciones logísticas](https://tlimiami.com/es/logistics-solutions): Transporte terrestre, coordinación de importaciones y exportaciones, almacenamiento, distribución y consolidación.
+- [Soluciones logísticas](https://tlimiami.com/es/logistics-solutions): Transporte terrestre, coordinación de importaciones y exportaciones, almacenamiento, distribución, consolidación y carga proyecto.
 - [Carga aérea](https://tlimiami.com/es/air): Envíos prioritarios y consolidados, carga sensible y coordinación de transporte aéreo.
-- [Carga marítima](https://tlimiami.com/es/ocean): Contenedor completo (FCL), carga consolidada (LCL), coordinación portuaria y carga de proyectos.
+- [Carga marítima](https://tlimiami.com/es/ocean): Contenedor completo (FCL), carga consolidada (LCL), coordinación portuaria y carga proyecto.
 - [FTL / LCL](https://tlimiami.com/es/ftl-lcl): Transporte de camión completo (FTL) y carga marítima consolidada (LCL). Son modalidades de transporte diferentes.
+
+## Rutas de carga desde Miami
+
+- [Miami a República Dominicana](https://tlimiami.com/es/routes/miami-dominican-republic): Planificación de carga comercial aérea y marítima, consultas sobre consolidación y cotización con la ruta precargada.
+- [Miami al Caribe](https://tlimiami.com/es/routes/miami-caribbean): Planificación de carga comercial según la isla o el territorio y la ciudad final. El equipo evalúa la disponibilidad para el destino indicado.
+
+## Recursos de consulta
+
+- [Glosario de logística](https://tlimiami.com/es/glossary): Definiciones originales de carga, almacenamiento, documentos y comercio, con equivalencias en inglés y ejemplos prácticos.
+- [Glosario completo en texto](https://tlimiami.com/es/glossary-reference.txt): Todas las definiciones en español, equivalencias en inglés, ejemplos, páginas oficiales y enlaces de cotización. Generado desde el mismo contenido del sitio.
+- [Datos del glosario bilingüe](https://tlimiami.com/glossary.json): Todos los términos con definiciones completas en español e inglés, ejemplos y URL oficiales en JSON.
 
 ## Contacto y cotizaciones
 

@@ -4,6 +4,16 @@ import { localePath } from './locale'
 import { absoluteUrl, languageAlternates, pagePaths, site } from './site'
 
 export const pageInfo = {
+  glossary: {
+    en: [
+      'Logistics Glossary | Freight & Shipping Terms',
+      'Understand logistics terms in English and Spanish: FCL, LCL, air freight, shipping documents, warehousing and Incoterms, with clear examples from TLI Miami.',
+    ],
+    es: [
+      'Glosario de Logística | Términos de Carga y Transporte',
+      'Consulta términos de logística en español e inglés: FCL, LCL, carga aérea, documentos, almacenamiento e Incoterms, con ejemplos claros de TLI Miami.',
+    ],
+  },
   contact: {
     en: [
       'Contact Our Miami Freight Team',
@@ -61,7 +71,7 @@ export const pageInfo = {
     ],
     es: [
       'Carga Marítima desde Miami | FCL y LCL',
-      'Carga marítima desde Miami: contenedores FCL, consolidación LCL y carga de proyectos a República Dominicana, el Caribe y Latinoamérica con TLI.',
+      'Carga marítima desde Miami: contenedores FCL, consolidación LCL y carga proyecto a República Dominicana, el Caribe y Latinoamérica con TLI.',
     ],
   },
   'ftl-lcl': {

@@ -5,6 +5,12 @@
   scroll-margin-top: 7rem;
 }
 
+/* Navigation focuses titles and anchored sections to announce the new content.
+   Keep that focus without drawing a control outline around static content. */
+:where(h1, h2, h3, h4, h5, h6, main, section, article, header, footer, nav, aside)[tabindex='-1']:focus {
+  outline: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto !important;

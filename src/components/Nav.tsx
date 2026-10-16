@@ -53,6 +53,7 @@ export function Nav() {
     { href: '/air', label: 'Air' },
     { href: '/ocean', label: 'Ocean' },
     { href: '/ftl-lcl', label: 'FTL / LCL' },
+    { href: '/glossary', label: 'Glossary' },
   ]
   function active(href: string) {
     return (
